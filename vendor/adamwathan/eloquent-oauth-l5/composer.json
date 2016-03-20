@@ -1,0 +1,21 @@
+{
+    "name": "adamwathan/eloquent-oauth-l5",
+    "description": "Stupid simple OAuth authentication with Laravel and Eloquent",
+    "authors": [
+    {
+        "name": "Adam Wathan",
+        "email": "adam.wathan@gmail.com"
+    }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "adamwathan/eloquent-oauth": "~7.0",
+        "guzzlehttp/guzzle": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AdamWathan\\EloquentOAuthL5\\": "src/"
+        }
+    }
+}
