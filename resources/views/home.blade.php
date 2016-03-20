@@ -80,7 +80,7 @@
 
         <!-- load page Javascript -->
         <script type="text/javascript" src="{{ asset('/js/front/theme-scripts.js')}}"></script>
-        
+
         <script type="text/javascript" src="{{ asset('/js/front/slider.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/js/front/modernizr.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/js/front/jquery.mixitup.min.js')}}"></script>
@@ -284,16 +284,12 @@
 
                 <!-------------- content ------------------------>
                 <section id="content">
-                    <div class="search-box-wrapper">
+                    <div class="search-box-wrapper" style="margin-top: 69px;">
                         <div class="search-box container">
-                            <ul class="search-tabs clearfix">
-                                <li class="active" style="width: 21%;"><a href="#hotels-tab" data-toggle="tab">SALE</a></li>
-                                <li  style="width: 21%;"><a href="" data-toggle="tab">RENT</a></li>
-                                <li style="width: 22%;"><a href="" data-toggle="tab">STORE</a></li>
-                                <li style="width: 36%;"><a href="#" class="post_ad_click" >POST AD</a></li>
+                            <ul class="search-tabs clearfix" style="margin-top: -39px;">
+                                <li class="active"><a href="#hotels-tab" data-toggle="tab">SEARCH</a></li>
+                                <li><a href="#" class="post_ad_click" >POST AD</a></li>
                             </ul>
-
-
                             <div class="search-tab-content">
                                 <div class="tab-pane fade active in" id="hotels-tab">
                                     <form action="hotel-list-view.html" method="post">
@@ -326,6 +322,8 @@
                                         <a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
                                     </li> 
                                     <li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
+                                    <li class="filter" data-filter=".SALE"><a href="#0" data-type="SALE">SALE</a></li>
+                                    <li class="filter" data-filter=".RENT"><a href="#0" data-type="RENT">RENT</a></li>
                                     <li class="filter" data-filter=".engineering"><a href="#0" data-type="engineering">Engineering</a></li>
                                     <li class="filter" data-filter=".medical"><a href="#0" data-type="medical">Medical</a></li>
                                     <li class="filter" data-filter=".pgrooms"><a href="#0" data-type="pgrooms">PG-Rooms</a></li>
@@ -336,10 +334,12 @@
                             <div class="items-container row image-box style8">
                                 <ul>
                                     @foreach($adLists as $key=>$adsList)
-                                    <li class="mix engineering check1 radio2 option3">
+                                    <li class="mix {{$adsList->ad_type}}  engineering check1">
                                         <article class="box animated" data-animation-type="fadeInUp">
                                             <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
+                                                <a class="media-box-thumb" title="" onclick="getgallery({{$adsList->id}});" href="javascript:;">
+                                                    <img src="{{asset('ads_picture/original/')}}/{{$adsList->cover_image}}" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/>
+                                                </a>
                                             </figure>
                                             <div class="details">
                                                 <div class="ribbon-wrapper-green">
@@ -349,8 +349,8 @@
                                                 </div>
                                                 <h2 class="box-title">{{$adsList->ad_title}}<small>{{$adsList->auther_name}}</small></h2>
                                                 <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;{{$adsList->price}} </strong>
+                                                    <span class="desc-heading"> Price:&nbsp;&nbsp; </span>
+                                                    <span style="float:left">Rs.</span><strong class="price" >{{$adsList->price}} </strong>
                                                 </div>
                                                 <div class="col-sm-12" style="float: left">
                                                     <span class="desc-heading"> Edition: </span>
@@ -364,9 +364,9 @@
                                                     <button class="button btn-small dark-blue1 col-sm-6"
                                                             type="button"
                                                             data-toggle="collapse" 
-                                                            data-target="#{{$adsList->ad_id}}" 
+                                                            data-target="#{{$adsList->id}}" 
                                                             aria-expanded="false" 
-                                                            aria-controls="{{$adsList->ad_id}}">
+                                                            aria-controls="{{$adsList->id}}">
                                                         View Details
                                                     </button>
                                                     <a href="view.html">
@@ -375,7 +375,7 @@
                                                 </div>
                                             </div>
                                         </article>
-                                        <div class="collapse" id="{{$adsList->ad_id}}" style="background: #fff;">
+                                        <div class="collapse" id="{{$adsList->id}}" style="background: #fff;">
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="col-sm-6"><span> Owner-name:</span><span>{{$adsList->owner_name}}</span></div>
@@ -395,461 +395,6 @@
                                         </div>
                                     </li>
                                     @endforeach
-                                    <li class="mix medical check2 radio2 option2">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button"
-                                                            data-toggle="collapse"
-                                                            data-target="#1" 
-                                                            aria-expanded="false" aria-controls="1">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html">
-                                                        <button class="button btn-small green col-sm-6">View more</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="1">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check3 radio3 option1">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#3" aria-expanded="false" aria-controls="3">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="3">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check3 radio2 option4">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6"
-                                                            type="button" data-toggle="collapse"
-                                                            data-target="#4" aria-expanded="false" aria-controls="4">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="4">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check1 radio3 option2">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#5" aria-expanded="false" aria-controls="5">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="5">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix medical check2 radio3 option3">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#6" aria-expanded="false" aria-controls="6">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="6">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix medical check2 radio2 option1">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#7" aria-expanded="false" aria-controls="7">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="7">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check1 radio3 option4">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#8" aria-expanded="false" aria-controls="8">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="8">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix medical check1 radio2 option3">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#9" aria-expanded="false" aria-controls="9">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="9">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check3 radio2 option4">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#10" aria-expanded="false" aria-controls="10">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="10">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix engineering check3 radio3 option2">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#11" aria-expanded="false" aria-controls="11">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="11">
-                                            <div class="">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mix medical check1 radio3 option1">
-                                        <article class="box animated" data-animation-type="fadeInUp">
-                                            <figure>
-                                                <a class="media-box-thumb" title="" onclick="getgallery(603);" href="javascript:;"><img src="images/front/909.png" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/></a>
-                                            </figure>
-                                            <div class="details">
-                                                <div class="ribbon-wrapper-green">
-                                                    <div class="ribbon-green">
-                                                        <span style="color: #fff;font-style: oblique;">SALE</span>
-                                                    </div>
-                                                </div>
-                                                <h2 class="box-title">DLD<small>Island, Beach</small></h2>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Price: </span>
-                                                    <strong class="price" >&nbsp;&nbsp; &#x20b9;10,369 </strong>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading"> Edition: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;2015-16</span>
-                                                </div>
-                                                <div class="col-sm-12" style="float: left">
-                                                    <span class="desc-heading">Publication: </span>
-                                                    <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;Techmax</span>
-                                                </div>
-                                                <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
-                                                    <button class="button btn-small dark-blue1 col-sm-6" type="button" data-toggle="collapse" data-target="#12" aria-expanded="false" aria-controls="12">
-                                                        View Details
-                                                    </button>
-                                                    <a href="view.html"><button class="button btn-small green col-sm-6">View more</button></a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <div class="collapse" id="12">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6">sdfdsf</div>
-                                                    <div class="col-sm-6">dsfdsf</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
                                     <li class="gap"></li>
                                     <li class="gap"></li>
                                     <li class="gap"></li>
@@ -862,7 +407,6 @@
                             <form>
                                 <div class="cd-filter-block">
                                     <h4>Search</h4>
-
                                     <div class="cd-filter-content">
                                         <input type="search" placeholder="Try engineering...">
                                     </div> <!-- cd-filter-content -->
@@ -870,21 +414,34 @@
 
                                 <div class="cd-filter-block">
                                     <h4>Categories</h4>
-
                                     <ul class="cd-filter-content cd-filters list">
                                         <li>
                                             <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                                            <label class="checkbox-label" for="checkbox1">Engineering</label>
+                                            <label class="checkbox-label" for="checkbox1">SALE</label>
                                         </li>
-
                                         <li>
                                             <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-                                            <label class="checkbox-label" for="checkbox2">Medical</label>
+                                            <label class="checkbox-label" for="checkbox2">RENT</label>
                                         </li>
-
                                         <li>
                                             <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-                                            <label class="checkbox-label" for="checkbox3">Commerce</label>
+                                            <label class="checkbox-label" for="checkbox3">Engineering</label>
+                                        </li>
+                                        <li>
+                                            <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
+                                            <label class="checkbox-label" for="checkbox4">Medical</label>
+                                        </li>
+                                        <li>
+                                            <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
+                                            <label class="checkbox-label" for="checkbox5">Commerce</label>
+                                        </li>
+                                        <li>
+                                            <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
+                                            <label class="checkbox-label" for="checkbox6">Others</label>
+                                        </li>
+                                        <li>
+                                            <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
+                                            <label class="checkbox-label" for="checkbox7">PG-Rooms</label>
                                         </li>
                                     </ul> <!-- cd-filter-content -->
                                 </div> <!-- cd-filter-block -->
@@ -1156,269 +713,268 @@
 
         <script src="js/front/slidebars.min.js"></script>
         <script>
-                        $(document).ready(function () {
-                            $.slidebars();
+                                $(document).ready(function () {
+                        $.slidebars();
                         });
-                        var options = {
-                            url: "search_json/colleges.json",
-                            categories: [{
-                                    maxNumberOfElements: 4,
-                                    header: "College - City"
-                                }],
-                            getValue: function (element) {
-                                return element.clg_name;
-                            },
-                            template: {
-                                type: "custom",
-                                method: function (value, item) {
-                                    return value + " <br>- " + item.city;
-                                }
-                            },
-                            list: {
-                                showAnimation: {
-                                    type: "fade", //normal|slide|fade
-                                    time: 400,
-                                    callback: function () {
-                                    }
-                                },
-                                hideAnimation: {
-                                    type: "slide", //normal|slide|fade
-                                    time: 400,
-                                    callback: function () {
-                                    }
-                                },
-                                maxNumberOfElements: 8,
-                                match: {
-                                    enabled: true
-                                },
-                                sort: {
-                                    enabled: true
-                                }
-                            },
-                            theme: "square"
+                                var options = {
+                                url: "search_json/colleges.json",
+                                        categories: [{
+                                        maxNumberOfElements: 4,
+                                                header: "College - City"
+                                        }],
+                                        getValue: function (element) {
+                                        return element.clg_name;
+                                        },
+                                        template: {
+                                        type: "custom",
+                                                method: function (value, item) {
+                                                return value + " <br>- " + item.city;
+                                                }
+                                        },
+                                        list: {
+                                        showAnimation: {
+                                        type: "fade", //normal|slide|fade
+                                                time: 400,
+                                                callback: function () {
+                                                }
+                                        },
+                                                hideAnimation: {
+                                                type: "slide", //normal|slide|fade
+                                                        time: 400,
+                                                        callback: function () {
+                                                        }
+                                                },
+                                                maxNumberOfElements: 8,
+                                                match: {
+                                                enabled: true
+                                                },
+                                                sort: {
+                                                enabled: true
+                                                }
+                                        },
+                                        theme: "square"
 
-                        };
-                        var branchOptions = {
-                            url: "search_json/branches.json",
-                            categories: [{
-                                    maxNumberOfElements: 4,
-                                    header: "Branch"
-                                }],
-                            getValue: function (element) {
-                                return element.branch_name;
-                            },
-                            list: {
-                                maxNumberOfElements: 4,
-                                match: {
-                                    enabled: true
-                                },
-                                sort: {
-                                    enabled: true
-                                }
-                            },
-                            theme: "square"
-                        };
-                        var bynameoptions = {
-                            url: "search_json/branches.json",
-                            categories: [{
-                                    maxNumberOfElements: 4,
-                                    header: "Branch"
-                                }],
-                            getValue: function (element) {
-                                return element.branch_name;
-                            },
-                            list: {
-                                maxNumberOfElements: 4,
-                                match: {
-                                    enabled: true
-                                },
-                                sort: {
-                                    enabled: true
-                                }
-                            },
-                            theme: "square"
-                        };
-                        $("#branch-search").easyAutocomplete(branchOptions);
-                        $("#college-search").easyAutocomplete(options);
-                        $("#byname-search").easyAutocomplete(bynameoptions);</script>
+                                };
+                                var branchOptions = {
+                                url: "search_json/branches.json",
+                                        categories: [{
+                                        maxNumberOfElements: 4,
+                                                header: "Branch"
+                                        }],
+                                        getValue: function (element) {
+                                        return element.branch_name;
+                                        },
+                                        list: {
+                                        maxNumberOfElements: 4,
+                                                match: {
+                                                enabled: true
+                                                },
+                                                sort: {
+                                                enabled: true
+                                                }
+                                        },
+                                        theme: "square"
+                                };
+                                var bynameoptions = {
+                                url: "search_json/branches.json",
+                                        categories: [{
+                                        maxNumberOfElements: 4,
+                                                header: "Branch"
+                                        }],
+                                        getValue: function (element) {
+                                        return element.branch_name;
+                                        },
+                                        list: {
+                                        maxNumberOfElements: 4,
+                                                match: {
+                                                enabled: true
+                                                },
+                                                sort: {
+                                                enabled: true
+                                                }
+                                        },
+                                        theme: "square"
+                                };
+                                $("#branch-search").easyAutocomplete(branchOptions);
+                                $("#college-search").easyAutocomplete(options);
+                                $("#byname-search").easyAutocomplete(bynameoptions);</script>
         <!---------------------- SIDE BAR ---------------------------------------->
         <!--use jssor.slider.debug.js instead for debug--> 
         <script>
-            jssor_1_slider_init = function () {
+                    jssor_1_slider_init = function () {
 
-                var jssor_1_SlideshowTransitions = [
+                    var jssor_1_SlideshowTransitions = [
                     {$Duration: 1000, $Delay: 80, $Cols: 8, $Rows: 4, $Clip: 15, $SlideOut: true, $Easing: $Jease$.$OutQuad},
                     {$Duration: 1200, y: 0.3, $Cols: 2, $During: {$Top: [0.3, 0.7]}, $ChessMode: {$Column: 12}, $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear}, $Opacity: 2},
-                    {$Duration: 1000, x: -1, y: 2, $Rows: 2, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: {$Row: 15}, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.85}},
+                    {$Duration: 1000, x: - 1, y: 2, $Rows: 2, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: {$Row: 15}, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.85}},
                     {$Duration: 1200, x: 4, $Cols: 2, $Zoom: 11, $SlideOut: true, $Assembly: 2049, $ChessMode: {$Column: 15}, $Easing: {$Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear}, $Opacity: 2},
-                    {$Duration: 1000, x: 4, y: -4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.8}},
-                    {$Duration: 1500, x: 0.3, y: -0.3, $Delay: 80, $Cols: 8, $Rows: 4, $Clip: 15, $During: {$Left: [0.3, 0.7], $Top: [0.3, 0.7]}, $Easing: {$Left: $Jease$.$InJump, $Top: $Jease$.$InJump, $Clip: $Jease$.$OutQuad}, $Round: {$Left: 0.8, $Top: 2.5}},
-                    {$Duration: 1000, x: -3, y: 1, $Rows: 2, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: {$Row: 28}, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.7}},
-                    {$Duration: 1200, y: -1, $Cols: 8, $Rows: 4, $Clip: 15, $During: {$Top: [0.5, 0.5], $Clip: [0, 0.5]}, $Formation: $JssorSlideshowFormations$.$FormationStraight, $ChessMode: {$Column: 12}, $ScaleClip: 0.5},
+                    {$Duration: 1000, x: 4, y: - 4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.8}},
+                    {$Duration: 1500, x: 0.3, y: - 0.3, $Delay: 80, $Cols: 8, $Rows: 4, $Clip: 15, $During: {$Left: [0.3, 0.7], $Top: [0.3, 0.7]}, $Easing: {$Left: $Jease$.$InJump, $Top: $Jease$.$InJump, $Clip: $Jease$.$OutQuad}, $Round: {$Left: 0.8, $Top: 2.5}},
+                    {$Duration: 1000, x: - 3, y: 1, $Rows: 2, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: {$Row: 28}, $Easing: {$Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo}, $Opacity: 2, $Round: {$Rotate: 0.7}},
+                    {$Duration: 1200, y: - 1, $Cols: 8, $Rows: 4, $Clip: 15, $During: {$Top: [0.5, 0.5], $Clip: [0, 0.5]}, $Formation: $JssorSlideshowFormations$.$FormationStraight, $ChessMode: {$Column: 12}, $ScaleClip: 0.5},
                     {$Duration: 1000, x: 0.5, y: 0.5, $Zoom: 1, $Rotate: 1, $SlideOut: true, $Easing: {$Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InCubic}, $Opacity: 2, $Round: {$Rotate: 0.5}},
-                    {$Duration: 1200, x: -0.6, y: -0.6, $Zoom: 1, $Rotate: 1, $During: {$Left: [0.2, 0.8], $Top: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8]}, $Easing: {$Zoom: $Jease$.$Swing, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$Swing}, $Opacity: 2, $Round: {$Rotate: 0.5}},
-                    {$Duration: 1500, y: -0.5, $Delay: 60, $Cols: 15, $SlideOut: true, $Formation: $JssorSlideshowFormations$.$FormationCircle, $Easing: $Jease$.$InWave, $Round: {$Top: 1.5}},
+                    {$Duration: 1200, x: - 0.6, y: - 0.6, $Zoom: 1, $Rotate: 1, $During: {$Left: [0.2, 0.8], $Top: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8]}, $Easing: {$Zoom: $Jease$.$Swing, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$Swing}, $Opacity: 2, $Round: {$Rotate: 0.5}},
+                    {$Duration: 1500, y: - 0.5, $Delay: 60, $Cols: 15, $SlideOut: true, $Formation: $JssorSlideshowFormations$.$FormationCircle, $Easing: $Jease$.$InWave, $Round: {$Top: 1.5}},
                     {$Duration: 1000, $Delay: 30, $Cols: 8, $Rows: 4, $Clip: 15, $Formation: $JssorSlideshowFormations$.$FormationStraightStairs, $Assembly: 2050, $Easing: $Jease$.$InQuad},
                     {$Duration: 1200, $Delay: 20, $Clip: 3, $SlideOut: true, $Assembly: 260, $Easing: {$Clip: $Jease$.$OutCubic, $Opacity: $Jease$.$Linear}, $Opacity: 2}
-                ];
-                var jssor_1_SlideoTransitions = [
-                    [{b: -1.0, d: 1.0, rY: 90.0}, {b: 8500.0, d: 1000.0, o: -1.0, rY: -90.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 0.0, d: 480.0, x: -300.0, o: 1.0}, {b: 1000.0, d: 500.0, x: -370.0}],
-                    [{b: 480.0, d: 520.0, x: 100.0, y: -320.0}],
-                    [{b: 1500.0, d: 500.0, y: 250.0}, {b: 8500.0, d: 1000.0, x: 600.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, sX: -0.6, sY: -0.6}, {b: 2000.0, d: 500.0, o: 1.0, r: 360.0, sX: 0.6, sY: 0.6}, {b: 8500.0, d: 1000.0, y: -150.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 2500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 3500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 3500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 4500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 4500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 5500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 5500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 6500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 6500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 7500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, tZ: -200.0}, {b: 7500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 8500.0, d: 1000.0, o: -1.0, tZ: 200.0}],
-                    [{b: -1.0, d: 1.0, c: {x: 250.0, t: -250.0}}, {b: 0.0, d: 1000.0, c: {x: -250.0, t: 250.0}}, {b: 5000.0, d: 1000.0, y: 100.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 1000.0, d: 1000.0, o: 1.0}, {b: 5000.0, d: 1000.0, y: 280.0}],
-                    [{b: 2000.0, d: 1000.0, y: 190.0, e: {y: 28.0}}, {b: 5000.0, d: 1000.0, x: 280.0}],
-                    [{b: 3000.0, d: 520.0, y: 50.0}, {b: 5000.0, d: 1000.0, y: -50.0}],
-                    [{b: 3520.0, d: 480.0, x: -400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
-                    [{b: 4000.0, d: 500.0, x: -400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
-                    [{b: 4500.0, d: 500.0, x: -400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
-                    [{b: -1.0, d: 1.0, o: -0.4}, {b: 0.0, d: 1000.0, y: 140.0, o: 0.4}, {b: 23000.0, d: 1000.0, y: -140.0}],
-                    [{b: -1.0, d: 1.0, c: {x: 275.0, t: -275.0}}, {b: 1000.0, d: 1000.0, c: {x: -275.0, t: 275.0}}, {b: 23000.0, d: 1000.0, y: 100.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2000.0, d: 1000.0, o: 1.0}, {b: 23000.0, d: 1000.0, o: -1.0}],
-                    [{b: -1.0, d: 1.0, sX: -0.7, sY: -0.7}, {b: 5000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}, {b: 9000.0, d: 1000.0, sX: -0.2, sY: -0.2, e: {sX: 16.0, sY: 16.0}}, {b: 13000.0, d: 1000.0, sX: -0.3, sY: -0.3, e: {sX: 16.0, sY: 16.0}}, {b: 17000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}, {b: 21000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}],
-                    [{b: 4000.0, d: 1500.0, x: 195.0, y: 450.0, r: -90.0}, {b: 8000.0, d: 1500.0, x: -225.0, y: -240.0, r: -90.0}, {b: 12000.0, d: 1500.0, x: -220.0, y: -1140.0, r: 120.0}, {b: 16000.0, d: 1500.0, x: 400.0, y: 580.0, r: 100.0}, {b: 20000.0, d: 1500.0, x: 350.0, y: 350.0, r: 90.0}],
-                    [{b: 4000.0, d: 1500.0, o: -0.6}],
-                    [{b: -1.0, d: 1.0, o: -0.6, r: 90.0}, {b: 4000.0, d: 1500.0, o: 0.6}, {b: 8000.0, d: 1500.0, o: -0.6}],
-                    [{b: -1.0, d: 1.0, o: -0.6, r: 180.0}, {b: 8000.0, d: 1500.0, o: 0.6}, {b: 12000.0, d: 1500.0, o: -0.6}],
-                    [{b: -1.0, d: 1.0, o: -0.6, r: 60.0}, {b: 12000.0, d: 1500.0, o: 0.6}, {b: 16000.0, d: 1000.0, o: -0.6}],
-                    [{b: -1.0, d: 1.0, o: -0.6, r: -40.0}, {b: 16000.0, d: 1000.0, o: 0.6}, {b: 20000.0, d: 1500.0, o: -0.6}],
-                    [{b: -1.0, d: 1.0, o: -0.6, r: -130.0}, {b: 20000.0, d: 1500.0, o: 0.6}],
-                    [{b: -1.0, d: 1.0, c: {x: 250.0, t: -250.0}}, {b: 0.0, d: 1000.0, c: {x: -250.0, t: 250.0}}, {b: 10000.0, d: 500.0, y: 90.0}],
-                    [{b: -1.0, d: 1.0, c: {x: 150.0, t: -150.0}}, {b: 1000.0, d: 1000.0, c: {x: -150.0, t: 150.0}}, {b: 10000.0, d: 500.0, c: {y: 150.0, m: -150.0}}],
-                    [{b: 2000.0, d: 500.0, x: 220.0}],
-                    [{b: 3500.0, d: 500.0, rX: -20.0}, {b: 4000.0, d: 1000.0, rX: 40.0}, {b: 5000.0, d: 500.0, rX: -10.0}, {b: 9500.0, d: 500.0, o: -1.0}],
-                    [{b: 3500.0, d: 2000.0, r: 360.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2500.0, d: 500.0, x: 76.0, y: -25.0, o: 1.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2500.0, d: 500.0, x: 47.0, y: 65.0, o: 1.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2500.0, d: 500.0, x: -47.0, y: 65.0, o: 1.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2500.0, d: 500.0, x: -76.0, y: -25.0, o: 1.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0}, {b: 2500.0, d: 500.0, y: -80.0, o: 1.0}],
-                    [{b: -1.0, d: 1.0, c: {x: 120.0, t: -120.0}}, {b: 6100.0, d: 400.0, c: {x: -120.0, t: 120.0}}, {b: 10000.0, d: 500.0, y: -120.0}],
-                    [{b: 6500.0, d: 500.0, x: 220.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, r: 180.0, sX: -0.5, sY: -0.5}, {b: 7000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 8000.0, d: 500.0, o: -1.0, r: 180.0, sX: 9.0, sY: 9.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, r: 180.0, sX: -0.5, sY: -0.5}, {b: 8000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 9000.0, d: 500.0, o: -1.0, r: 180.0, sX: 9.0, sY: 9.0}],
-                    [{b: -1.0, d: 1.0, o: -1.0, r: 180.0, sX: -0.5, sY: -0.5}, {b: 9000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 9500.0, d: 500.0, o: -1.0, r: 180.0, sX: 9.0, sY: 9.0}]
-                ];
-                var jssor_1_options = {
-                    $AutoPlay: true,
-                    $SlideDuration: 800,
-                    $SlideEasing: $Jease$.$OutQuint,
-                    $SlideshowOptions: {
-                        $Class: $JssorSlideshowRunner$,
-                        $Transitions: jssor_1_SlideshowTransitions,
-                        $TransitionsOrder: 1
-                    },
-                    $CaptionSliderOptions: {
-                        $Class: $JssorCaptionSlideo$,
-                        $Transitions: jssor_1_SlideoTransitions,
-                        $Breaks: [
-                            [{d: 3000, b: 8500, t: 2}],
-                            [{d: 2000, b: 5000}],
-                            [{d: 3000, b: 23000}],
-                            [{d: 3000, b: 9500, t: 2}]
-                        ]
-                    },
-                    $ArrowNavigatorOptions: {
-                        $Class: $JssorArrowNavigator$
-                    },
-                    $BulletNavigatorOptions: {
-                        $Class: $JssorBulletNavigator$
-                    }
-                };
-                var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-                //responsive code begin
-                //you can remove responsive code if you don't want the slider scales while window resizing
-                function ScaleSlider() {
-                    var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                    if (refSize) {
-                        refSize = Math.min(refSize, 1423);
-                        jssor_1_slider.$ScaleWidth(refSize);
-                    }
-                    else {
-                        window.setTimeout(ScaleSlider, 30);
-                    }
-                }
-                ScaleSlider();
-                $Jssor$.$AddEvent(window, "load", ScaleSlider);
-                $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-                $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-                //responsive code end
-            };</script>
+                    ];
+                            var jssor_1_SlideoTransitions = [
+                                    [{b: - 1.0, d: 1.0, rY: 90.0}, {b: 8500.0, d: 1000.0, o: - 1.0, rY: - 90.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 0.0, d: 480.0, x: - 300.0, o: 1.0}, {b: 1000.0, d: 500.0, x: - 370.0}],
+                                    [{b: 480.0, d: 520.0, x: 100.0, y: - 320.0}],
+                                    [{b: 1500.0, d: 500.0, y: 250.0}, {b: 8500.0, d: 1000.0, x: 600.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, sX: - 0.6, sY: - 0.6}, {b: 2000.0, d: 500.0, o: 1.0, r: 360.0, sX: 0.6, sY: 0.6}, {b: 8500.0, d: 1000.0, y: - 150.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 2500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 3500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 3500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 4500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 4500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 5500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 5500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 6500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 6500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 7500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, tZ: - 200.0}, {b: 7500.0, d: 1000.0, o: 1.0, tZ: 200.0}, {b: 8500.0, d: 1000.0, o: - 1.0, tZ: 200.0}],
+                                    [{b: - 1.0, d: 1.0, c: {x: 250.0, t: - 250.0}}, {b: 0.0, d: 1000.0, c: {x: - 250.0, t: 250.0}}, {b: 5000.0, d: 1000.0, y: 100.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 1000.0, d: 1000.0, o: 1.0}, {b: 5000.0, d: 1000.0, y: 280.0}],
+                                    [{b: 2000.0, d: 1000.0, y: 190.0, e: {y: 28.0}}, {b: 5000.0, d: 1000.0, x: 280.0}],
+                                    [{b: 3000.0, d: 520.0, y: 50.0}, {b: 5000.0, d: 1000.0, y: - 50.0}],
+                                    [{b: 3520.0, d: 480.0, x: - 400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
+                                    [{b: 4000.0, d: 500.0, x: - 400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
+                                    [{b: 4500.0, d: 500.0, x: - 400.0}, {b: 5000.0, d: 800.0, x: 400.0, e: {x: 7.0}}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.4}, {b: 0.0, d: 1000.0, y: 140.0, o: 0.4}, {b: 23000.0, d: 1000.0, y: - 140.0}],
+                                    [{b: - 1.0, d: 1.0, c: {x: 275.0, t: - 275.0}}, {b: 1000.0, d: 1000.0, c: {x: - 275.0, t: 275.0}}, {b: 23000.0, d: 1000.0, y: 100.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2000.0, d: 1000.0, o: 1.0}, {b: 23000.0, d: 1000.0, o: - 1.0}],
+                                    [{b: - 1.0, d: 1.0, sX: - 0.7, sY: - 0.7}, {b: 5000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}, {b: 9000.0, d: 1000.0, sX: - 0.2, sY: - 0.2, e: {sX: 16.0, sY: 16.0}}, {b: 13000.0, d: 1000.0, sX: - 0.3, sY: - 0.3, e: {sX: 16.0, sY: 16.0}}, {b: 17000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}, {b: 21000.0, d: 1000.0, sX: 0.4, sY: 0.4, e: {sX: 16.0, sY: 16.0}}],
+                                    [{b: 4000.0, d: 1500.0, x: 195.0, y: 450.0, r: - 90.0}, {b: 8000.0, d: 1500.0, x: - 225.0, y: - 240.0, r: - 90.0}, {b: 12000.0, d: 1500.0, x: - 220.0, y: - 1140.0, r: 120.0}, {b: 16000.0, d: 1500.0, x: 400.0, y: 580.0, r: 100.0}, {b: 20000.0, d: 1500.0, x: 350.0, y: 350.0, r: 90.0}],
+                                    [{b: 4000.0, d: 1500.0, o: - 0.6}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.6, r: 90.0}, {b: 4000.0, d: 1500.0, o: 0.6}, {b: 8000.0, d: 1500.0, o: - 0.6}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.6, r: 180.0}, {b: 8000.0, d: 1500.0, o: 0.6}, {b: 12000.0, d: 1500.0, o: - 0.6}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.6, r: 60.0}, {b: 12000.0, d: 1500.0, o: 0.6}, {b: 16000.0, d: 1000.0, o: - 0.6}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.6, r: - 40.0}, {b: 16000.0, d: 1000.0, o: 0.6}, {b: 20000.0, d: 1500.0, o: - 0.6}],
+                                    [{b: - 1.0, d: 1.0, o: - 0.6, r: - 130.0}, {b: 20000.0, d: 1500.0, o: 0.6}],
+                                    [{b: - 1.0, d: 1.0, c: {x: 250.0, t: - 250.0}}, {b: 0.0, d: 1000.0, c: {x: - 250.0, t: 250.0}}, {b: 10000.0, d: 500.0, y: 90.0}],
+                                    [{b: - 1.0, d: 1.0, c: {x: 150.0, t: - 150.0}}, {b: 1000.0, d: 1000.0, c: {x: - 150.0, t: 150.0}}, {b: 10000.0, d: 500.0, c: {y: 150.0, m: - 150.0}}],
+                                    [{b: 2000.0, d: 500.0, x: 220.0}],
+                                    [{b: 3500.0, d: 500.0, rX: - 20.0}, {b: 4000.0, d: 1000.0, rX: 40.0}, {b: 5000.0, d: 500.0, rX: - 10.0}, {b: 9500.0, d: 500.0, o: - 1.0}],
+                                    [{b: 3500.0, d: 2000.0, r: 360.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2500.0, d: 500.0, x: 76.0, y: - 25.0, o: 1.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2500.0, d: 500.0, x: 47.0, y: 65.0, o: 1.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2500.0, d: 500.0, x: - 47.0, y: 65.0, o: 1.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2500.0, d: 500.0, x: - 76.0, y: - 25.0, o: 1.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0}, {b: 2500.0, d: 500.0, y: - 80.0, o: 1.0}],
+                                    [{b: - 1.0, d: 1.0, c: {x: 120.0, t: - 120.0}}, {b: 6100.0, d: 400.0, c: {x: - 120.0, t: 120.0}}, {b: 10000.0, d: 500.0, y: - 120.0}],
+                                    [{b: 6500.0, d: 500.0, x: 220.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, r: 180.0, sX: - 0.5, sY: - 0.5}, {b: 7000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 8000.0, d: 500.0, o: - 1.0, r: 180.0, sX: 9.0, sY: 9.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, r: 180.0, sX: - 0.5, sY: - 0.5}, {b: 8000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 9000.0, d: 500.0, o: - 1.0, r: 180.0, sX: 9.0, sY: 9.0}],
+                                    [{b: - 1.0, d: 1.0, o: - 1.0, r: 180.0, sX: - 0.5, sY: - 0.5}, {b: 9000.0, d: 500.0, o: 1.0, r: 180.0, sX: 0.5, sY: 0.5}, {b: 9500.0, d: 500.0, o: - 1.0, r: 180.0, sX: 9.0, sY: 9.0}]
+                            ];
+                            var jssor_1_options = {
+                            $AutoPlay: true,
+                                    $SlideDuration: 800,
+                                    $SlideEasing: $Jease$.$OutQuint,
+                                    $SlideshowOptions: {
+                                    $Class: $JssorSlideshowRunner$,
+                                            $Transitions: jssor_1_SlideshowTransitions,
+                                            $TransitionsOrder: 1
+                                    },
+                                    $CaptionSliderOptions: {
+                                    $Class: $JssorCaptionSlideo$,
+                                            $Transitions: jssor_1_SlideoTransitions,
+                                            $Breaks: [
+                                                    [{d: 3000, b: 8500, t: 2}],
+                                                    [{d: 2000, b: 5000}],
+                                                    [{d: 3000, b: 23000}],
+                                                    [{d: 3000, b: 9500, t: 2}]
+                                            ]
+                                    },
+                                    $ArrowNavigatorOptions: {
+                                    $Class: $JssorArrowNavigator$
+                                    },
+                                    $BulletNavigatorOptions: {
+                                    $Class: $JssorBulletNavigator$
+                                    }
+                            };
+                            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+                            //responsive code begin
+                                    //you can remove responsive code if you don't want the slider scales while window resizing
+                                            function ScaleSlider() {
+                                            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                                                    if (refSize) {
+                                            refSize = Math.min(refSize, 1423);
+                                                    jssor_1_slider.$ScaleWidth(refSize);
+                                            }
+                                            else {
+                                            window.setTimeout(ScaleSlider, 30);
+                                            }
+                                            }
+                                    ScaleSlider();
+                                            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+                                            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+                                            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+                                            //responsive code end
+                                    };</script>
 
         <script>
-            jssor_1_slider_init();</script>
+                                    jssor_1_slider_init();</script>
         <script>
-            function loadmore() {
-                $(".waiting").show()
-            }
-            function getgallery(workshopid, orderid)
-            {
-                $(".waiting").show()
-                $.ajax({
-                    type: "POST",
-                    url: '{{ url("/gallery")}}',
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    data: {mode: "getgallery", workshopid: workshopid, orderid: orderid},
-                    success: function (response)
-
-                    {
-                        $(".waiting").hide();
-                        $("#galleria").html(response);
-                        $("#photo_viewer").modal();
+                                    function loadmore() {
+                                    $(".waiting").show()
+                                    }
+                            function getgallery(id)
+                            {
+                            $(".waiting").show()
+                                    $.ajax({
+                                    type: "POST",
+                                            url: '{{ url("/gallery")}}',
+                                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                            data: {mode: "getgallery", id: id},
+                                            success: function (response)
+                                            {
+                                            $(".waiting").hide();
+                                                    $("#galleria").html(response);
+                                                    $("#photo_viewer").modal();
 //                        Galleria.loadTheme('js/front/galleria.classic.min.js');
-                        Galleria.run('#galleria', {
-                            extend: function () {
-                                var gallery = this;
-                                $('#switch_gallery').click(function () {
-                                    gallery.destroy();
-                                });
-                                $('#photo_viewer').on('hidden.bs.modal', function () {
-                                    gallery.destroy();
-                                })
+                                                    Galleria.run('#galleria', {
+                                                    extend: function () {
+                                                    var gallery = this;
+                                                            $('#switch_gallery').click(function () {
+                                                    gallery.destroy();
+                                                    });
+                                                            $('#photo_viewer').on('hidden.bs.modal', function () {
+                                                    gallery.destroy();
+                                                    })
+                                                    }
+                                                    });
+                                                    Galleria.ready(function () {
+                                                    this.attachKeyboard({
+                                                    right: this.next,
+                                                            left: this.prev
+                                                    });
+                                                    });
+                                            }
+                                    });
                             }
-                        });
-                        Galleria.ready(function () {
-                            this.attachKeyboard({
-                                right: this.next,
-                                left: this.prev
+                            jQuery(document).ready(function ($) {
+                            $('.close-carbon-adv').on('click', function (event) {
+                            event.preventDefault();
+                                    $('#carbonads-container').hide();
                             });
-                        });
-                    }
-                });
-            }
-            jQuery(document).ready(function ($) {
-                $('.close-carbon-adv').on('click', function (event) {
-                    event.preventDefault();
-                    $('#carbonads-container').hide();
-                });
-            });
-            $('.post_ad_click').on('click', function () {
-                $(".waiting").show()
-                // Simple Ajax code to submit a form
-                $.ajax({
-                    type: "POST",
-                    url: '{{ url("/post_ad")}}',
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    success: function (result) {
-                        $(".waiting").hide();
-                        $("#modal-body").html(result);
-                        // Simply give your modal an id something like "thankyouModal"
-                        $("#myModal").modal();
-                    }
-                });
-            });
-            $(window).load(function () {
-                // Animate loader off screen
-                $(".se-pre-con").fadeOut("slow");
-            });
+                            });
+                                    $('.post_ad_click').on('click', function () {
+                            $(".waiting").show()
+                                    // Simple Ajax code to submit a form
+                                    $.ajax({
+                                    type: "POST",
+                                            url: '{{ url("/post_ad")}}',
+                                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                            success: function (result) {
+                                            $(".waiting").hide();
+                                                    $("#modal-body").html(result);
+                                                    // Simply give your modal an id something like "thankyouModal"
+                                                    $("#myModal").modal();
+                                            }
+                                    });
+                            });
+                                    $(window).load(function () {
+                            // Animate loader off screen
+                            $(".se-pre-con").fadeOut("slow");
+                            });
         </script>
     </body>
 </html>

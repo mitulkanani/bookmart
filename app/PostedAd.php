@@ -13,7 +13,7 @@ class PostedAd extends Model implements AuthenticatableContract, CanResetPasswor
     use Authenticatable,
         CanResetPassword;
 
-    protected $fillable = ['ad_id', 'ad_type', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college', 'type', 'mobile', 'images', 'owner_name'];
+    protected $fillable = ['ad_id', 'cover_image','category','ad_type', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college', 'type', 'mobile', 'images', 'owner_name'];
 
     //
 
@@ -25,14 +25,13 @@ class PostedAd extends Model implements AuthenticatableContract, CanResetPasswor
         return $bookDetails;
     }
 
-    public function getuserDetail($username) {
-        $userDetails = User::Select('users.*', 'user_types.type')
-                ->leftjoin('user_types', 'user_types.id', '=', 'users.user_type')
-                ->where("users.username", $username)
+    public function getimageList($id) {
+        $imageDetails = PostedAd::Select('posted_ads.cover_image','posted_ads.images')
+                ->where("posted_ads.id", $id)
                 ->get()
                 ->first();
-
-        return $userDetails;
+       
+        return $imageDetails;
     }
 
     public function getUserList() {

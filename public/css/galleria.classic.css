@@ -143,7 +143,7 @@
 
     display: none;
 
-    background: url(../images/classic-loader.gif) no-repeat 2px 2px;
+    background: url(../images/front/classic-loader.gif) no-repeat 2px 2px;
 
 }
 
@@ -449,7 +449,7 @@
 
 .galleria-theme-classic .galleria-image-nav-right {
 
-    background-image: url(../images/classic-map.png);
+    background-image: url(../images/front/classic-map.png);
 
     background-repeat: no-repeat;
 

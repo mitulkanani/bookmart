@@ -21,6 +21,7 @@ use Image;
 use File;
 use App\UploadImage;
 use Response;
+
 class HomeController extends Controller {
 
     public function __construct() {
@@ -39,7 +40,12 @@ class HomeController extends Controller {
     }
 
     public function gallery() {
-        return view('front.gallery');
+        $id = Input::get('id');
+        $galleryLists = $this->PostedAdOBJ->getimageList($id);
+        $cover_image=e($galleryLists->cover_image);
+        $otherImages= explode(',', $galleryLists->images);
+        $images= array_push($otherImages,$cover_image);
+        return view('front.gallery', compact('otherImages'));
     }
 
     public function post_ad() {
@@ -122,7 +128,7 @@ class HomeController extends Controller {
         } else {
             //$destinationPath = 'uploads'; // upload path
             $extension = Input::file('cover_image')->getClientOriginalExtension(); // getting image extension
-            $fileName = time() . $adId . '.' . $extension; // renameing image
+            $fileName = time() .'.' . $extension; // renameing image
             //chmod($pathoriginal,0777);	
             //chmod($path110,0777);	
             //chmod($path50,0777);	
