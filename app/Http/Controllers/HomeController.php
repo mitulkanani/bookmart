@@ -52,9 +52,14 @@ class HomeController extends Controller {
     public function post_ad() {
         return view('front.post_ad');
     }
+
     public function how_it_works() {
         return view('front/how_it_works');
     }
+
+    public function search_book() {
+        $books = $this->PostedAdOBJ->getbooksList();
+     }
 
     public function adSave(PostAdRequest $request) {
 

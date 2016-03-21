@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::post('/gallery', 'HomeController@gallery');
 Route::post('/post_ad', 'HomeController@post_ad');
 Route::post('adSave', 'HomeController@adSave');
+Route::post('search_book', 'HomeController@search_book');
 Route::get('how_it_works', 'HomeController@how_it_works');
 
 //For admin
