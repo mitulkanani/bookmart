@@ -1578,9 +1578,9 @@ jQuery(".formoid-solid-purple").find('input[type=date]').each(function() {
 });/* Flat script */
 jQuery(function() {
     // Custom Selects
-    jQuery(".element-select select").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
-    jQuery(".element-address select").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
-    jQuery(".element-multiple select[multiple='multiple']").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
+    jQuery(".element-select select").selectpicker({style: 'btn-huge', menuStyle: ''});
+    jQuery(".element-address select").selectpicker({style: 'btn-huge', menuStyle: ''});
+    jQuery(".element-multiple select[multiple='multiple']").selectpicker({style: 'btn-huge', menuStyle: ''});
 
     // File input
     $(document).on('change', "input[type=file]", function() {
