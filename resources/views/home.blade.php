@@ -98,7 +98,7 @@
                 background: url(images/front/gear.gif) center no-repeat #fff;
             }
             #modal-body {
-                max-height: calc(110vh - 250px);
+                max-height: calc(118vh - 250px);
                 overflow-y: auto;
             }
         </style>
@@ -196,12 +196,6 @@
                                             Javascript Code
                                         </div>
                                         <div data-u="caption" data-t="13" style="position: absolute; top: -100px; left: 720px; width: 160px; height: 90px; background-color: rgba(235,81,0,0.7); font-size: 20px; color: #ffffff; line-height: 90px; text-align: center;">Compress</div>
-                                        <div style="position: absolute; top: 40px; left: 300px; width: 400px; height: 200px; overflow: hidden;">
-                                            <div data-u="caption" data-t="14" style="position: absolute; top: -50px; left: 205px; width: 200px; height: 30px; font-size: 18px; color: #fff; line-height: 30px;">Size&nbsp; &nbsp; &nbsp;CPU Usage</div>
-                                            <div data-u="caption" data-t="15" style="position: absolute; top: 50px; left: 400px; width: 450px; height: 30px; font-size: 18px; color: #fff; line-height: 30px;">Slider with Slideshow&nbsp; &nbsp; &nbsp; 23KB&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ~4%</div>
-                                            <div data-u="caption" data-t="16" style="position: absolute; top: 100px; left: 400px; width: 450px; height: 30px; font-size: 18px; color: #fff; line-height: 30px;">Slider with Caption&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 18KB&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ~4%</div>
-                                            <div data-u="caption" data-t="17" style="position: absolute; top: 150px; left: 400px; width: 450px; height: 30px; font-size: 18px; color: #fff; line-height: 30px;">Slider&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;17KB&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ~1%</div>
-                                        </div>
                                         <a href="" style="display: block; position: absolute; top: 270px; left: 600px; width: 300px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">ddddddddddddd</a>
                                     </div>
                                     <div data-b="2" data-p="170.00" style="display: none;">
@@ -334,7 +328,8 @@
                             <div class="items-container row image-box style8">
                                 <ul>
                                     @foreach($adLists as $key=>$adsList)
-                                    <li class="mix {{$adsList->ad_type}}  engineering check1">
+                                    <?php // dd($adsList);?>
+                                    <li class="mix {{$adsList->ad_type}}  {{$adsList->category}}">
                                         <article class="box animated" data-animation-type="fadeInUp">
                                             <figure>
                                                 <a class="media-box-thumb" title="" onclick="getgallery({{$adsList->id}});" href="javascript:;">
@@ -416,31 +411,31 @@
                                     <h4>Categories</h4>
                                     <ul class="cd-filter-content cd-filters list">
                                         <li>
-                                            <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+                                            <input class="filter" data-filter=".SALE" type="checkbox" id="checkbox1">
                                             <label class="checkbox-label" for="checkbox1">SALE</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+                                            <input class="filter" data-filter=".RENT" type="checkbox" id="checkbox2">
                                             <label class="checkbox-label" for="checkbox2">RENT</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+                                            <input class="filter" data-filter=".engineering " type="checkbox" id="checkbox3">
                                             <label class="checkbox-label" for="checkbox3">Engineering</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
+                                            <input class="filter" data-filter=".medical" type="checkbox" id="checkbox4">
                                             <label class="checkbox-label" for="checkbox4">Medical</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
+                                            <input class="filter" data-filter=".commerce" type="checkbox" id="checkbox5">
                                             <label class="checkbox-label" for="checkbox5">Commerce</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
+                                            <input class="filter" data-filter=".others" type="checkbox" id="checkbox6">
                                             <label class="checkbox-label" for="checkbox6">Others</label>
                                         </li>
                                         <li>
-                                            <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
+                                            <input class="filter" data-filter=".pgrooms" type="checkbox" id="checkbox7">
                                             <label class="checkbox-label" for="checkbox7">PG-Rooms</label>
                                         </li>
                                     </ul> <!-- cd-filter-content -->
@@ -641,7 +636,7 @@
                             <div class="pull-right">
                                 <a id="back-to-top" href="#" class="animated" data-animation-type="bounce"><i class="soap-icon-longarrow-up circle"></i></a>
                             </div>
-                            <div class="copyright pull-right">
+                            <div class="copyright">
                                 <p>&copy; 2015 BookMart</p>
                             </div>
                         </div>
@@ -654,8 +649,8 @@
             <nav>
                 <ul class="sb-menu">
                     <li><img width="118" height="40" alt="Slidebars" src="http://plugins.adchsm.me/slidebars/images/slidebars-logo-white@2x.png"></li>
-                    <li class="sb-close"><a href="/">Home</a></li>
-                    <li class="sb-close"><a href="post_add">POST FREE AD</a></li>
+                    <li class="sb-close"><a href="">Home</a></li>
+                    <li class="sb-close"><a class="post_ad_click" href="javascript:void(0)">POST FREE AD</a></li>
                     <li class="sb-close"><a href="how_it_works.html">How its work</a></li>
                     <li class="sb-close"><a href="news">News</a></li>
                     <li class="sb-close"><a href="contact">Contact</a></li>
@@ -700,7 +695,7 @@
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #2d3e52;">
+                    <div class="modal-header" style="background-color: #2d3e52;height: 57px;">
                         <button type="button" style="border-radius: 50%;background: #fff; width: 37px;" class="close" data-dismiss="modal">&times;</button>
                         <h2 style="color: #fff">Post Free ad</h2>
                     </div>

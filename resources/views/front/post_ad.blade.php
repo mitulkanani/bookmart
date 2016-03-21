@@ -72,7 +72,13 @@
             <div class="column column3">
                 <label><input type="radio" value="negotiable" name="fixed"><span>Negotiable</span></label>
             </div>
-
+            <div class="element-input">
+                <label class="title"></label>
+                <div class="item-cont">
+                    <textarea required="true" type="text" placeholder="Description" name="description" class="large" style="height: 63px;"></textarea>
+                    <span class="icon-place"></span>
+                </div>
+            </div>
             <div class="element-file">
                 <label class="title">Cover-image</label>
                 <div class="item-cont">
@@ -101,6 +107,9 @@
                text-decoration: none;" id="add_more_image" class="link-text alignleft add_new_portfolio" title="Add More" href="#">
                 <i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add More images
             </a>
+            <div class="element-separator"><hr style="border-color: black;
+                                               margin-bottom: 10px;
+                                               margin-top: 10px;"><h4 class="section-break-title">Contact Details</h4></div>
             <div class="element-input">
                 <label class="title"></label>
                 <div class="item-cont">
@@ -118,7 +127,7 @@
             <div class="element-input">
                 <label class="title"></label>
                 <div class="item-cont">
-                    <input type="text" value="" placeholder="College-name" name="input" class="large"/>
+                    <input type="text" value="" placeholder="College-name" name="college" class="large"/>
                     <span class="icon-place"></span>
                 </div>
             </div>
@@ -140,9 +149,13 @@
                 <div class="column column3"><label><input type="radio" value="RENT" name="ad_type">
                         <span>RENT</span></label></div>
             </div>
-            <div class="submit">
+            <div class="submit" style="background: #2d3e52;">
                 <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 41%;
                         background: #98ce44;
+                        box-shadow: 0 -0.3em 0 rgba(0, 0, 0, 0.2) inset;
+                        border: medium none;
+                        font-size:1.2em;
+                        padding: 9px 14px;
                         color: #fff;
                         text-align: center; ">Close</button>
                 <input type="submit" value="Submit" style="width: 44%;">
