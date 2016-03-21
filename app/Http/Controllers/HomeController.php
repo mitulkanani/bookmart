@@ -37,7 +37,7 @@ class HomeController extends Controller {
      */
     public function index() {
         $adLists = $this->PostedAdOBJ->getBookadList();
-        return view('home', compact('adLists'));
+        return view('front/home', compact('adLists'));
     }
 
     public function gallery() {
@@ -46,11 +46,14 @@ class HomeController extends Controller {
         $cover_image = e($galleryLists->cover_image);
         $otherImages = explode(',', $galleryLists->images);
         $images = array_push($otherImages, $cover_image);
-        return view('front.gallery', compact('otherImages'));
+        return view('front/gallery', compact('otherImages'));
     }
 
     public function post_ad() {
         return view('front.post_ad');
+    }
+    public function how_it_works() {
+        return view('front/how_it_works');
     }
 
     public function adSave(PostAdRequest $request) {
