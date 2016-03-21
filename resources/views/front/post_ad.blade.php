@@ -15,10 +15,10 @@
                 <div class="column column3"><label><input type="radio" value="pg-rooms" name="radio">
                         <span>PG-Rooms</span></label></div>
             </div>
-            <div class="element-input field-book desc"  style="display: none;">
+            <div class="element-input">
                 <label class="title">Ad-title</label>
                 <div class="item-cont">
-                    <input required="true" type="text" placeholder="Book-name" name="book_name" class="large"/>
+                    <input required="true" type="text" placeholder="Book-name,PG-rooms,others..." name="ad_title" class="large"/>
                     <span class="icon-place"></span>
                 </div>
             </div>
@@ -39,22 +39,24 @@
             <div class="element-input field-book desc" style="display: none;">
                 <label class="title"></label>
                 <div class="item-cont">
-                    <input type="text" placeholder="Edition..Ex.2014-2015" name="edition" class="large"/>
+                    <input type="text" placeholder="Edition..Ex.2014-2015,2nd,4th..." name="edition" class="large"/>
                     <span class="icon-place"></span>
                 </div>
             </div>
-            <div class="element-input field-others desc" style="display: none;">
-                <label class="title"></label>
+            <div class="element-select">
+                <label class="title">Category</label>
                 <div class="item-cont">
-                    <input required="true" type="text" placeholder="Ad Title" name="ad_title" class="large"/>
-                    <span class="icon-place"></span>
-                </div>
-            </div>
-            <div class="element-input field-pg-rooms desc" style="display: none;">
-                <label class="title"></label>
-                <div class="item-cont">
-                    <input required="true" type="text" placeholder="Ad Title" name="ad_title" class="large"/>
-                    <span class="icon-place"></span>
+                    <div class="large">
+                        <span>
+                            <select name="category" style="display: none;">
+                                <option value="engineering">Engineering</option>
+                                <option value="medical">Medical</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="others">Others</option>
+                                <option value="pgrooms">PG-ROOMS</option>
+                            </select>
+                            <i></i><span class="icon-place"></span></span>
+                    </div>
                 </div>
             </div>
             <div class="element-input">
@@ -133,12 +135,10 @@
 
             <div class="element-radio">
                 <label class="title">Select</label>	
-                <div class="column column3"><label><input type="radio" value="SALE" name="ad_type"><span>SALE</span>
+                <div class="column column3"><label><input required="true" type="radio" value="SALE" name="ad_type"><span>SALE</span>
                     </label></div>
                 <div class="column column3"><label><input type="radio" value="RENT" name="ad_type">
                         <span>RENT</span></label></div>
-                <div class="column column3"><label><input type="radio" value="AD" name="ad_type">
-                        <span>AD</span></label></div>
             </div>
             <div class="submit">
                 <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 41%;
@@ -151,10 +151,9 @@
     </div>
     <script type="text/javascript" src="{{ asset('/js/front/formoid-solid-purple.js')}}"></script>
     <script>
-
 // For Add More images
-$(document).ready(function () {
-    $("input[name$='radio']").click(function () {
+$(document).ready(function() {
+    $("input[name$='radio']").click(function() {
         var test = $(this).val();
         $(".desc").hide();
         $(".field-" + test).show();
@@ -165,8 +164,7 @@ $(document).ready(function () {
     var add_button = $("#add_more_image"); //Add button ID
     var x = 1; //initlal text box count
     var i = 1;
-    $('body').on("click","#add_more_image",function (e) { //on add input button click
-        e.preventDefault();
+    $(document).on('click', '#add_more_image', function(e) { //on add input button click
         if (x < max_fields) { //max input box allowed
             x++; //text box increment
             i++
@@ -179,7 +177,8 @@ $(document).ready(function () {
 <i class="fa fa-trash-o" style="margin-right: 5px;"></i>Remove</a></div>'); //add input box
         }
     });
-    $(wrapper).on("click", "#remove_field", function (e) { //user click on remove text
+
+    $(wrapper).on("click", "#remove_field", function(e) { //user click on remove text
         e.preventDefault();
         $(this).parent().remove();
         x--;

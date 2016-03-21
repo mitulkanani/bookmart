@@ -15,8 +15,8 @@
   * Released under the MIT license:
   *   http://www.opensource.org/licenses/mit-license.php
   */
-(function (a) {
-    a.extend(a.fn, {validate: function (b) {
+(function(a) {
+    a.extend(a.fn, {validate: function(b) {
             if (!this.length) {
                 if (b && b.debug && window.console) {
                     console.warn("Nothing selected, can't validate, returning nothing.")
@@ -31,7 +31,7 @@
             c = new a.validator(b, this[0]);
             a.data(this[0], "validator", c);
             if (c.settings.onsubmit) {
-                this.validateDelegate(":submit", "click", function (d) {
+                this.validateDelegate(":submit", "click", function(d) {
                     if (c.settings.submitHandler) {
                         c.submitButton = d.target
                     }
@@ -42,7 +42,7 @@
                         c.cancelSubmit = true
                     }
                 });
-                this.submit(function (d) {
+                this.submit(function(d) {
                     if (c.settings.debug) {
                         d.preventDefault()
                     }
@@ -77,25 +77,25 @@
                 })
             }
             return c
-        }, valid: function () {
+        }, valid: function() {
             if (a(this[0]).is("form")) {
                 return this.validate().form()
             } else {
                 var c = true;
                 var b = a(this[0].form).validate();
-                this.each(function () {
+                this.each(function() {
                     c = b.element(this) && c
                 });
                 return c
             }
-        }, removeAttrs: function (d) {
+        }, removeAttrs: function(d) {
             var b = {}, c = this;
-            a.each(d.split(/\s/), function (e, f) {
+            a.each(d.split(/\s/), function(e, f) {
                 b[f] = c.attr(f);
                 c.removeAttr(f)
             });
             return b
-        }, rules: function (e, b) {
+        }, rules: function(e, b) {
             var g = this[0];
             if (e) {
                 var d = a.data(g.form, "validator").settings;
@@ -116,7 +116,7 @@
                             return j
                         }
                         var h = {};
-                        a.each(b.split(/\s/), function (k, l) {
+                        a.each(b.split(/\s/), function(k, l) {
                             h[l] = j[l];
                             delete j[l];
                             if (l === "required") {
@@ -124,7 +124,7 @@
                             }
                         });
                         return h
-                    }
+                }
             }
             var f = a.validator.normalizeRules(a.extend({}, a.validator.classRules(g), a.validator.attributeRules(g), a.validator.dataRules(g), a.validator.staticRules(g)), g);
             if (f.required) {
@@ -135,21 +135,21 @@
             }
             return f
         }});
-    a.extend(a.expr[":"], {blank: function (b) {
+    a.extend(a.expr[":"], {blank: function(b) {
             return !a.trim("" + a(b).val())
-        }, filled: function (b) {
+        }, filled: function(b) {
             return !!a.trim("" + a(b).val())
-        }, unchecked: function (b) {
+        }, unchecked: function(b) {
             return !a(b).prop("checked")
         }});
-    a.validator = function (b, c) {
+    a.validator = function(b, c) {
         this.settings = a.extend(true, {}, a.validator.defaults, b);
         this.currentForm = c;
         this.init()
     };
-    a.validator.format = function (b, c) {
+    a.validator.format = function(b, c) {
         if (arguments.length === 1) {
-            return function () {
+            return function() {
                 var d = a.makeArray(arguments);
                 d.unshift(b);
                 return a.validator.format.apply(this, d)
@@ -161,14 +161,14 @@
         if (c.constructor !== Array) {
             c = [c]
         }
-        a.each(c, function (d, e) {
-            b = b.replace(new RegExp("\\{" + d + "\\}", "g"), function () {
+        a.each(c, function(d, e) {
+            b = b.replace(new RegExp("\\{" + d + "\\}", "g"), function() {
                 return e
             })
         });
         return b
     };
-    a.extend(a.validator, {defaults: {messages: {}, groups: {}, rules: {}, errorClass: "error", validClass: "valid", errorElement: "label", focusInvalid: true, errorContainer: a([]), errorLabelContainer: a([]), onsubmit: true, ignore: ":hidden", ignoreTitle: false, onfocusin: function (b, c) {
+    a.extend(a.validator, {defaults: {messages: {}, groups: {}, rules: {}, errorClass: "error", validClass: "valid", errorElement: "label", focusInvalid: true, errorContainer: a([]), errorLabelContainer: a([]), onsubmit: true, ignore: ":hidden", ignoreTitle: false, onfocusin: function(b, c) {
                 this.lastActive = b;
                 if (this.settings.focusCleanup && !this.blockFocusCleanup) {
                     if (this.settings.unhighlight) {
@@ -176,11 +176,11 @@
                     }
                     this.addWrapper(this.errorsFor(b)).hide()
                 }
-            }, onfocusout: function (b, c) {
+            }, onfocusout: function(b, c) {
                 if (!this.checkable(b) && (b.name in this.submitted || !this.optional(b))) {
                     this.element(b)
                 }
-            }, onkeyup: function (b, c) {
+            }, onkeyup: function(b, c) {
                 if (c.which === 9 && this.elementValue(b) === "") {
                     return
                 } else {
@@ -188,7 +188,7 @@
                         this.element(b)
                     }
                 }
-            }, onclick: function (b, c) {
+            }, onclick: function(b, c) {
                 if (b.name in this.submitted) {
                     this.element(b)
                 } else {
@@ -196,21 +196,21 @@
                         this.element(b.parentNode)
                     }
                 }
-            }, highlight: function (d, b, c) {
+            }, highlight: function(d, b, c) {
                 if (d.type === "radio") {
                     this.findByName(d.name).addClass(b).removeClass(c)
                 } else {
                     a(d).addClass(b).removeClass(c)
                 }
-            }, unhighlight: function (d, b, c) {
+            }, unhighlight: function(d, b, c) {
                 if (d.type === "radio") {
                     this.findByName(d.name).removeClass(b).addClass(c)
                 } else {
                     a(d).removeClass(b).addClass(c)
                 }
-            }}, setDefaults: function (b) {
+            }}, setDefaults: function(b) {
             a.extend(a.validator.defaults, b)
-        }, messages: {required: "This field is required.", remote: "Please fix this field.", email: "Please enter a valid email address.", url: "Please enter a valid URL.", date: "Please enter a valid date.", dateISO: "Please enter a valid date (ISO).", number: "Please enter a valid number.", digits: "Please enter only digits.", creditcard: "Please enter a valid credit card number.", equalTo: "Please enter the same value again.", maxlength: a.validator.format("Please enter no more than {0} characters."), minlength: a.validator.format("Please enter at least {0} characters."), rangelength: a.validator.format("Please enter a value between {0} and {1} characters long."), range: a.validator.format("Please enter a value between {0} and {1}."), max: a.validator.format("Please enter a value less than or equal to {0}."), min: a.validator.format("Please enter a value greater than or equal to {0}.")}, autoCreateRanges: false, prototype: {init: function () {
+        }, messages: {required: "This field is required.", remote: "Please fix this field.", email: "Please enter a valid email address.", url: "Please enter a valid URL.", date: "Please enter a valid date.", dateISO: "Please enter a valid date (ISO).", number: "Please enter a valid number.", digits: "Please enter only digits.", creditcard: "Please enter a valid credit card number.", equalTo: "Please enter the same value again.", maxlength: a.validator.format("Please enter no more than {0} characters."), minlength: a.validator.format("Please enter at least {0} characters."), rangelength: a.validator.format("Please enter a value between {0} and {1} characters long."), range: a.validator.format("Please enter a value between {0} and {1}."), max: a.validator.format("Please enter a value less than or equal to {0}."), min: a.validator.format("Please enter a value greater than or equal to {0}.")}, autoCreateRanges: false, prototype: {init: function() {
                 this.labelContainer = a(this.settings.errorLabelContainer);
                 this.errorContext = this.labelContainer.length && this.labelContainer || a(this.currentForm);
                 this.containers = a(this.settings.errorContainer).add(this.settings.errorLabelContainer);
@@ -221,16 +221,16 @@
                 this.invalid = {};
                 this.reset();
                 var b = (this.groups = {});
-                a.each(this.settings.groups, function (e, f) {
+                a.each(this.settings.groups, function(e, f) {
                     if (typeof f === "string") {
                         f = f.split(/\s/)
                     }
-                    a.each(f, function (h, g) {
+                    a.each(f, function(h, g) {
                         b[g] = e
                     })
                 });
                 var d = this.settings.rules;
-                a.each(d, function (e, f) {
+                a.each(d, function(e, f) {
                     d[e] = a.validator.normalizeRule(f)
                 });
                 function c(g) {
@@ -244,7 +244,7 @@
                     a(this.currentForm).bind("invalid-form.validate", this.settings.invalidHandler)
                 }
                 a(this.currentForm).find("[required], [data-rule-required], .required").attr("aria-required", "true")
-            }, form: function () {
+            }, form: function() {
                 this.checkForm();
                 a.extend(this.submitted, this.errorMap);
                 this.invalid = a.extend({}, this.errorMap);
@@ -253,13 +253,13 @@
                 }
                 this.showErrors();
                 return this.valid()
-            }, checkForm: function () {
+            }, checkForm: function() {
                 this.prepareForm();
                 for (var b = 0, c = (this.currentElements = this.elements()); c[b]; b++) {
                     this.check(c[b])
                 }
                 return this.valid()
-            }, element: function (c) {
+            }, element: function(c) {
                 c = this.validationTargetFor(this.clean(c));
                 this.lastElement = c;
                 this.prepareElement(c);
@@ -276,14 +276,14 @@
                 }
                 this.showErrors();
                 return b
-            }, showErrors: function (c) {
+            }, showErrors: function(c) {
                 if (c) {
                     a.extend(this.errorMap, c);
                     this.errorList = [];
                     for (var b in c) {
                         this.errorList.push({message: c[b], element: this.findByName(b)[0]})
                     }
-                    this.successList = a.grep(this.successList, function (d) {
+                    this.successList = a.grep(this.successList, function(d) {
                         return !(d.name in c)
                     })
                 }
@@ -292,7 +292,7 @@
                 } else {
                     this.defaultShowErrors()
                 }
-            }, resetForm: function () {
+            }, resetForm: function() {
                 if (a.fn.resetForm) {
                     a(this.currentForm).resetForm()
                 }
@@ -301,35 +301,35 @@
                 this.prepareForm();
                 this.hideErrors();
                 this.elements().removeClass(this.settings.errorClass).removeData("previousValue").removeAttr("aria-invalid")
-            }, numberOfInvalids: function () {
+            }, numberOfInvalids: function() {
                 return this.objectLength(this.invalid)
-            }, objectLength: function (d) {
+            }, objectLength: function(d) {
                 var c = 0;
                 for (var b in d) {
                     c++
                 }
                 return c
-            }, hideErrors: function () {
+            }, hideErrors: function() {
                 this.addWrapper(this.toHide).hide()
-            }, valid: function () {
+            }, valid: function() {
                 return this.size() === 0
-            }, size: function () {
+            }, size: function() {
                 return this.errorList.length
-            }, focusInvalid: function () {
+            }, focusInvalid: function() {
                 if (this.settings.focusInvalid) {
                     try {
                         a(this.findLastActive() || this.errorList.length && this.errorList[0].element || []).filter(":visible").focus().trigger("focusin")
                     } catch (b) {
                     }
                 }
-            }, findLastActive: function () {
+            }, findLastActive: function() {
                 var b = this.lastActive;
-                return b && a.grep(this.errorList, function (c) {
+                return b && a.grep(this.errorList, function(c) {
                     return c.element.name === b.name
                 }).length === 1 && b
-            }, elements: function () {
+            }, elements: function() {
                 var c = this, b = {};
-                return a(this.currentForm).find("input, select, textarea").not(":submit, :reset, :image, [disabled]").not(this.settings.ignore).filter(function () {
+                return a(this.currentForm).find("input, select, textarea").not(":submit, :reset, :image, [disabled]").not(this.settings.ignore).filter(function() {
                     if (!this.name && c.settings.debug && window.console) {
                         console.error("%o has no name assigned", this)
                     }
@@ -339,25 +339,25 @@
                     b[this.name] = true;
                     return true
                 })
-            }, clean: function (b) {
+            }, clean: function(b) {
                 return a(b)[0]
-            }, errors: function () {
+            }, errors: function() {
                 var b = this.settings.errorClass.replace(" ", ".");
                 return a(this.settings.errorElement + "." + b, this.errorContext)
-            }, reset: function () {
+            }, reset: function() {
                 this.successList = [];
                 this.errorList = [];
                 this.errorMap = {};
                 this.toShow = a([]);
                 this.toHide = a([]);
                 this.currentElements = a([])
-            }, prepareForm: function () {
+            }, prepareForm: function() {
                 this.reset();
                 this.toHide = this.errors().add(this.containers)
-            }, prepareElement: function (b) {
+            }, prepareElement: function(b) {
                 this.reset();
                 this.toHide = this.errorsFor(b)
-            }, elementValue: function (b) {
+            }, elementValue: function(b) {
                 var c = a(b).attr("type"), d = a(b).val();
                 if (c === "radio" || c === "checkbox") {
                     return a("input[name='" + a(b).attr("name") + "']:checked").val()
@@ -366,7 +366,7 @@
                     return d.replace(/\r/g, "")
                 }
                 return d
-            }, check: function (c) {
+            }, check: function(c) {
                 c = this.validationTargetFor(this.clean(c));
                 var i = a(c).rules();
                 var d = false;
@@ -403,21 +403,21 @@
                     this.successList.push(c)
                 }
                 return true
-            }, customDataMessage: function (b, c) {
+            }, customDataMessage: function(b, c) {
                 return a(b).data("msg-" + c.toLowerCase()) || (b.attributes && a(b).attr("data-msg-" + c.toLowerCase()))
-            }, customMessage: function (c, d) {
+            }, customMessage: function(c, d) {
                 var b = this.settings.messages[c];
                 return b && (b.constructor === String ? b : b[d])
-            }, findDefined: function () {
+            }, findDefined: function() {
                 for (var b = 0; b < arguments.length; b++) {
                     if (arguments[b] !== undefined) {
                         return arguments[b]
                     }
                 }
                 return undefined
-            }, defaultMessage: function (b, c) {
+            }, defaultMessage: function(b, c) {
                 return this.findDefined(this.customMessage(b.name, c), this.customDataMessage(b, c), !this.settings.ignoreTitle && b.title || undefined, a.validator.messages[c], "<strong>Warning: No message defined for " + b.name + "</strong>")
-            }, formatAndAdd: function (c, e) {
+            }, formatAndAdd: function(c, e) {
                 var d = this.defaultMessage(c, e.method), b = /\$?\{(\d+)\}/g;
                 if (typeof d === "function") {
                     d = d.call(this, e.parameters, c)
@@ -429,12 +429,12 @@
                 this.errorList.push({message: d, element: c});
                 this.errorMap[c.name] = d;
                 this.submitted[c.name] = d
-            }, addWrapper: function (b) {
+            }, addWrapper: function(b) {
                 if (this.settings.wrapper) {
                     b = b.add(b.parent(this.settings.wrapper))
                 }
                 return b
-            }, defaultShowErrors: function () {
+            }, defaultShowErrors: function() {
                 var c, d;
                 for (c = 0; this.errorList[c]; c++) {
                     var b = this.errorList[c];
@@ -459,13 +459,13 @@
                 this.toHide = this.toHide.not(this.toShow);
                 this.hideErrors();
                 this.addWrapper(this.toShow).show()
-            }, validElements: function () {
+            }, validElements: function() {
                 return this.currentElements.not(this.invalidElements())
-            }, invalidElements: function () {
-                return a(this.errorList).map(function () {
+            }, invalidElements: function() {
+                return a(this.errorList).map(function() {
                     return this.element
                 })
-            }, showLabel: function (c, d) {
+            }, showLabel: function(c, d) {
                 var b = this.errorsFor(c);
                 if (b.length) {
                     b.removeClass(this.settings.validClass).addClass(this.settings.errorClass);
@@ -492,23 +492,23 @@
                     }
                 }
                 this.toShow = this.toShow.add(b)
-            }, errorsFor: function (c) {
+            }, errorsFor: function(c) {
                 var b = this.idOrName(c);
-                return this.errors().filter(function () {
+                return this.errors().filter(function() {
                     return a(this).attr("for") === b
                 })
-            }, idOrName: function (b) {
+            }, idOrName: function(b) {
                 return this.groups[b.name] || (this.checkable(b) ? b.name : b.id || b.name)
-            }, validationTargetFor: function (b) {
+            }, validationTargetFor: function(b) {
                 if (this.checkable(b)) {
                     b = this.findByName(b.name).not(this.settings.ignore)[0]
                 }
                 return b
-            }, checkable: function (b) {
+            }, checkable: function(b) {
                 return(/radio|checkbox/i).test(b.type)
-            }, findByName: function (b) {
+            }, findByName: function(b) {
                 return a(this.currentForm).find("[name='" + b + "']")
-            }, getLength: function (c, b) {
+            }, getLength: function(c, b) {
                 switch (b.nodeName.toLowerCase()) {
                     case"select":
                         return a("option:selected", b).length;
@@ -518,23 +518,23 @@
                         }
                 }
                 return c.length
-            }, depend: function (c, b) {
+            }, depend: function(c, b) {
                 return this.dependTypes[typeof c] ? this.dependTypes[typeof c](c, b) : true
-            }, dependTypes: {"boolean": function (c, b) {
+            }, dependTypes: {"boolean": function(c, b) {
                     return c
-                }, string: function (c, b) {
+                }, string: function(c, b) {
                     return !!a(c, b.form).length
-                }, "function": function (c, b) {
+                }, "function": function(c, b) {
                     return c(b)
-                }}, optional: function (b) {
+                }}, optional: function(b) {
                 var c = this.elementValue(b);
                 return !a.validator.methods.required.call(this, c, b) && "dependency-mismatch"
-            }, startRequest: function (b) {
+            }, startRequest: function(b) {
                 if (!this.pending[b.name]) {
                     this.pendingRequest++;
                     this.pending[b.name] = true
                 }
-            }, stopRequest: function (b, c) {
+            }, stopRequest: function(b, c) {
                 this.pendingRequest--;
                 if (this.pendingRequest < 0) {
                     this.pendingRequest = 0
@@ -549,26 +549,26 @@
                         this.formSubmitted = false
                     }
                 }
-            }, previousValue: function (b) {
+            }, previousValue: function(b) {
                 return a.data(b, "previousValue") || a.data(b, "previousValue", {old: null, valid: true, message: this.defaultMessage(b, "remote")})
-            }}, classRuleSettings: {required: {required: true}, email: {email: true}, url: {url: true}, date: {date: true}, dateISO: {dateISO: true}, number: {number: true}, digits: {digits: true}, creditcard: {creditcard: true}}, addClassRules: function (b, c) {
+            }}, classRuleSettings: {required: {required: true}, email: {email: true}, url: {url: true}, date: {date: true}, dateISO: {dateISO: true}, number: {number: true}, digits: {digits: true}, creditcard: {creditcard: true}}, addClassRules: function(b, c) {
             if (b.constructor === String) {
                 this.classRuleSettings[b] = c
             } else {
                 a.extend(this.classRuleSettings, b)
             }
-        }, classRules: function (c) {
+        }, classRules: function(c) {
             var d = {};
             var b = a(c).attr("class");
             if (b) {
-                a.each(b.split(" "), function () {
+                a.each(b.split(" "), function() {
                     if (this in a.validator.classRuleSettings) {
                         a.extend(d, a.validator.classRuleSettings[this])
                     }
                 })
             }
             return d
-        }, attributeRules: function (c) {
+        }, attributeRules: function(c) {
             var f = {};
             var b = a(c);
             var d = b[0].getAttribute("type");
@@ -598,7 +598,7 @@
                 delete f.maxlength
             }
             return f
-        }, dataRules: function (c) {
+        }, dataRules: function(c) {
             var f, d, e = {}, b = a(c);
             for (f in a.validator.methods) {
                 d = b.data("rule-" + f.toLowerCase());
@@ -607,15 +607,15 @@
                 }
             }
             return e
-        }, staticRules: function (c) {
+        }, staticRules: function(c) {
             var d = {};
             var b = a.data(c.form, "validator");
             if (b.settings.rules) {
                 d = a.validator.normalizeRule(b.settings.rules[c.name]) || {}
             }
             return d
-        }, normalizeRules: function (c, b) {
-            a.each(c, function (f, e) {
+        }, normalizeRules: function(c, b) {
+            a.each(c, function(f, e) {
                 if (e === false) {
                     delete c[f];
                     return
@@ -637,15 +637,15 @@
                     }
                 }
             });
-            a.each(c, function (d, e) {
+            a.each(c, function(d, e) {
                 c[d] = a.isFunction(e) ? e(b) : e
             });
-            a.each(["minlength", "maxlength"], function () {
+            a.each(["minlength", "maxlength"], function() {
                 if (c[this]) {
                     c[this] = Number(c[this])
                 }
             });
-            a.each(["rangelength", "range"], function () {
+            a.each(["rangelength", "range"], function() {
                 var d;
                 if (c[this]) {
                     if (a.isArray(c[this])) {
@@ -671,22 +671,22 @@
                 }
             }
             return c
-        }, normalizeRule: function (c) {
+        }, normalizeRule: function(c) {
             if (typeof c === "string") {
                 var b = {};
-                a.each(c.split(/\s/), function () {
+                a.each(c.split(/\s/), function() {
                     b[this] = true
                 });
                 c = b
             }
             return c
-        }, addMethod: function (b, d, c) {
+        }, addMethod: function(b, d, c) {
             a.validator.methods[b] = d;
             a.validator.messages[b] = c !== undefined ? c : a.validator.messages[b];
             if (d.length < 3) {
                 a.validator.addClassRules(b, a.validator.normalizeRule(b))
             }
-        }, methods: {required: function (c, b, e) {
+        }, methods: {required: function(c, b, e) {
                 if (!this.depend(e, b)) {
                     return"dependency-mismatch"
                 }
@@ -698,19 +698,19 @@
                     return this.getLength(c, b) > 0
                 }
                 return a.trim(c).length > 0
-            }, email: function (c, b) {
+            }, email: function(c, b) {
                 return this.optional(b) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(c)
-            }, url: function (c, b) {
+            }, url: function(c, b) {
                 return this.optional(b) || /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(c)
-            }, date: function (c, b) {
+            }, date: function(c, b) {
                 return this.optional(b) || !/Invalid|NaN/.test(new Date(c).toString())
-            }, dateISO: function (c, b) {
+            }, dateISO: function(c, b) {
                 return this.optional(b) || /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/.test(c)
-            }, number: function (c, b) {
+            }, number: function(c, b) {
                 return this.optional(b) || /^-?(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(c)
-            }, digits: function (c, b) {
+            }, digits: function(c, b) {
                 return this.optional(b) || /^\d+$/.test(c)
-            }, creditcard: function (f, c) {
+            }, creditcard: function(f, c) {
                 if (this.optional(c)) {
                     return"dependency-mismatch"
                 }
@@ -734,30 +734,30 @@
                     b = !b
                 }
                 return(g % 10) === 0
-            }, minlength: function (d, b, e) {
+            }, minlength: function(d, b, e) {
                 var c = a.isArray(d) ? d.length : this.getLength(a.trim(d), b);
                 return this.optional(b) || c >= e
-            }, maxlength: function (d, b, e) {
+            }, maxlength: function(d, b, e) {
                 var c = a.isArray(d) ? d.length : this.getLength(a.trim(d), b);
                 return this.optional(b) || c <= e
-            }, rangelength: function (d, b, e) {
+            }, rangelength: function(d, b, e) {
                 var c = a.isArray(d) ? d.length : this.getLength(a.trim(d), b);
                 return this.optional(b) || (c >= e[0] && c <= e[1])
-            }, min: function (c, b, d) {
+            }, min: function(c, b, d) {
                 return this.optional(b) || c >= d
-            }, max: function (c, b, d) {
+            }, max: function(c, b, d) {
                 return this.optional(b) || c <= d
-            }, range: function (c, b, d) {
+            }, range: function(c, b, d) {
                 return this.optional(b) || (c >= d[0] && c <= d[1])
-            }, equalTo: function (c, b, e) {
+            }, equalTo: function(c, b, e) {
                 var d = a(e);
                 if (this.settings.onfocusout) {
-                    d.unbind(".validate-equalTo").bind("blur.validate-equalTo", function () {
+                    d.unbind(".validate-equalTo").bind("blur.validate-equalTo", function() {
                         a(b).valid()
                     })
                 }
                 return c === d.val()
-            }, remote: function (f, c, g) {
+            }, remote: function(f, c, g) {
                 if (this.optional(c)) {
                     return"dependency-mismatch"
                 }
@@ -776,7 +776,7 @@
                 this.startRequest(c);
                 var e = {};
                 e[c.name] = f;
-                a.ajax(a.extend(true, {url: g, mode: "abort", port: "validate" + c.name, dataType: "json", data: e, success: function (i) {
+                a.ajax(a.extend(true, {url: g, mode: "abort", port: "validate" + c.name, dataType: "json", data: e, success: function(i) {
                         b.settings.messages[c.name].remote = d.originalMessage;
                         var k = i === true || i === "true";
                         if (k) {
@@ -800,10 +800,10 @@
             }}});
     a.format = a.validator.format
 }(jQuery));
-(function (c) {
+(function(c) {
     var a = {};
     if (c.ajaxPrefilter) {
-        c.ajaxPrefilter(function (f, e, g) {
+        c.ajaxPrefilter(function(f, e, g) {
             var d = f.port;
             if (f.mode === "abort") {
                 if (a[d]) {
@@ -814,7 +814,7 @@
         })
     } else {
         var b = c.ajax;
-        c.ajax = function (e) {
+        c.ajax = function(e) {
             var f = ("mode" in e ? e : c.ajaxSettings).mode, d = ("port" in e ? e : c.ajaxSettings).port;
             if (f === "abort") {
                 if (a[d]) {
@@ -827,9 +827,9 @@
         }
     }
 }(jQuery));
-(function (a) {
-    a.extend(a.fn, {validateDelegate: function (d, c, b) {
-            return this.bind(c, function (e) {
+(function(a) {
+    a.extend(a.fn, {validateDelegate: function(d, c, b) {
+            return this.bind(c, function(e) {
                 var f = a(e.target);
                 if (f.is(d)) {
                     return b.apply(f, arguments)
@@ -848,8 +848,8 @@
  * Copyright 2013 bootstrap-select
  * Licensed under the MIT license
  */
-!function ($) {
-    var Selectpicker = function (element, options, e) {
+!function($) {
+    var Selectpicker = function(element, options, e) {
         if (e) {
             e.stopPropagation();
             e.preventDefault();
@@ -873,7 +873,7 @@
 
     Selectpicker.prototype = {
         constructor: Selectpicker,
-        init: function (e) {
+        init: function(e) {
             var _this = this;
             this.$element.hide();
             this.multiple = this.$element.prop('multiple');
@@ -897,7 +897,7 @@
             this.button = this.$newElement.find('> button');
             if (id !== undefined) {
                 this.button.attr('id', id);
-                $('label[for="' + id + '"]').click(function () {
+                $('label[for="' + id + '"]').click(function() {
                     select.find('button#' + id).focus();
                 })
             }
@@ -912,7 +912,7 @@
             }
             this.button.addClass(this.options.style);
             menu.addClass(this.options.menuStyle);
-            menuArrow.addClass(function () {
+            menuArrow.addClass(function() {
                 if (_this.options.menuStyle) {
                     return _this.options.menuStyle.replace('dropdown-', 'dropdown-arrow-');
                 }
@@ -949,7 +949,7 @@
 
             this.render();
         },
-        createDropdown: function () {
+        createDropdown: function() {
             var drop =
                     "<div class='btn-group select'>" +
                     "<i class='dropdown-arrow'></i>" +
@@ -962,13 +962,13 @@
 
             return $(drop);
         },
-        createView: function () {
+        createView: function() {
             var $drop = this.createDropdown();
             var $li = this.createLi();
             $drop.find('ul').append($li);
             return $drop;
         },
-        reloadLi: function () {
+        reloadLi: function() {
             //Remove all children.
             this.destroyLi();
             //Re build
@@ -977,21 +977,21 @@
             //render view
             this.render();
         },
-        destroyLi: function () {
+        destroyLi: function() {
             this.$newElement.find('li').remove();
         },
-        createLi: function () {
+        createLi: function() {
 
             var _this = this;
             var _li = [];
             var _liA = [];
             var _liHtml = '';
 
-            this.$element.find('option').each(function () {
+            this.$element.find('option').each(function() {
                 _li.push($(this).text());
             });
 
-            this.$element.find('option').each(function (index) {
+            this.$element.find('option').each(function(index) {
                 //Get the class and text for the option
                 var optionClass = $(this).attr("class") !== undefined ? $(this).attr("class") : '';
                 var text = $(this).text();
@@ -1044,13 +1044,13 @@
 
             return $(_liHtml);
         },
-        createA: function (test, classes) {
+        createA: function(test, classes) {
             return '<a tabindex="-1" href="#" class="' + classes + '">' +
                     '<span class="pull-left">' + test + '</span>' +
                     '</a>';
 
         },
-        render: function () {
+        render: function() {
             var _this = this;
 
             //Set width of select
@@ -1062,14 +1062,14 @@
             }
 
             //Update the LI to match the SELECT
-            this.$element.find('option').each(function (index) {
+            this.$element.find('option').each(function(index) {
                 _this.setDisabled(index, $(this).is(':disabled') || $(this).parent().is(':disabled'));
                 _this.setSelected(index, $(this).is(':selected'));
             });
 
 
 
-            var selectedItems = this.$element.find('option:selected').map(function (index, value) {
+            var selectedItems = this.$element.find('option:selected').map(function(index, value) {
                 if ($(this).attr('title') != undefined) {
                     return $(this).attr('title');
                 } else {
@@ -1095,44 +1095,44 @@
 
             this.$element.next('.select').find('.filter-option').html(title);
         },
-        setSelected: function (index, selected) {
+        setSelected: function(index, selected) {
             if (selected) {
                 this.$newElement.find('li').eq(index).addClass('selected');
             } else {
                 this.$newElement.find('li').eq(index).removeClass('selected');
             }
         },
-        setDisabled: function (index, disabled) {
+        setDisabled: function(index, disabled) {
             if (disabled) {
                 this.$newElement.find('li').eq(index).addClass('disabled');
             } else {
                 this.$newElement.find('li').eq(index).removeClass('disabled');
             }
         },
-        checkDisabled: function () {
+        checkDisabled: function() {
             if (this.$element.is(':disabled')) {
                 this.button.addClass('disabled');
-                this.button.click(function (e) {
+                this.button.click(function(e) {
                     e.preventDefault();
                 });
             }
         },
-        checkTabIndex: function () {
+        checkTabIndex: function() {
             if (this.$element.is('[tabindex]')) {
                 var tabindex = this.$element.attr("tabindex");
                 this.button.attr('tabindex', tabindex);
             }
         },
-        clickListener: function () {
+        clickListener: function() {
             var _this = this;
 
-            $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
+            $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
                 e.stopPropagation();
             });
 
 
 
-            this.$newElement.on('click', 'li a', function (e) {
+            this.$newElement.on('click', 'li a', function(e) {
                 var clickedIndex = $(this).parent().index(),
                         $this = $(this).parent(),
                         $select = $this.parents('.select');
@@ -1173,18 +1173,18 @@
 
             });
 
-            this.$newElement.on('click', 'li.disabled a, li dt, li .divider', function (e) {
+            this.$newElement.on('click', 'li.disabled a, li dt, li .divider', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 $select = $(this).parent().parents('.select');
                 $select.find('button').focus();
             });
 
-            this.$element.on('change', function (e) {
+            this.$element.on('change', function(e) {
                 _this.render();
             });
         },
-        val: function (value) {
+        val: function(value) {
 
             if (value != undefined) {
                 this.$element.val(value);
@@ -1198,11 +1198,11 @@
 
     };
 
-    $.fn.selectpicker = function (option, event) {
+    $.fn.selectpicker = function(option, event) {
         //get the args of the outer function..
         var args = arguments;
         var value;
-        var chain = this.each(function () {
+        var chain = this.each(function() {
             var $this = $(this),
                     data = $this.data('selectpicker'),
                     options = typeof option == 'object' && option;
@@ -1254,8 +1254,8 @@
 // Obfuscated by Javascript Obfuscator
 // http://javascript-source.com
 //***********************************************
-!function (c) {
-    var a = function (e, d) {
+!function(c) {
+    var a = function(e, d) {
         this.element = c(e);
         this.format = b.parseFormat(d.format || this.element.data("date-format") || "yyyy-mm-dd");
         this.picker = c(b.template).appendTo(d.appendTo || this.element.parent() || "body").on({click: c.proxy(this.click, this)});
@@ -1282,7 +1282,7 @@
                 default:
                     this.minViewMode = 0;
                     break
-                }
+            }
         }
         this.viewMode = d.viewMode || this.element.data("date-viewmode") || 0;
         if (typeof this.viewMode === "string") {
@@ -1296,7 +1296,7 @@
                 default:
                     this.viewMode = 0;
                     break
-                }
+            }
         }
         this.startViewMode = this.viewMode;
         this.weekStart = d.weekStart || this.element.data("date-weekstart") || 0;
@@ -1307,7 +1307,7 @@
         this.update();
         this.showMode()
     };
-    a.prototype = {constructor: a, show: function (f) {
+    a.prototype = {constructor: a, show: function(f) {
             this.picker.show();
             this.height = this.component ? this.component.outerHeight() : this.element.outerHeight();
             this.place();
@@ -1319,13 +1319,13 @@
             if (!this.isInput) {
             }
             var d = this;
-            c(document).on("mousedown", function (e) {
+            c(document).on("mousedown", function(e) {
                 if (c(e.target).closest(".datepicker").length == 0) {
                     d.hide()
                 }
             });
             this.element.trigger({type: "show", date: this.date})
-        }, hide: function () {
+        }, hide: function() {
             this.picker.hide();
             c(window).off("resize", this.place);
             this.viewMode = this.startViewMode;
@@ -1334,7 +1334,7 @@
                 c(document).off("mousedown", this.hide)
             }
             this.element.trigger({type: "hide", date: this.date})
-        }, set: function () {
+        }, set: function() {
             var d = b.formatDate(this.date, this.format);
             if (!this.isInput) {
                 if (this.component) {
@@ -1344,7 +1344,7 @@
             } else {
                 this.element.prop("value", d)
             }
-        }, setValue: function (d) {
+        }, setValue: function(d) {
             if (typeof d === "string") {
                 this.date = b.parseDate(d, this.format)
             } else {
@@ -1353,14 +1353,14 @@
             this.set();
             this.viewDate = new Date(this.date.getFullYear(), this.date.getMonth(), 1, 0, 0, 0, 0);
             this.fill()
-        }, place: function () {
+        }, place: function() {
             var d = this.component ? this.component.offset() : this.element.offset();
             this.picker.css({top: this.element.parent().height(), left: 0, marginLeft: 0})
-        }, update: function (d) {
+        }, update: function(d) {
             this.date = b.parseDate(typeof d === "string" ? d : (this.isInput ? this.element.prop("value") : this.element.data("date")), this.format);
             this.viewDate = new Date(this.date.getFullYear(), this.date.getMonth(), 1, 0, 0, 0, 0);
             this.fill()
-        }, fillDow: function () {
+        }, fillDow: function() {
             var d = this.weekStart;
             var e = "<tr>";
             while (d < this.weekStart + 7) {
@@ -1368,14 +1368,14 @@
             }
             e += "</tr>";
             this.picker.find(".datepicker-days thead").append(e)
-        }, fillMonths: function () {
+        }, fillMonths: function() {
             var e = "";
             var d = 0;
             while (d < 12) {
                 e += '<span class="month">' + b.dates.monthsShort[d++] + "</span>"
             }
             this.picker.find(".datepicker-months td").append(e)
-        }, fill: function () {
+        }, fill: function() {
             var r = new Date(this.viewDate), s = r.getFullYear(), q = r.getMonth(), g = this.date.valueOf();
             this.picker.find(".datepicker-days th:eq(1)").text(b.dates.months[q] + " " + s);
             var k = new Date(s, q - 1, 28, 0, 0, 0, 0), t = b.getDaysInMonth(k.getFullYear(), k.getMonth());
@@ -1424,7 +1424,7 @@
                 s += 1
             }
             h.html(m)
-        }, click: function (i) {
+        }, click: function(i) {
             i.stopPropagation();
             i.preventDefault();
             var h = c(i.target).closest("span, td, th");
@@ -1479,20 +1479,20 @@
                             this.picker.hide()
                         }
                         break
-                    }
+                }
             }
             this.element.valid()
-        }, mousedown: function (d) {
+        }, mousedown: function(d) {
             d.stopPropagation();
             d.preventDefault()
-        }, showMode: function (d) {
+        }, showMode: function(d) {
             if (d) {
                 this.viewMode = Math.max(this.minViewMode, Math.min(2, this.viewMode + d))
             }
             this.picker.find(">div").hide().filter(".datepicker-" + b.modes[this.viewMode].clsName).show()
         }};
-    c.fn.datepicker = function (d, e) {
-        return this.each(function () {
+    c.fn.datepicker = function(d, e) {
+        return this.each(function() {
             var h = c(this), g = h.data("datepicker"), f = typeof d === "object" && d;
             if (!g) {
                 h.data("datepicker", (g = new a(this, c.extend({}, c.fn.datepicker.defaults, f))))
@@ -1502,21 +1502,21 @@
             }
         })
     };
-    c.fn.datepicker.defaults = {onRender: function (d) {
+    c.fn.datepicker.defaults = {onRender: function(d) {
             return""
         }};
     c.fn.datepicker.Constructor = a;
-    var b = {modes: [{clsName: "days", navFnc: "Month", navStep: 1}, {clsName: "months", navFnc: "FullYear", navStep: 1}, {clsName: "years", navFnc: "FullYear", navStep: 10}], dates: {days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}, isLeapYear: function (d) {
+    var b = {modes: [{clsName: "days", navFnc: "Month", navStep: 1}, {clsName: "months", navFnc: "FullYear", navStep: 1}, {clsName: "years", navFnc: "FullYear", navStep: 10}], dates: {days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}, isLeapYear: function(d) {
             return(((d % 4 === 0) && (d % 100 !== 0)) || (d % 400 === 0))
-        }, getDaysInMonth: function (d, e) {
+        }, getDaysInMonth: function(d, e) {
             return[31, (b.isLeapYear(d) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][e]
-        }, parseFormat: function (f) {
+        }, parseFormat: function(f) {
             var e = f.match(/[.\/\-\s].*?/), d = f.split(/\W+/);
             if (!e || !d || d.length === 0) {
                 throw new Error("Invalid date format.")
             }
             return{separator: e, parts: d}
-        }, parseDate: function (f, m) {
+        }, parseDate: function(f, m) {
             var g = f.split(m.separator), f = new Date(), e;
             f.setHours(0);
             f.setMinutes(0);
@@ -1545,12 +1545,12 @@
                             k = e;
                             f.setFullYear(e);
                             break
-                        }
+                    }
                 }
                 f = new Date(k, j, l, 0, 0, 0)
             }
             return f
-        }, formatDate: function (d, g) {
+        }, formatDate: function(d, g) {
             var h = {d: d.getDate(), m: d.getMonth() + 1, yy: d.getFullYear().toString().substring(2), yyyy: d.getFullYear()};
             h.dd = (h.d < 10 ? "0" : "") + h.d;
             h.mm = (h.m < 10 ? "0" : "") + h.m;
@@ -1562,7 +1562,7 @@
         }, headTemplate: '<thead><tr><th class="prev">&lsaquo;</th><th colspan="5" class="switch"></th><th class="next">&rsaquo;</th></tr></thead>', contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>'};
     b.template = '<div class="datepicker"><div class="datepicker-days"><table class=" table-condensed">' + b.headTemplate + '<tbody></tbody></table></div><div class="datepicker-months"><table class="table-condensed">' + b.headTemplate + b.contTemplate + '</table></div><div class="datepicker-years"><table class="table-condensed">' + b.headTemplate + b.contTemplate + "</table></div></div>"
 }(window.jQuery);
-jQuery(".formoid-solid-purple").find('input[type=date]').each(function () {
+jQuery(".formoid-solid-purple").find('input[type=date]').each(function() {
     var date = $(this);
     var text = $('<input type="text">');
     text.get(0).className = date.get(0).className;
@@ -1576,14 +1576,14 @@ jQuery(".formoid-solid-purple").find('input[type=date]').each(function () {
         format: date.attr("data-format") || 'yyyy-mm-dd'
     });
 });/* Flat script */
-jQuery(function () {
+jQuery(function() {
     // Custom Selects
-    jQuery(".element-select select").selectpicker({style: 'btn-huge btn-primary', menuStyle: 'dropdown-inverse'});
-    jQuery(".element-address select").selectpicker({style: 'btn-huge btn-primary', menuStyle: 'dropdown-inverse'});
-    jQuery(".element-multiple select[multiple='multiple']").selectpicker({style: 'btn-huge btn-primary', menuStyle: 'dropdown-inverse'});
+    jQuery(".element-select select").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
+    jQuery(".element-address select").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
+    jQuery(".element-multiple select[multiple='multiple']").selectpicker({style: 'btn-huge', menuStyle: 'dropdown-inverse'});
 
     // File input
-    jQuery("input[type=file]").change(function () {
+    $(document).on('change', "input[type=file]", function() {
         var fileText = $(this).val();
 
         $(this).next().html(fileText ? fileText : 'No file selected').css('color', fileText ? 'inherit' : '#A9A9A9');
@@ -1600,26 +1600,26 @@ jQuery(function () {
 // Obfuscated by Javascript Obfuscator
 // http://javascript-source.com
 //***********************************************
-jQuery.validator.addMethod("pattern", function (b, a, c) {
+jQuery.validator.addMethod("pattern", function(b, a, c) {
     return this.optional(a) || (new RegExp("^(?:" + c + ")$")).test(b)
 }, jQuery.format("Please enter the correct value"));
 jQuery.validator.origRequired = jQuery.validator.methods.required;
-jQuery.validator.addMethod("required", function (b, a, c) {
+jQuery.validator.addMethod("required", function(b, a, c) {
     if (/^url$/.test(a.getAttribute("type")) && ($.trim(b) == "http://")) {
         return false
     }
     return jQuery.validator.origRequired.call(this, b, a, c)
 });
-jQuery.validator.addMethod("name", function (b, a, c) {
+jQuery.validator.addMethod("name", function(b, a, c) {
     if (/^name\[first\]|name\[last\]$/.test(a.getAttribute("name"))) {
         return this.optional(a) || (new RegExp("^[^0-9\\<\\>\\\\/\\|*\\=\\_\\+\\~\\!\\?\\@\\#\\№\\$\\%\\^\\&\\(\\)\\{\\}\\[\\]\\;\\:\\`\\,]+$")).test(b)
     }
     return true
 }, jQuery.format("Please enter the correct characters"));
-jQuery(function () {
+jQuery(function() {
     var a = jQuery;
     form = a(".formoid-solid-purple");
-    form.validate({errorClass: "error-label", wrapper: "label", errorElement: "span", ignore: "", success: function (b, c) {
+    form.validate({errorClass: "error-label", wrapper: "label", errorElement: "span", ignore: "", success: function(b, c) {
             if (b.parent().hasClass("tooltip2")) {
                 b.parent().remove()
             } else {
@@ -1627,12 +1627,12 @@ jQuery(function () {
             }
             var d = a(c).parent();
             d.removeClass("error-field2")
-        }, errorPlacement: function (b, c) {
+        }, errorPlacement: function(b, c) {
             var d = a(c).parent();
             d.addClass("error-field2");
             b.css("marginLeft", 0).appendTo(d || c).addClass("tooltip2").addClass("bottom").addClass("error").append(a("<span>").addClass("tooltip-arrow"))
         }});
-    jQuery("[required=required]").keyup(function () {
+    jQuery("[required=required]").keyup(function() {
         a(this).valid()
     })
 });

@@ -47,7 +47,7 @@
         <link id="main-style" rel="stylesheet" href="{{ asset('/css/form.css')}}"/>
         <!-- Javascript -->
         <script type="text/javascript" src="{{ asset('/js/front/jquery-1.11.0.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/js/front/jquery.min.js')}}"></script>
+        <!--<script type="text/javascript" src="{{ asset('/js/front/jquery.min.js')}}"></script>-->
         <!-- Twitter Bootstrap -->
         <script type="text/javascript" src="{{ asset('/js/front/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/js/front/bootstrap-lightbox.min.js')}}"></script>

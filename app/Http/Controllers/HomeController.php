@@ -42,14 +42,106 @@ class HomeController extends Controller {
     public function gallery() {
         $id = Input::get('id');
         $galleryLists = $this->PostedAdOBJ->getimageList($id);
-        $cover_image=e($galleryLists->cover_image);
-        $otherImages= explode(',', $galleryLists->images);
-        $images= array_push($otherImages,$cover_image);
+        $cover_image = e($galleryLists->cover_image);
+        $otherImages = explode(',', $galleryLists->images);
+        $images = array_push($otherImages, $cover_image);
         return view('front.gallery', compact('otherImages'));
     }
 
     public function post_ad() {
         return view('front.post_ad');
+    }
+
+    public function adSave() {
+//        adminAddUserRequest $request
+        
+        $ad_title = Input::get('ad_title');
+        $auther_name = e(Input::get('auther_name'));
+        $publication = e(Input::get('publication'));
+        $edition = e(Input::get('edition'));
+        $category = e(Input::get('category'));
+        $price = e(Input::get('price'));
+        $fixed = e(Input::get('fixed'));
+        $owner_name = e(Input::get('owner_name'));
+        $mobileno = e(Input::get('mobileno'));
+        $college = e(Input::get('college'));
+        $address = e(Input::get('address'));
+        $city = e(Input::get('city'));
+        $ad_type = e(Input::get('ad_type'));
+        $status = e(Input::get('status'));
+        $adId = 0;
+
+        $pathoriginal = base_path() . '/public/ads_picture/original/';
+        $path50 = base_path() . '/public/ads_picture/thumbnail/';
+
+        $rules = array(
+            'name' => 'cover_image',
+            'location' => 'required',
+            'capacity' => 'required',
+            'description' => 'required',
+            'image' => 'required|array'
+        );
+        $cover_image = (Input::file('cover_image'));
+        $file = array('cover_image' => Input::file('cover_image'));
+        $validator = Validator::make($file, $rules);
+        $images = Input::file('images');
+        foreach ($images as $key => $image) {
+            $extension = $image->getClientOriginalExtension(); // getting image extension
+            $fileName = time() . '.' . $extension; // renameing image
+            $image->move($pathoriginal, $fileName); // uploading file to given path
+            File::copy($pathoriginal . $fileName, $path50 . $fileName);
+            Image::make($path50 . $fileName)
+                    ->resize('100', '100')
+                    ->save($path50 . $fileName);
+            $img[] = $fileName;
+        }
+        $other_images = implode(',', $img);
+        
+        if ($adId > 0) {
+//            $user = User::find($userId);
+//            $user->first_name = $firstName;
+//            $user->last_name = $lastName;
+//            $user->email = $email;
+//            $user->aboutme = $aboutme;
+//            $user->username = $username;
+//            $user->status = $status;
+//            $user->save();
+//            if ($user) {
+//                return Redirect::to("admin/dashboard")->with('success', 'User edited successfully');
+//            }
+        } else {
+            $extension = Input::file('cover_image')->getClientOriginalExtension(); // getting image extension
+            $fileName = time() . '.' . $extension; // renameing image
+
+            Input::file('cover_image')->move($pathoriginal, $fileName); // uploading file to given path
+//
+            File::copy($pathoriginal . $fileName, $path50 . $fileName);
+            Image::make($path50 . $fileName)
+                    ->resize('100', '100')
+                    ->save($path50 . $fileName);
+
+            $ads = PostedAd::create(array(
+                        'ad_title' => $ad_title,
+                        'category' => $category,
+                        'auther_name' => $auther_name,
+                        'publication' => $publication,
+                        'edition' => $edition,
+                        'price' => $price,
+                        'fixed' => $fixed,
+                        'owner_name' => $owner_name,
+                        'mobileno' => $mobileno,
+                        'college' => $college,
+                        'address' => $address,
+                        'city' => $city,
+                        'ad_type' => $ad_type,
+                        'cover_image' => $fileName,
+                        'images' => $other_images,
+                        'status' => $status,
+            ));
+            if ($ads) {
+                return Redirect::to("/")->with('success', 'Ad posted successfully');
+            }
+        }
     }
 
     public function banUser() {
@@ -82,93 +174,6 @@ class HomeController extends Controller {
     public function addUser() {
         $user = array();
         return view('admin.pages.adduser', compact('user'));
-    }
-
-    public function adSave() {
-//        adminAddUserRequest $request
-
-        $book_name = Input::get('book_name');
-        $ad_title = Input::get('ad_title');
-        $auther_name = e(Input::get('auther_name'));
-        $publication = e(Input::get('publication'));
-        $edition = e(Input::get('edition'));
-        $price = e(Input::get('price'));
-        $fixed = e(Input::get('fixed'));
-        $owner_name = e(Input::get('owner_name'));
-        $mobileno = e(Input::get('mobileno'));
-        $college = e(Input::get('college'));
-        $address = e(Input::get('address'));
-        $city = e(Input::get('city'));
-        $ad_type = e(Input::get('ad_type'));
-
-        $status = e(Input::get('status'));
-        $adId = 0;
-
-        $pathoriginal = base_path() . '/public/ads_picture/original/';
-//        $path110 = base_path() . '/property_picture/270/';
-        $path50 = base_path() . '/public/ads_picture/thumbnail/';
-//        $path220 = base_path() . '/public/property_picture/220/';
-
-        $rules = array('cover_image' => 'required', 'images' => 'mimes:jpeg,bmp,png');
-        $cover_image = (Input::file('cover_image'));
-        $file = array('cover_image' => Input::file('cover_image'));
-        $validator = Validator::make($file, $rules);
-        if ($adId > 0) {
-//            $user = User::find($userId);
-//            $user->first_name = $firstName;
-//            $user->last_name = $lastName;
-//            $user->email = $email;
-//            $user->aboutme = $aboutme;
-//            $user->username = $username;
-//            $user->status = $status;
-//            $user->save();
-//            if ($user) {
-//                return Redirect::to("admin/dashboard")->with('success', 'User edited successfully');
-//            }
-        } else {
-            //$destinationPath = 'uploads'; // upload path
-            $extension = Input::file('cover_image')->getClientOriginalExtension(); // getting image extension
-            $fileName = time() .'.' . $extension; // renameing image
-            //chmod($pathoriginal,0777);	
-            //chmod($path110,0777);	
-            //chmod($path50,0777);	
-
-            Input::file('cover_image')->move($pathoriginal, $fileName); // uploading file to given path
-//                    File::copy($pathoriginal . $fileName, $path110 . $fileName);
-//                    Image::make($path110 . $fileName)
-//                            ->resize('270', '320')
-//                            ->save($path110 . $fileName);
-//
-            File::copy($pathoriginal . $fileName, $path50 . $fileName);
-            Image::make($path50 . $fileName)
-                    ->resize('100', '100')
-                    ->save($path50 . $fileName);
-//
-//                    File::copy($pathoriginal . $fileName, $path220 . $fileName);
-//                    Image::make($path220 . $fileName)
-//                            ->resize('220', '270')
-//                            ->save($path220 . $fileName);
-            $ads = PostedAd::create(array(
-                        'book_name' => $book_name,
-                        'ad_title' => $ad_title,
-                        'auther_name' => $auther_name,
-                        'publication' => $publication,
-                        'edition' => $edition,
-                        'price' => $price,
-                        'fixed' => $fixed,
-                        'owner_name' => $owner_name,
-                        'mobileno' => $mobileno,
-                        'college' => $college,
-                        'address' => $address,
-                        'city' => $city,
-                        'ad_type' => $ad_type,
-                        'cover_image' => $fileName,
-                        'status' => $status,
-            ));
-            if ($ads) {
-                return Redirect::to("/")->with('success', 'Ad posted successfully');
-            }
-        }
     }
 
     public function editUser($userId) {
