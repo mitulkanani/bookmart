@@ -2,7 +2,8 @@
     box-sizing:border-box;-moz-box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;zoom:1
 }
 html{font-size:18px;min-height:100%}
-body{font:75%/150% "Lato",Arial,Helvetica,sans-serif;background-color:#fff;
+body{font:75%/150% "Lato",Arial,Helvetica,sans-serif;
+     background-color:#fff;
      color:#3e3e3e;overflow-x:hidden;
      -webkit-font-smoothing:antialiased;
      -ms-overflow-style:scrollbar;oveflow-y:scroll
