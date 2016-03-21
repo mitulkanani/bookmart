@@ -13,7 +13,7 @@ class PostedAd extends Model implements AuthenticatableContract, CanResetPasswor
     use Authenticatable,
         CanResetPassword;
 
-    protected $fillable = ['ad_id', 'cover_image','category','ad_type', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college', 'type', 'mobile', 'images', 'owner_name'];
+    protected $fillable = ['cover_image','category','ad_type', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college','address','fixed', 'type', 'mobileno', 'images', 'owner_name'];
 
     //
 

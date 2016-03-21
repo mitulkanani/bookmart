@@ -9,6 +9,7 @@ use App\PostedAd;
 use App\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests\adminAddUserRequest;
+use App\Http\Requests\PostAdRequest;
 use Illuminate\Support\Facades\Lang;
 use Validator;
 use Input;
@@ -52,9 +53,8 @@ class HomeController extends Controller {
         return view('front.post_ad');
     }
 
-    public function adSave() {
-//        adminAddUserRequest $request
-        
+    public function adSave(PostAdRequest $request) {
+
         $ad_title = Input::get('ad_title');
         $auther_name = e(Input::get('auther_name'));
         $publication = e(Input::get('publication'));
@@ -85,18 +85,20 @@ class HomeController extends Controller {
         $file = array('cover_image' => Input::file('cover_image'));
         $validator = Validator::make($file, $rules);
         $images = Input::file('images');
+        $i = 0;
         foreach ($images as $key => $image) {
             $extension = $image->getClientOriginalExtension(); // getting image extension
-            $fileName = time() . '.' . $extension; // renameing image
+            $fileName = time() . $i . '.' . $extension; // renameing image
             $image->move($pathoriginal, $fileName); // uploading file to given path
             File::copy($pathoriginal . $fileName, $path50 . $fileName);
             Image::make($path50 . $fileName)
                     ->resize('100', '100')
                     ->save($path50 . $fileName);
+            $i++;
             $img[] = $fileName;
         }
         $other_images = implode(',', $img);
-        
+
         if ($adId > 0) {
 //            $user = User::find($userId);
 //            $user->first_name = $firstName;
@@ -121,8 +123,9 @@ class HomeController extends Controller {
                     ->save($path50 . $fileName);
 
             $ads = PostedAd::create(array(
-                        'ad_title' => $ad_title,
                         'category' => $category,
+                        'ad_type' => $ad_type,
+                        'ad_title' => $ad_title,
                         'auther_name' => $auther_name,
                         'publication' => $publication,
                         'edition' => $edition,
@@ -133,7 +136,6 @@ class HomeController extends Controller {
                         'college' => $college,
                         'address' => $address,
                         'city' => $city,
-                        'ad_type' => $ad_type,
                         'cover_image' => $fileName,
                         'images' => $other_images,
                         'status' => $status,
