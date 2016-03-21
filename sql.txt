@@ -1,0 +1,147 @@
+CREATE TABLE IF NOT EXISTS `branch` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `branch_id` int(100) NOT NULL,
+  `branch_name` varchar(100) NOT NULL,
+  `branch_img` varchar(100) NOT NULL,
+  `year` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `branch`
+--
+
+INSERT INTO `branch` (`id`, `branch_id`, `branch_name`, `branch_img`, `year`) VALUES
+(1, 1, 'Mechanical Engineering', '', 1),
+(2, 2, 'Auto Mobile Eng.', '', 0),
+(3, 3, 'Civil Eng.', '', 0),
+(4, 4, 'Electronics & Communication Eng. ', '', 0),
+(5, 5, 'Computer Eng.', '', 0),
+(6, 6, 'IT Eng.', '', 0),
+(7, 7, 'Electrical Eng.', '', 0),
+(8, 8, 'F.Y.B.com', '', 0),
+(9, 0, 'S.Y.B.com', '', 0),
+(10, 0, 'T.Y.B.com', '', 0),
+(11, 0, 'BCA', '', 0),
+(12, 0, 'MCA', '', 0),
+(13, 0, 'Bsc', '', 0),
+(14, 0, 'Msc', '', 0),
+(15, 0, 'Bsc-IT', '', 0),
+(16, 0, 'Msc-IT', '', 0),
+(17, 0, 'Physiotherapy', '', 0),
+(18, 0, 'Dental ', '', 0),
+(19, 0, 'Homeopathy', '', 0),
+(20, 0, 'Ayurvaidic ', '', 0),
+(21, 0, 'Medical', '', 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `colleges` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `clg_id` int(100) NOT NULL,
+  `clg_name` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
+
+--
+-- Dumping data for table `colleges`
+--
+
+INSERT INTO `colleges` (`id`, `clg_id`, `clg_name`, `city`) VALUES
+(1, 0, 'A. D. Patel Institute of Technology', 'Vallabh Vidyanagar'),
+(2, 0, 'Adani Institute of Infrastructure Management ', 'Ahmedabad'),
+(3, 0, 'Ahmedabad Institute of Technology', 'Ahmedabad'),
+(4, 0, 'Atmiya Institute of Technology and Science', 'Rajkot'),
+(5, 0, 'B.K. School of Business Management', 'Ahmedabad'),
+(6, 0, 'Babaria Institute of Technology ', 'Vadodara'),
+(7, 0, 'Bhagwan Mahavir Engineering College', 'Surat'),
+(8, 0, 'Birla Vishwakarma Mahavidyalaya', 'Vallabh Vidyanagar'),
+(9, 0, 'C K Pithawala College of Engineering and Technology', 'Surat'),
+(10, 0, 'C. U. Shah College of Engineering and Technology', 'Surendranagar'),
+(11, 0, 'Dr. Jivraj Mehta Institute of Technology', 'Anand'),
+(12, 0, 'Dr. S. & S.S. Ghandhy Government Engineering College', 'Surat'),
+(13, 0, 'G H Patel College Of Engineering & Technology', 'Vallabh Vidyanagar'),
+(14, 0, 'Gandhinagar Institute of Technology', 'Gandhinagar'),
+(15, 0, 'Government Engineering College', 'Bharuch'),
+(16, 0, 'Government Engineering College', 'Bhavnagar'),
+(17, 0, 'Government Engineering College', 'Bhuj'),
+(18, 0, 'Government Engineering College', 'Dahod'),
+(19, 0, 'Government Engineering College', 'Gandhinagar'),
+(20, 0, 'Government Engineering College', 'Godhra'),
+(21, 0, 'Government Engineering College', 'Modasa'),
+(22, 0, 'Government Engineering College', 'Palanpur'),
+(23, 0, 'Government Engineering College', 'Patan'),
+(24, 0, 'Government Engineering College', 'Rajkot'),
+(25, 0, 'Government Engineering College', 'Surat'),
+(26, 0, 'K J Institute of Engineering & Technology', 'Vadodara'),
+(27, 0, 'K.S. School of Business Management', 'Ahmedabad'),
+(28, 0, 'L.C. Institute of Technology, Bhandu', 'Mehsana'),
+(29, 0, 'Shri Labhubhai Trivedi Institute of Engineering & Technology', 'Rajkot'),
+(30, 0, 'L.J. Institute of Engineering & Technology', 'Ahmedabad'),
+(31, 0, 'L. J. Institute of Management Studies', 'Ahmedabad'),
+(32, 0, 'Lalbhai Dalpatbhai College of Engineering', 'Ahmedabad'),
+(33, 0, 'LDRP Institute of Technology and Research', 'Gandhinagar'),
+(34, 0, 'Lukhdhirji Engineering College', 'Morbi'),
+(35, 0, 'Mahatma Gandhi Engineering College', 'Navsari'),
+(36, 0, 'Narnarayan Shastri Institute of Technology', 'Ahmedabad'),
+(37, 0, 'Parul Institute of Engineering and Technology', 'Vadodara'),
+(38, 0, 'Parul Institute of Technology', 'Vadodara'),
+(39, 0, 'Sankalchand Patel College of Engineering', 'Visnagar'),
+(40, 0, 'Sardar Vallabhbhai Patel Institute of Technology', 'Vasad'),
+(41, 0, 'Sarvajanik College of Engineering and Technology', 'Surat'),
+(42, 0, 'Shanti Business School', 'Ahmedabad'),
+(43, 0, 'Shantilal Shah Engineering College, Sidsar, ', 'Bhavnagar'),
+(44, 0, 'Shri Sadvidya Mandal Institute of Technology', 'Bharuch'),
+(45, 0, 'Silver Oak College of Engineering and Technology', 'Ahmedabad'),
+(46, 0, 'St. Kabir Institute of Professional Studies', 'Ahmedabad'),
+(47, 0, 'Tapti Brahmacharya Engineering College', 'Surat'),
+(48, 0, 'U. V. Patel College of Engineering', 'Mehsana'),
+(49, 0, 'Unitedworld School of Business', 'Ahmedabad'),
+(50, 0, 'Valia Institute of Technology', 'Bharuch'),
+(51, 0, 'Government Engineering College', 'Valsad'),
+(52, 0, 'Gujarat Power Engineering & Research Institute', 'Mehsana'),
+(53, 0, 'Hasmukh Goswami College of Engineering', 'Ahmedabad'),
+(54, 0, 'IBS ICFAIN Business School', 'Ahmedabad'),
+(55, 0, 'IIMT STUDIES', 'Ahmedabad'),
+(56, 0, 'International Institute of Management and Technical Studies', 'Ahmedabad'),
+(57, 0, 'Venus International College of Technology', 'Gandhinagar'),
+(58, 0, 'Vishwakarma Government Engineering College', 'Gandhinagar'),
+(59, 0, 'VVP Engineering College', 'Rajkot'),
+(60, 0, 'B.J. Medical College', 'Ahmedabad'),
+(61, 0, 'Baroda Medical College', 'Vadodara'),
+(62, 0, 'Government Medical College', 'Bhavnagar'),
+(63, 0, 'Government Medical College', 'Surat'),
+(64, 0, 'Kesarsal Medical College & Research Institute', 'Ahmedabad'),
+(65, 0, 'M. P. Shah Medical College', 'Jamnagar'),
+(66, 0, 'Manubhai Patel Dental College', 'Vadodara'),
+(67, 0, 'Pandit Deendayal Upadhyay Medical College', 'Rajkot'),
+(68, 0, 'Pramukhswami Medical College', 'Karamsad'),
+(69, 0, 'Smt. B.K.Shah Medical Institute and Research Centre, Waghodia', 'Vadodara'),
+(70, 0, 'Smt. NHL Municipal Medical College', 'Ahmedabad'),
+(71, 0, 'Surat Municipal Institute of Medical Education and Research', 'Surat'),
+(72, 0, 'Indian Institute of Management', 'Ahmedabad'),
+(73, 0, 'Institute of Rural Management', 'Anand'),
+(74, 0, 'Entrepreneurship Development Institute of India', 'Gandhinagar'),
+(75, 0, 'National Institute of Fashion Technology', 'Gandhinagar'),
+(76, 0, 'National Institute of Pharmaceutical Education and Research', 'Ahmedabad'),
+(77, 0, 'National Institute of Design', 'Ahmedabad'),
+(78, 0, 'Sardar Vallabhbhai National Institute of Technology', 'Surat'),
+(79, 0, 'Indian Institute of Information Technology, Vadodara', 'Gandhinagar'),
+(80, 0, 'Indian Institute of Technology Gandhinagar', 'Gandhinagar'),
+(81, 0, 'International Institute of Management and Technical Studies', 'Ahmedabad'),
+(82, 0, 'MICA - The School of Ideas', 'Ahmedabad, Gujarat'),
+(83, 0, 'Others', ''),
+(84, 0, '', ''),
+(85, 0, '', ''),
+(86, 0, '', '');
