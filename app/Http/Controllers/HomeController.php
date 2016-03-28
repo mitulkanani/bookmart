@@ -40,6 +40,17 @@ class HomeController extends Controller {
         return view('front/home', compact('adLists'));
     }
 
+    public function open_store() {
+//        $adLists = $this->PostedAdOBJ->getBookadList();
+        return view('front/store');
+    }
+
+    public function more_content() {
+        $id = Input::get('getLastContentId');
+        $adLists = $this->PostedAdOBJ->getLoadMoreBookList($id);
+        return view('front/more_content', compact('adLists'));
+    }
+
     public function gallery() {
         $id = Input::get('id');
         $galleryLists = $this->PostedAdOBJ->getimageList($id);
@@ -59,12 +70,30 @@ class HomeController extends Controller {
 
     public function search_book() {
         $books = $this->PostedAdOBJ->getbooksList();
-     }
+    }
 
-    public function adSave(PostAdRequest $request) {
+    public function searchAjax() {
+        $searchvalue = Input::get('searchvalue');
+        $searchstring = explode(',', $searchvalue);
+
+        $books = $this->PostedAdOBJ->searchbyBooksName($searchstring[0]);
+    }
+
+    public function get_authors() {
+        $authors = $this->PostedAdOBJ->getAuthorsList();
+    }
+
+    public function searchAdtitle() {
+        $Adtitle = Input::get('searchvalue');
+        $searchstring = explode(',', $Adtitle);
+        $adLists = $this->PostedAdOBJ->searchBooksbytitle($searchstring);
+        return view('front/ajax_list', compact('adLists'));
+    }
+
+    public function adSave() {
 
         $ad_title = Input::get('ad_title');
-        $auther_name = e(Input::get('auther_name'));
+        $author_name = e(Input::get('author_name'));
         $publication = e(Input::get('publication'));
         $edition = e(Input::get('edition'));
         $category = e(Input::get('category'));
@@ -94,19 +123,22 @@ class HomeController extends Controller {
         $validator = Validator::make($file, $rules);
         $images = Input::file('images');
         $i = 0;
-        foreach ($images as $key => $image) {
-            $extension = $image->getClientOriginalExtension(); // getting image extension
-            $fileName = time() . $i . '.' . $extension; // renameing image
-            $image->move($pathoriginal, $fileName); // uploading file to given path
-            File::copy($pathoriginal . $fileName, $path50 . $fileName);
-            Image::make($path50 . $fileName)
-                    ->resize('100', '100')
-                    ->save($path50 . $fileName);
-            $i++;
-            $img[] = $fileName;
+        if (Input::hasFile('images')) {
+            foreach ($images as $key => $image) {
+                $extension = $image->getClientOriginalExtension(); // getting image extension
+                $fileName = time() . $i . '.' . $extension; // renameing image
+                $image->move($pathoriginal, $fileName); // uploading file to given path
+                File::copy($pathoriginal . $fileName, $path50 . $fileName);
+                Image::make($path50 . $fileName)
+                        ->resize('100', '100')
+                        ->save($path50 . $fileName);
+                $i++;
+                $img[] = $fileName;
+            }
+            $other_images = implode(',', $img);
+        } else {
+            $other_images = "";
         }
-        $other_images = implode(',', $img);
-
         if ($adId > 0) {
 //            $user = User::find($userId);
 //            $user->first_name = $firstName;
@@ -134,7 +166,7 @@ class HomeController extends Controller {
                         'category' => $category,
                         'ad_type' => $ad_type,
                         'ad_title' => $ad_title,
-                        'auther_name' => $auther_name,
+                        'author_name' => $author_name,
                         'publication' => $publication,
                         'edition' => $edition,
                         'price' => $price,

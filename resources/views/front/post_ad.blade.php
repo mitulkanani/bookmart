@@ -25,7 +25,7 @@
             <div class="element-input field-book desc" style="display: none;">
                 <label class="title"></label>
                 <div class="item-cont">
-                    <input required="true" type="text" placeholder="Auther-name" name="auther_name" class="large"/>
+                    <input required="true" type="text" placeholder="Author-name" name="author_name" class="large"/>
                     <span class="icon-place"></span>
                 </div>
             </div>

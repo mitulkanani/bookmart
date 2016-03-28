@@ -23,7 +23,7 @@ class PostAdRequest extends Request {
     public function rules() {
         return [
             'ad_title' => 'required|max:10',
-            'auther_name' => 'required',
+            'author_name' => 'required',
             'price' => 'required|min:1|numeric',
             'cover_image' => 'required',
             'owner_name' => 'required|max:30',
