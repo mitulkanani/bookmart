@@ -1,0 +1,66 @@
+
+<?php foreach($adLists as $key=>$adsList): ?>
+<li class="mix <?php echo e($adsList->ad_type); ?>  <?php echo e($adsList->category); ?>"  style="display: inline-block;">
+    <article class="box animated" data-animation-type="fadeInUp" style="">
+        <figure>
+            <a class="media-box-thumb" title="" onclick="getgallery(<?php echo e($adsList->id); ?>);" href="javascript:;">
+                <img src="<?php echo e(asset('ads_picture/original/')); ?>/<?php echo e($adsList->cover_image); ?>" alt="" class="middle-item"  style="width: 100%;cursor: pointer"/>
+            </a>
+        </figure>
+        <div class="details">
+            <div class="ribbon-wrapper-green">
+                <div class="ribbon-green">
+                    <span style="color: #fff;font-style: oblique;"><?php echo e($adsList->ad_type); ?></span>
+                </div>
+            </div>
+            <h2 class="box-title"><?php echo e($adsList->ad_title); ?><small><?php echo e($adsList->auther_name); ?></small></h2>
+            <div class="col-sm-12" style="float: left">
+                <span class="desc-heading"> Price:&nbsp;&nbsp; </span>
+                <span style="float:left">Rs.</span><strong class="price" ><?php echo e($adsList->price); ?> </strong>
+            </div>
+            <div class="col-sm-12" style="float: left">
+                <span class="desc-heading"> Edition: </span>
+                <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;<?php echo e($adsList->edition); ?> </span>
+            </div>
+            <div class="col-sm-12" style="float: left">
+                <span class="desc-heading">Publication: </span>
+                <span style="color: #98ce44;font-weight: bold;">&nbsp;&nbsp;<?php echo e($adsList->publication); ?></span>
+            </div>
+            <div class="col-sm-12" style=" bottom: -14px;margin: 0;padding: 0;">
+                <button class="button btn-small dark-blue1 col-sm-6"
+                        type="button"
+                        data-toggle="collapse" 
+                        data-target="#<?php echo e($adsList->id); ?>" 
+                        aria-expanded="false" 
+                        aria-controls="<?php echo e($adsList->id); ?>">
+                    View Details
+                </button>
+                <a href="view.html">
+                    <button class="button btn-small green col-sm-6">View more</button>
+                </a>
+            </div>
+        </div>
+    </article>
+    <div class="collapse" id="<?php echo e($adsList->id); ?>" style="background: #fff;">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-6"><span> Owner-name:</span><span><?php echo e($adsList->owner_name); ?></span></div>
+                <div class="col-sm-6"><span> MobileNo.:</span><span><?php echo e($adsList->mobile); ?></span></div>
+            </div>
+            <div class="col-sm-12" style="margin-left: 14px;">
+                <span> College-name:</span><span><?php echo e($adsList->college); ?></span>
+            </div>
+            <div class="col-sm-12" style="margin-left: 14px;">
+                <span>Address:</span><span><?php echo e($adsList->address); ?></span>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-6"><span> City:</span><span><?php echo e($adsList->city); ?></span></div>
+                <div class="col-sm-6"><span>Negotiable:</span><span><?php echo e($adsList->type); ?></span></div>
+            </div>
+        </div>
+    </div>
+</li>
+<?php endforeach; ?>
+<li class="gap"></li>
+<li class="gap"></li>
+<li class="gap"></li>
