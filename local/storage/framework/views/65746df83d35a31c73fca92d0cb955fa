@@ -1,0 +1,35 @@
+{"products": [
+        {
+            "id": 48,
+            "link": "http:\/\/transformer.sunnytoo.com\/twelfth\/en\/electronics\/48-synthetic-leather-mens-adjustable-casual-buckle-belt.html",
+            "quantity": 2,
+            "image": "http:\/\/transformer.sunnytoo.com\/twelfth\/109-thumb_default\/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg",
+            "image_width": "56",
+            "image_height": "64",
+            "image_cart": "http:\/\/transformer.sunnytoo.com\/twelfth\/109-small_default\/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg",
+            "priceByLine": "$38.00",
+            "name": "Synthetic Leather Mens Adjustable Casual buckle Belt",
+            "full_name": "Synthetic Leather Mens Adjustable Casual buckle Belt",
+            "price": "$38.00",
+            "price_float": 38,
+            "idCombination": 0,
+            "idAddressDelivery": 0,
+            "is_gift": false,
+            "hasAttributes": false,
+            "hasCustomizedDatas": false,
+            "customizedDatas": []
+        }
+    ],
+    "discounts": [],
+    "shippingCost": "$27.00",
+    "shippingCostFloat": 27,
+    "wrappingCost": "$0.00",
+    "nbTotalProducts": 5,
+    "total": "$164.59",
+    "productTotal": "$137.59",
+    "freeShipping": "$0.00",
+    "freeShippingFloat": 0,
+    "free_ship": false,
+    "isVirtualCart": false,
+    "hasError": false
+}

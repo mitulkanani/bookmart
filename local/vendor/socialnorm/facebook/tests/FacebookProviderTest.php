@@ -37,7 +37,7 @@ class FacebookProviderTest extends TestCase
         $this->assertEquals('John Doe', $user->nickname);
         $this->assertEquals('John Doe', $user->full_name);
         $this->assertEquals('john@example.com', $user->email);
-        $this->assertEquals('https://graph.facebook.com/v2.3/187903669/picture', $user->avatar);
+        $this->assertEquals('https://graph.facebook.com/v2.4/187903669/picture', $user->avatar);
         $this->assertEquals(
             'RUXRIAxWwxVYKk3b1vrTACPUiAGImrszVsBXb2FQZZZXbd6JNzkZRAgZLCdAiCfKHrPanMTS8BAHLPqugidBcCNkUmz3y72XMZRZWw4SEGdczB2HygsA7oQOufDIbgZBtyA1KaznugApacfId5HIdZtIEh47ZLEa0BrJrBICZBf4uCWCGD5OBM40RpvTVaAux2vCv5wU9ZZzm91WAVtSC5ufoZmr3Ty',
             $user->access_token

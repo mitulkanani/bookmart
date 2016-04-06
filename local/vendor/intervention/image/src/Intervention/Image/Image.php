@@ -268,7 +268,7 @@ class Image extends File
      */
     public function isEncoded()
     {
-        return ! is_null($this->encoded);
+        return ! empty($this->encoded);
     }
 
     /**
@@ -341,20 +341,6 @@ class Image extends File
     public function mime()
     {
         return $this->mime;
-    }
-
-    /**
-     * Get fully qualified path to image
-     *
-     * @return string
-     */
-    public function basePath()
-    {
-        if ($this->dirname && $this->basename) {
-            return ($this->dirname .'/'. $this->basename);
-        }
-
-        return null;
     }
 
     /**

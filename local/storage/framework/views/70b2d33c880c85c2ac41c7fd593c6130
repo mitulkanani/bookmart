@@ -1,467 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML> 
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-us"><![endif]--> 
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7" lang="en-us"><![endif]--> <!--[if IE 8]>
+<html class="no-js lt-ie9 ie8" lang="en-us"><![endif]--> <!--[if gt IE 8]>
+<html class="no-js ie9" lang="en-us"><![endif]-->
+<html lang="en-us">
     <head>
-        <!-- Page Title -->
-        <title>Book-Mart</title>
-
-        <!-- Meta Tags -->
+        <meta charset="utf-8" />
+        <title>rentYaar</title>
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-        <meta charset="utf-8">
-        <meta name="keywords" content="HTML5 Template" />
-        <meta name="description" content="BookMart">
-        <meta name="author" content="Mitul Kanani">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- Theme Styles -->
-        <link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap.min.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/font-awesome.min.css')); ?>">
-        <!--<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'/>-->
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo e(asset('/css/animate.min.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/galleria.classic.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/slidebars.min.css')); ?>">
-        <!-- Current Page Styles -->
-        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/slider/settings.css')); ?>" media="screen" />
-        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/slider/style.css')); ?>" media="screen" />
-        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/slider/jquery.bxslider.css')); ?>" media="screen" />
-        <link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/slider/flexslider.css')); ?>" media="screen" />
-
-        <!-- Main Style -->
-        <link id="main-style" rel="stylesheet" href="<?php echo e(asset('/css/style.css')); ?>">
-        <link id="main-style" rel="stylesheet" href="<?php echo e(asset('/css/style2.css')); ?>">
-
-        <!-- Updated Styles -->
-        <link rel="stylesheet" href="<?php echo e(asset('/css/updates.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/kendo.common-material.min.css')); ?>">
-
-        <!-- Custom Styles -->
-        <link rel="stylesheet" href="<?php echo e(asset('/css/custom.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/app.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap-lightbox.min.css')); ?>">
-
-        <!-- Responsive Styles -->
-        <link rel="stylesheet" href="<?php echo e(asset('/css/responsive.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('/css/raxus.css')); ?>" media="screen" type="text/css">
-        <link id="main-style" rel="stylesheet" href="<?php echo e(asset('/css/form.css')); ?>"/>
-        <!-- Javascript -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery-1.11.0.min.js')); ?>"></script>
-        <!--<script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.min.js')); ?>"></script>-->
-        <!-- Twitter Bootstrap -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/bootstrap.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/bootstrap-lightbox.min.js')); ?>"></script>
-
-
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/modernizr.2.7.1.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery-migrate-1.2.1.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.placeholder.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery-ui.1.10.4.min.js')); ?>"></script>
-        
-        <!-- load BXSlider scripts -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.bxslider.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/raxus-slider.min.js')); ?>"></script>
-        <!-- Flex Slider -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.flexslider-min.js')); ?>"></script>
-        <!-- Auto complete-->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/autocomplete.min.js')); ?>"></script>
-
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/galleria-1.4.2.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/galleria.classic.min.js')); ?>"></script>
-        <!-- Google Map Api -->
-
-
-        <!-- parallax -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.stellar.min.js')); ?>"></script>
-        <!-- Isotope -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/isotope.pkgd.min.js')); ?>"></script>
-        <!-- waypoint -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/waypoints.min.js')); ?>"></script>
-        <!------ jssor slider -------->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jssor.slider.min.js')); ?>"></script>
-        
-        <!-- load page Javascript -->
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/theme-scripts.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.scrollUp.min.js')); ?>"></script>
-
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/modernizr.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/jquery.mixitup.min.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/main.js')); ?>"></script>
-        <script type="text/javascript" src="<?php echo e(asset('/js/front/kendo.all.min.js')); ?>"></script>
-        <style>
-            .no-js #loader { display: none;  }
-            .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-            .se-pre-con {
-                position: fixed;
-                left: 0px;
-                top: 0px;
-                width: 100%;
-                height: 100%;
-                z-index: 9999;
-                background: url(images/front/gear.gif) center no-repeat #fff;
-            }
-            #modal-body {
-                max-height: calc(118vh - 250px);
-                overflow-y: auto;
-            }
+        <meta name="robots" content="index,follow" />
+        <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!--<link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap.min.css')); ?>">-->
+        <link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo e(asset('/images/upload/favicon-12.ico?1443194111')); ?>" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:600" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fjalla+One:400" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:400" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:regular" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?php echo e(asset('/css/cart/theme.css')); ?>" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?php echo e(asset('/css/cart/customer_s12.css')); ?>">
+        <script type="text/javascript" src="<?php echo e(asset('/js/cart/jquery-2.1.4.js')); ?>"></script>
+        <script type="text/javascript" src="<?php echo e(asset('/js/cart/privet.js')); ?>"></script>
+        <meta property="og:site_name" content="Transformer" />
+        <meta property="og:url" content="http://transformer.sunnytoo.com/twelfth/en/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Transformer" />
+        <meta property="og:image" content="http://transformer.sunnytoo.com/twelfth/img/store-12-logo-143989231412.jpg" />
+        <style type="text/css">
+            .stsocial_list li a,#footer .stsocial_list li a,#stsocial_list_topbar li a{color:#666666;}
+            .stsocial_list li a:hover,#footer .stsocial_list li a:hover,#stsocial_list_topbar li a:hover{color:#00A161;}
+        </style>
+        <style type="text/css">
+            #easycontent_container_18 {padding-top:10px;}#easycontent_container_18{padding-bottom:10px;}
+            #easycontent_container_19{background-attachment:fixed;background-color:#FBFBFB;}
+            #easycontent_container_19 {padding-top:38px;}
+            #easycontent_container_19 {padding-bottom:38px;}
+            #easycontent_container_29 {background-attachment:fixed;background-color:#282828;}
+            #easycontent_container_29 .easycontent, #easycontent_container_29 .easycontent a{color:#ffffff;} 
+            #easycontent_container_29 .icon_line:after, #easycontent_container_29 .icon_line:before{background-color:#ffffff;}
+            #easycontent_container_29 .line{border-color:#ffffff;}
+            #easycontent_container_29 {margin-bottom:80px;}
+            #easycontent_container_30 {background-attachment:fixed;background-color:#282828;}
+            #easycontent_container_30 .easycontent, #easycontent_container_30 .easycontent a{color:#ffffff;} 
+            #easycontent_container_30 .icon_line:after, #easycontent_container_30 .icon_line:before{background-color:#ffffff;} 
+            #easycontent_container_30 .line{border-color:#ffffff;}
+            #easycontent_container_30 {padding-top:38px;}
+            #easycontent_container_30 {padding-bottom:38px;}
+            #easycontent_container_30 .easycontent .btn{color:#ffffff;}
+            #easycontent_container_30 .easycontent .btn{background-color:#00a161;}#easycontent_container_30 .easycontent .btn:hover{color:#444444;}#easycontent_container_30 .easycontent .btn:hover{background-color: #ffffff;}#easycontent_container_31 {background-attachment:fixed;background-image: url(http://transformer.sunnytoo.com/twelfth/upload/steasycontent/18b0ff258a68b38a1d345d95aa3a2336.jpg);}
+            #easycontent_container_31 .easycontent, #easycontent_container_31 .easycontent a{color:#ffffff;} 
+            #easycontent_container_31 .icon_line:after,
+            #easycontent_container_31 .icon_line:before{background-color:#ffffff;} 
+            #easycontent_container_31 .line{border-color:#ffffff;}
+            #easycontent_container_31 {padding-top:60px;}#easycontent_container_31 {margin-bottom:0px;}
+        </style>
+        <style type="text/css">
+            .st_owl_carousel_block_1 .style_content, 
+            .st_owl_carousel_block_1 .style_content a{color:#ffffff;} .st_owl_carousel_block_1 .icon_line:after, .st_owl_carousel_block_1 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_1 .line, .st_owl_carousel_block_1 .btn{border-color:#ffffff;}.st_owl_carousel_block_2 .style_content, .st_owl_carousel_block_2 .style_content a{color:#ffffff;} .st_owl_carousel_block_2 .icon_line:after, .st_owl_carousel_block_2 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_2 .line, .st_owl_carousel_block_2 .btn{border-color:#ffffff;}.st_owl_carousel_block_3 .style_content, .st_owl_carousel_block_3 .style_content a{color:#ffffff;} .st_owl_carousel_block_3 .icon_line:after, .st_owl_carousel_block_3 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_3 .line, .st_owl_carousel_block_3 .btn{border-color:#ffffff;}.st_owl_carousel_block_4 .style_content, .st_owl_carousel_block_4 .style_content a{color:#ffffff;} .st_owl_carousel_block_4 .icon_line:after, .st_owl_carousel_block_4 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_4 .line, .st_owl_carousel_block_4 .btn{border-color:#ffffff;}.st_owl_carousel_block_5 .style_content, .st_owl_carousel_block_5 .style_content a{color:#ffffff;} .st_owl_carousel_block_5 .icon_line:after, .st_owl_carousel_block_5 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_5 .line, .st_owl_carousel_block_5 .btn{border-color:#ffffff;}.st_owl_carousel_block_6 .style_content, .st_owl_carousel_block_6 .style_content a{color:#ffffff;} .st_owl_carousel_block_6 .icon_line:after, .st_owl_carousel_block_6 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_6 .line, .st_owl_carousel_block_6 .btn{border-color:#ffffff;}.st_owl_carousel_block_7 .style_content, .st_owl_carousel_block_7 .style_content a{color:#ffffff;} .st_owl_carousel_block_7 .icon_line:after, .st_owl_carousel_block_7 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_7 .line, .st_owl_carousel_block_7 .btn{border-color:#ffffff;}.st_owl_carousel_block_8 .style_content, .st_owl_carousel_block_8 .style_content a{color:#ffffff;} .st_owl_carousel_block_8 .icon_line:after, .st_owl_carousel_block_8 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_8 .line, .st_owl_carousel_block_8 .btn{border-color:#ffffff;}.st_owl_carousel_block_9 .style_content, .st_owl_carousel_block_9 .style_content a{color:#ffffff;} .st_owl_carousel_block_9 .icon_line:after, .st_owl_carousel_block_9 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_9 .line, .st_owl_carousel_block_9 .btn{border-color:#ffffff;}.st_owl_carousel_block_10 .style_content, .st_owl_carousel_block_10 .style_content a{color:#ffffff;} .st_owl_carousel_block_10 .icon_line:after, .st_owl_carousel_block_10 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_10 .line, .st_owl_carousel_block_10 .btn{border-color:#ffffff;}.st_owl_carousel_block_11 .style_content, .st_owl_carousel_block_11 .style_content a{color:#ffffff;} .st_owl_carousel_block_11 .icon_line:after, .st_owl_carousel_block_11 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_11 .line, .st_owl_carousel_block_11 .btn{border-color:#ffffff;}.st_owl_carousel_block_12 .style_content, .st_owl_carousel_block_12 .style_content a{color:#ffffff;} .st_owl_carousel_block_12 .icon_line:after, .st_owl_carousel_block_12 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_12 .line, .st_owl_carousel_block_12 .btn{border-color:#ffffff;}.st_owl_carousel_block_13 .style_content, .st_owl_carousel_block_13 .style_content a{color:#ffffff;} .st_owl_carousel_block_13 .icon_line:after, .st_owl_carousel_block_13 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_13 .line, .st_owl_carousel_block_13 .btn{border-color:#ffffff;}.st_owl_carousel_block_14 .style_content, .st_owl_carousel_block_14 .style_content a{color:#ffffff;} .st_owl_carousel_block_14 .icon_line:after, .st_owl_carousel_block_14 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_14 .line, .st_owl_carousel_block_14 .btn{border-color:#ffffff;}.st_owl_carousel_block_15 .style_content, .st_owl_carousel_block_15 .style_content a{color:#ffffff;} .st_owl_carousel_block_15 .icon_line:after, .st_owl_carousel_block_15 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_15 .line, .st_owl_carousel_block_15 .btn{border-color:#ffffff;}.st_owl_carousel_block_16 .style_content, .st_owl_carousel_block_16 .style_content a{color:#ffffff;} .st_owl_carousel_block_16 .icon_line:after, .st_owl_carousel_block_16 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_16 .line, .st_owl_carousel_block_16 .btn{border-color:#ffffff;}.st_owl_carousel_block_19 .style_content, .st_owl_carousel_block_19 .style_content a{color:#ffffff;} .st_owl_carousel_block_19 .icon_line:after, .st_owl_carousel_block_19 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_19 .line, .st_owl_carousel_block_19 .btn{border-color:#ffffff;}.st_owl_carousel_block_20 .style_content, .st_owl_carousel_block_20 .style_content a{color:#000000;} .st_owl_carousel_block_20 .icon_line:after, .st_owl_carousel_block_20 .icon_line:before{background-color:#000000;} .st_owl_carousel_block_20 .line, .st_owl_carousel_block_20 .btn{border-color:#000000;}.st_owl_carousel_block_20 .style_content .btn{color:#ffffff;}.st_owl_carousel_block_20 .style_content .btn{background-color:#000000;border-color:#000000;}.st_owl_carousel_block_20 .style_content .btn:hover{color:#000000;}.st_owl_carousel_block_20 .style_content .btn:hover{background-color: #ffffff;}.st_owl_carousel_block_21 .style_content, .st_owl_carousel_block_21 .style_content a{color:#ffffff;} .st_owl_carousel_block_21 .icon_line:after, .st_owl_carousel_block_21 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_21 .line, .st_owl_carousel_block_21 .btn{border-color:#ffffff;}.st_owl_carousel_block_22 .style_content, .st_owl_carousel_block_22 .style_content a{color:#ffffff;} .st_owl_carousel_block_22 .icon_line:after, .st_owl_carousel_block_22 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_22 .line, .st_owl_carousel_block_22 .btn{border-color:#ffffff;}.st_owl_carousel_block_23 .style_content, .st_owl_carousel_block_23 .style_content a{color:#ffffff;} .st_owl_carousel_block_23 .icon_line:after, .st_owl_carousel_block_23 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_23 .line, .st_owl_carousel_block_23 .btn{border-color:#ffffff;}#st_owl_carousel_block_23 .style_content h1, #st_owl_carousel_block_23 .style_content h2, #st_owl_carousel_block_23 .style_content h3, #st_owl_carousel_block_23 .style_content h4, #st_owl_carousel_block_23 .style_content h5, #st_owl_carousel_block_23 .style_content h6, #st_owl_carousel_block_23 .style_content p{padding: 6px 0.3em 4px;line-height:120%;background-color:#333333;background-color:rgba(51,51,51,0.4);}#st_owl_carousel_block_23 .style_content p{padding: 6px 0.6em;}.st_owl_carousel_block_24 .style_content, .st_owl_carousel_block_24 .style_content a{color:#ffffff;} .st_owl_carousel_block_24 .icon_line:after, .st_owl_carousel_block_24 .icon_line:before{background-color:#ffffff;} .st_owl_carousel_block_24 .line, .st_owl_carousel_block_24 .btn{border-color:#ffffff;}#st_owl_carousel_block_24 .style_content h1, #st_owl_carousel_block_24 .style_content h2, #st_owl_carousel_block_24 .style_content h3, #st_owl_carousel_block_24 .style_content h4, #st_owl_carousel_block_24 .style_content h5, #st_owl_carousel_block_24 .style_content h6, #st_owl_carousel_block_24 .style_content p{padding: 6px 0.3em 4px;line-height:120%;background-color:#333333;background-color:rgba(51,51,51,0.4);}#st_owl_carousel_block_24 .style_content p{padding: 6px 0.6em;}.st_owl_carousel_block_28 .style_content, .st_owl_carousel_block_28 .style_content a{color:#444444;} .st_owl_carousel_block_28 .icon_line:after, .st_owl_carousel_block_28 .icon_line:before{background-color:#444444;} .st_owl_carousel_block_28 .line, .st_owl_carousel_block_28 .btn{border-color:#444444;}#st_owl_carousel-8.owl-theme .owl-controls .owl-page span{background-color:#666666;}#st_owl_carousel-8.owl-theme .owl-controls .owl-page.active span{background-color:#999999;}#st_owl_carousel-9.owl-theme .owl-controls .owl-page span{background-color:#999999;}#st_owl_carousel-9.owl-theme .owl-controls .owl-page.active span{background-color:#444444;}#owl_carousel_container_10 {margin-top:16px;}#owl_carousel_container_10 .st_owl_carousel_3 .owl-carousel .owl-item{padding-right:8px;padding-left:8px;}#st_owl_carousel-11 .owl_bar{background-color:#777777;}#st_owl_carousel-11 .owl_progressBar{background-color:#EDEDED;}</style><style type="text/css">#st_advanced_ma_38 .cate_label,#st_mo_advanced_ma_38 .cate_label{color:#ffffff;}#st_advanced_ma_38 .cate_label,#st_mo_advanced_ma_38 .cate_label{background-color:#EE3D43;}#st_advanced_menu_39 .stadvancedmenu_sub{background-image:url(http://transformer.sunnytoo.com/twelfth/upload/stadvancedmenu/18a321c4480ecd5a9e4fdd7cbcac3538.jpg);background-repeat:no-repeat;background-position: right bottom;}#st_advanced_ma_48 .cate_label,#st_mo_advanced_ma_48 .cate_label{color:#ffffff;}#st_advanced_ma_48 .cate_label,#st_mo_advanced_ma_48 .cate_label{background-color:#5BD2EC;}#st_advanced_menu_55 .stadvancedmenu_sub{background-image:url(http://transformer.sunnytoo.com/twelfth/upload/stadvancedmenu/7e89f9861cb77f094f19bf812f7b6d3a.jpg);background-repeat:no-repeat;background-position: right bottom;}#st_advanced_ma_57 .cate_label,#st_mo_advanced_ma_57 .cate_label{color:#ffffff;}#st_advanced_ma_57 .cate_label,#st_mo_advanced_ma_57 .cate_label{background-color:#FF8A00;}#st_advanced_ma_61 .cate_label,#st_mo_advanced_ma_61 .cate_label{color:#ffffff;}#st_advanced_ma_61 .cate_label,#st_mo_advanced_ma_61 .cate_label{background-color:#ee3d43;}#st_advanced_menu_217 .stadvancedmenu_sub{background-image:url(http://transformer.sunnytoo.com/twelfth/upload/stadvancedmenu/00f8e849ac295668def44888c84a2dd9.jpg);background-repeat:no-repeat;background-position: right top;}#st_advanced_ma_220 .cate_label,#st_mo_advanced_ma_220 .cate_label{color:#ffffff;}#st_advanced_ma_220 .cate_label,#st_mo_advanced_ma_220 .cate_label{background-color:#E54D26;}#st_advanced_menu_224 .stadvancedmenu_sub{background-image:url(http://transformer.sunnytoo.com/twelfth/upload/stadvancedmenu/c3833971c755c129fb4c73e9a462fe46.jpg);background-repeat:no-repeat;background-position: right bottom;}#st_advanced_ma_228 .cate_label,#st_mo_advanced_ma_228 .cate_label{color:#ffffff;}#st_advanced_ma_228 .cate_label,#st_mo_advanced_ma_228 .cate_label{background-color:#59B98E;}#st_advanced_ma_234 .cate_label,#st_mo_advanced_ma_234 .cate_label{color:#ffffff;}#st_advanced_ma_234 .cate_label,#st_mo_advanced_ma_234 .cate_label{background-color:#E54D26;}#st_advanced_menu_237 .stadvancedmenu_sub{padding-bottom:90px;}#st_advanced_ma_258 .cate_label,#st_mo_advanced_ma_258 .cate_label{color:#ffffff;}#st_advanced_ma_258 .cate_label,#st_mo_advanced_ma_258 .cate_label{background-color:#E54D26;}#st_advanced_ma_299 .cate_label,#st_mo_advanced_ma_299 .cate_label{color:#ffffff;}#st_advanced_ma_299 .cate_label,#st_mo_advanced_ma_299 .cate_label{background-color:#E54D26;}#st_advanced_ma_315 .cate_label,#st_mo_advanced_ma_315 .cate_label{color:#ffffff;}#st_advanced_ma_315 .cate_label,#st_mo_advanced_ma_315 .cate_label{background-color:#E54D26;}#st_advanced_ma_331 .cate_label,#st_mo_advanced_ma_331 .cate_label{color:#ffffff;}#st_advanced_ma_331 .cate_label,#st_mo_advanced_ma_331 .cate_label{background-color:#E54D26;}#st_advanced_ma_347 .cate_label,#st_mo_advanced_ma_347 .cate_label{color:#ffffff;}#st_advanced_ma_347 .cate_label,#st_mo_advanced_ma_347 .cate_label{background-color:#E54D26;}#st_advanced_ma_363 .cate_label,#st_mo_advanced_ma_363 .cate_label{color:#ffffff;}#st_advanced_ma_363 .cate_label,#st_mo_advanced_ma_363 .cate_label{background-color:#E54D26;}#st_advanced_ma_379 .cate_label,#st_mo_advanced_ma_379 .cate_label{color:#ffffff;}#st_advanced_ma_379 .cate_label,#st_mo_advanced_ma_379 .cate_label{background-color:#E54D26;}#st_advanced_ma_395 .cate_label,#st_mo_advanced_ma_395 .cate_label{color:#ffffff;}#st_advanced_ma_395 .cate_label,#st_mo_advanced_ma_395 .cate_label{background-color:#E54D26;}#st_advanced_ma_411 .cate_label,#st_mo_advanced_ma_411 .cate_label{color:#ffffff;}#st_advanced_ma_411 .cate_label,#st_mo_advanced_ma_411 .cate_label{background-color:#E54D26;}#st_advanced_ma_427 .cate_label,#st_mo_advanced_ma_427 .cate_label{color:#ffffff;}#st_advanced_ma_427 .cate_label,#st_mo_advanced_ma_427 .cate_label{background-color:#E54D26;}#st_advanced_ma_438 .cate_label,#st_mo_advanced_ma_438 .cate_label{color:#ffffff;}#st_advanced_ma_438 .cate_label,#st_mo_advanced_ma_438 .cate_label{background-color:#ee3d43;}#st_advanced_ma_440 .cate_label,#st_mo_advanced_ma_440 .cate_label{color:#ffffff;}#st_advanced_ma_440 .cate_label,#st_mo_advanced_ma_440 .cate_label{background-color:#ee3d43;}#st_advanced_ma_442 .cate_label,#st_mo_advanced_ma_442 .cate_label{color:#ffffff;}#st_advanced_ma_442 .cate_label,#st_mo_advanced_ma_442 .cate_label{background-color:#ee3d43;}#st_advanced_ma_444 .cate_label,#st_mo_advanced_ma_444 .cate_label{color:#ffffff;}#st_advanced_ma_444 .cate_label,#st_mo_advanced_ma_444 .cate_label{background-color:#ee3d43;}#st_advanced_ma_446 .cate_label,#st_mo_advanced_ma_446 .cate_label{color:#ffffff;}#st_advanced_ma_446 .cate_label,#st_mo_advanced_ma_446 .cate_label{background-color:#ee3d43;}#st_advanced_ma_448 .cate_label,#st_mo_advanced_ma_448 .cate_label{color:#ffffff;}#st_advanced_ma_448 .cate_label,#st_mo_advanced_ma_448 .cate_label{background-color:#ee3d43;}#st_advanced_ma_450 .cate_label,#st_mo_advanced_ma_450 .cate_label{color:#ffffff;}#st_advanced_ma_450 .cate_label,#st_mo_advanced_ma_450 .cate_label{background-color:#ee3d43;}#st_advanced_ma_452 .cate_label,#st_mo_advanced_ma_452 .cate_label{color:#ffffff;}#st_advanced_ma_452 .cate_label,#st_mo_advanced_ma_452 .cate_label{background-color:#ee3d43;}#st_advanced_ma_454 .cate_label,#st_mo_advanced_ma_454 .cate_label{color:#ffffff;}#st_advanced_ma_454 .cate_label,#st_mo_advanced_ma_454 .cate_label{background-color:#ee3d43;}#st_advanced_ma_456 .cate_label,#st_mo_advanced_ma_456 .cate_label{color:#ffffff;}#st_advanced_ma_456 .cate_label,#st_mo_advanced_ma_456 .cate_label{background-color:#ee3d43;}#st_advanced_ma_458 .cate_label,#st_mo_advanced_ma_458 .cate_label{color:#ffffff;}#st_advanced_ma_458 .cate_label,#st_mo_advanced_ma_458 .cate_label{background-color:#ee3d43;}#st_advanced_menu_wrap #st_advanced_ma_459,#st_advanced_menu_column_block #st_advanced_ma_459, #st_advanced_menu_wrap #st_advanced_menu_block_459, #st_advanced_menu_wrap #st_advanced_menu_block_459 a,#st_advanced_menu_column_block #st_advanced_menu_block_459,#st_advanced_menu_column_block #st_advanced_menu_block_459 a{color:#888888;}#st_advanced_menu_wrap #st_advanced_ma_459:hover, #st_advanced_menu_wrap #st_advanced_menu_459.current .advanced_ma_level_0,#st_advanced_menu_column_block #st_advanced_ma_459:hover, #st_advanced_menu_column_block #st_advanced_menu_459.current .advanced_ma_level_0,#st_advanced_menu_wrap #st_advanced_menu_block_459 a:hover,#st_advanced_menu_column_block #st_advanced_menu_block_459 a:hover{color:#00A161;}</style><style type="text/css">.st_advanced_banner_block_22 .style_content, a.st_advanced_banner_block_22 , .st_advanced_banner_block_22 .style_content a{color:#ffffff;} .st_advanced_banner_block_22 .icon_line:after, .st_advanced_banner_block_22 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_22 .line, .st_advanced_banner_block_22 .btn{border-color:#ffffff;}.st_advanced_banner_block_22 .style_content .btn{color:#ffffff;}.st_advanced_banner_block_22 .style_content .btn{background-color:#EE3D43;border-color:#EE3D43;}.st_advanced_banner_block_22 .style_content .btn:hover{color:#444444;}.st_advanced_banner_block_22 .style_content .btn:hover{background-color: #ffffff;}.st_advanced_banner_block_23 .style_content, a.st_advanced_banner_block_23 , .st_advanced_banner_block_23 .style_content a{color:#ffffff;} .st_advanced_banner_block_23 .icon_line:after, .st_advanced_banner_block_23 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_23 .line, .st_advanced_banner_block_23 .btn{border-color:#ffffff;}.st_advanced_banner_block_24 .style_content, a.st_advanced_banner_block_24 , .st_advanced_banner_block_24 .style_content a{color:#ffffff;} .st_advanced_banner_block_24 .icon_line:after, .st_advanced_banner_block_24 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_24 .line, .st_advanced_banner_block_24 .btn{border-color:#ffffff;}.st_advanced_banner_block_25 .style_content, a.st_advanced_banner_block_25 , .st_advanced_banner_block_25 .style_content a{color:#ffffff;} .st_advanced_banner_block_25 .icon_line:after, .st_advanced_banner_block_25 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_25 .line, .st_advanced_banner_block_25 .btn{border-color:#ffffff;}.st_advanced_banner_block_26 .style_content, a.st_advanced_banner_block_26 , .st_advanced_banner_block_26 .style_content a{color:#ffffff;} .st_advanced_banner_block_26 .icon_line:after, .st_advanced_banner_block_26 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_26 .line, .st_advanced_banner_block_26 .btn{border-color:#ffffff;}.st_advanced_banner_block_28 .style_content, a.st_advanced_banner_block_28 , .st_advanced_banner_block_28 .style_content a{color:#ffffff;} .st_advanced_banner_block_28 .icon_line:after, .st_advanced_banner_block_28 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_28 .line, .st_advanced_banner_block_28 .btn{border-color:#ffffff;}.st_advanced_banner_block_29 .style_content, a.st_advanced_banner_block_29 , .st_advanced_banner_block_29 .style_content a{color:#ffffff;} .st_advanced_banner_block_29 .icon_line:after, .st_advanced_banner_block_29 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_29 .line, .st_advanced_banner_block_29 .btn{border-color:#ffffff;}.st_advanced_banner_block_30 .style_content, a.st_advanced_banner_block_30 , .st_advanced_banner_block_30 .style_content a{color:#ffffff;} .st_advanced_banner_block_30 .icon_line:after, .st_advanced_banner_block_30 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_30 .line, .st_advanced_banner_block_30 .btn{border-color:#ffffff;}.st_advanced_banner_block_31 .style_content, a.st_advanced_banner_block_31 , .st_advanced_banner_block_31 .style_content a{color:#ffffff;} .st_advanced_banner_block_31 .icon_line:after, .st_advanced_banner_block_31 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_31 .line, .st_advanced_banner_block_31 .btn{border-color:#ffffff;}.st_advanced_banner_block_34 .style_content, a.st_advanced_banner_block_34 , .st_advanced_banner_block_34 .style_content a{color:#ffffff;} .st_advanced_banner_block_34 .icon_line:after, .st_advanced_banner_block_34 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_34 .line, .st_advanced_banner_block_34 .btn{border-color:#ffffff;}.st_advanced_banner_block_35 .style_content, a.st_advanced_banner_block_35 , .st_advanced_banner_block_35 .style_content a{color:#444444;} .st_advanced_banner_block_35 .icon_line:after, .st_advanced_banner_block_35 .icon_line:before{background-color:#444444;} .st_advanced_banner_block_35 .line, .st_advanced_banner_block_35 .btn{border-color:#444444;}.st_advanced_banner_block_35 .style_content .btn{color:#ffffff;}.st_advanced_banner_block_35 .style_content .btn{border-color:#ffffff;}.st_advanced_banner_block_35 .style_content .btn:hover{color:#ffffff;}.st_advanced_banner_block_36 .style_content, a.st_advanced_banner_block_36 , .st_advanced_banner_block_36 .style_content a{color:#ffffff;} .st_advanced_banner_block_36 .icon_line:after, .st_advanced_banner_block_36 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_36 .line, .st_advanced_banner_block_36 .btn{border-color:#ffffff;}.st_advanced_banner_block_37 .style_content, a.st_advanced_banner_block_37 , .st_advanced_banner_block_37 .style_content a{color:#ffffff;} .st_advanced_banner_block_37 .icon_line:after, .st_advanced_banner_block_37 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_37 .line, .st_advanced_banner_block_37 .btn{border-color:#ffffff;}.st_advanced_banner_block_37 .style_content .btn{color:#ffffff;}.st_advanced_banner_block_37 .style_content .btn{background-color:#59B98E;border-color:#59B98E;}.st_advanced_banner_block_37 .style_content .btn:hover{background-color: #444444;}.st_advanced_banner_block_39 .style_content, a.st_advanced_banner_block_39 , .st_advanced_banner_block_39 .style_content a{color:#000000;} .st_advanced_banner_block_39 .icon_line:after, .st_advanced_banner_block_39 .icon_line:before{background-color:#000000;} .st_advanced_banner_block_39 .line, .st_advanced_banner_block_39 .btn{border-color:#000000;}.st_advanced_banner_block_40 .style_content, a.st_advanced_banner_block_40 , .st_advanced_banner_block_40 .style_content a{color:#000000;} .st_advanced_banner_block_40 .icon_line:after, .st_advanced_banner_block_40 .icon_line:before{background-color:#000000;} .st_advanced_banner_block_40 .line, .st_advanced_banner_block_40 .btn{border-color:#000000;}.st_advanced_banner_block_41 .style_content, a.st_advanced_banner_block_41 , .st_advanced_banner_block_41 .style_content a{color:#ffffff;} .st_advanced_banner_block_41 .icon_line:after, .st_advanced_banner_block_41 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_41 .line, .st_advanced_banner_block_41 .btn{border-color:#ffffff;}.st_advanced_banner_block_42 .style_content, a.st_advanced_banner_block_42 , .st_advanced_banner_block_42 .style_content a{color:#ffffff;} .st_advanced_banner_block_42 .icon_line:after, .st_advanced_banner_block_42 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_42 .line, .st_advanced_banner_block_42 .btn{border-color:#ffffff;}.st_advanced_banner_block_43 .style_content, a.st_advanced_banner_block_43 , .st_advanced_banner_block_43 .style_content a{color:#ffffff;} .st_advanced_banner_block_43 .icon_line:after, .st_advanced_banner_block_43 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_43 .line, .st_advanced_banner_block_43 .btn{border-color:#ffffff;}.st_advanced_banner_block_45 .style_content, a.st_advanced_banner_block_45 , .st_advanced_banner_block_45 .style_content a{color:#ffffff;} .st_advanced_banner_block_45 .icon_line:after, .st_advanced_banner_block_45 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_45 .line, .st_advanced_banner_block_45 .btn{border-color:#ffffff;}.st_advanced_banner_block_46 .style_content, a.st_advanced_banner_block_46 , .st_advanced_banner_block_46 .style_content a{color:#ffffff;} .st_advanced_banner_block_46 .icon_line:after, .st_advanced_banner_block_46 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_46 .line, .st_advanced_banner_block_46 .btn{border-color:#ffffff;}.st_advanced_banner_block_47 .style_content, a.st_advanced_banner_block_47 , .st_advanced_banner_block_47 .style_content a{color:#ffffff;} .st_advanced_banner_block_47 .icon_line:after, .st_advanced_banner_block_47 .icon_line:before{background-color:#ffffff;} .st_advanced_banner_block_47 .line, .st_advanced_banner_block_47 .btn{border-color:#ffffff;}#st_advanced_banner_41.st_advanced_banner_row .row{margin-left:-9px;margin-right:-9px;}#st_advanced_banner_41 .advanced_banner_col{padding-left:9px;padding-right:9px;}#st_advanced_banner_41 .advanced_banner_col.advanced_banner_b .st_advanced_banner_block{margin-bottom:9px;}#advanced_banner_container_41 {margin-bottom:18px;}#st_advanced_banner_42.st_advanced_banner_row .row{margin-left:-9px;margin-right:-9px;}#st_advanced_banner_42 .advanced_banner_col{padding-left:9px;padding-right:9px;}#st_advanced_banner_42 .advanced_banner_col.advanced_banner_b .st_advanced_banner_block{margin-bottom:9px;}#st_advanced_banner_47.st_advanced_banner_row .row{margin-left:-0px;margin-right:-0px;}#st_advanced_banner_47 .advanced_banner_col{padding-left:0px;padding-right:0px;}#st_advanced_banner_47 .advanced_banner_col.advanced_banner_b .st_advanced_banner_block{margin-bottom:0px;}#advanced_banner_container_47 {margin-bottom:0px;}#st_advanced_banner_48.st_advanced_banner_row .row{margin-left:-0px;margin-right:-0px;}#st_advanced_banner_48 .advanced_banner_col{padding-left:0px;padding-right:0px;}#st_advanced_banner_48 .advanced_banner_col.advanced_banner_b .st_advanced_banner_block{margin-bottom:0px;}#advanced_banner_container_48 {margin-bottom:0px;}</style><style type="text/css">body#index .st_blog_recent_article_container{margin-top:px;}body#index .st_blog_recent_article_container{margin-bottom:px;}</style><style type="text/css">.brands_slider_container{margin-top:px;}.brands_slider_container{margin-bottom:px;}</style><style type="text/css">.new-products_block_center_container .title_block{text-align:center;}.new-products_block_center_container .title_block, .new-products_block_center_container .nav_top_right .flex-direction-nav,.new-products_block_center_container .title_block a, .new-products_block_center_container .title_block span{background:none;}</style><style type="text/css">.pc_slider_block_container{margin-top:px;}.pc_slider_block_container{margin-bottom:px;}</style><style type="text/css">.special-products_block_center_container{margin-top:px;}.special-products_block_center_container{margin-bottom:px;}
+        </style>
+        <style type="text/css">
+            #st_news_letter_1.st_news_letter_popup{width:580px;}#st_news_letter_1 .st_news_letter_form_inner{width:360px;}#st_news_letter_1 .st_news_letter_input{height:35px;}#st_news_letter_1 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_1 .st_news_letter_input, #st_news_letter_1 .st_news_letter_submit{border-color:#666666;}#st_news_letter_1 .st_news_letter_submit{color:#ffffff;}#st_news_letter_1 .st_news_letter_submit{background-color:#666666;border-color:#666666;}#st_news_letter_1 .st_news_letter_submit:hover{color:#ffffff;}#st_news_letter_1 .st_news_letter_submit:hover{background-color:#444444;border-color:#444444;}#st_news_letter_2 .st_news_letter_form_inner{width:258px;}#st_news_letter_2 .st_news_letter_input{height:35px;}#st_news_letter_2 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_3 .st_news_letter_form_inner{width:258px;}#st_news_letter_3 .st_news_letter_input{height:35px;}#st_news_letter_3 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_4 {background-image: url(http://transformer.sunnytoo.com/twelfth/upload/stnewsletter/affb1d62b2dd26559ae2a1299e9ef61a.jpg);}#st_news_letter_4.st_news_letter_popup{width:600px;}#st_news_letter_4 .st_news_letter_form_inner{width:280px;}#st_news_letter_4 .st_news_letter_input{height:35px;}#st_news_letter_4 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_4 .st_news_letter_input, #st_news_letter_4 .st_news_letter_submit{border-color:#666666;}#st_news_letter_4 .st_news_letter_submit{color:#ffffff;}#st_news_letter_4 .st_news_letter_submit{background-color:#666666;border-color:#666666;}#st_news_letter_4 .st_news_letter_submit:hover{color:#ffffff;}#st_news_letter_4 .st_news_letter_submit:hover{background-color:#444444;border-color:#444444;}#st_news_letter_4 .st_news_letter_box{padding-top:50px;}#st_news_letter_4 .st_news_letter_box{padding-bottom:50px;}#st_news_letter_4 .st_news_letter_box{padding-left:40%;}#st_news_letter_5 .st_news_letter_form_inner{width:258px;}#st_news_letter_5 .st_news_letter_input{height:35px;}#st_news_letter_5 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_6 .st_news_letter_form_inner{width:258px;}#st_news_letter_6 .st_news_letter_input{height:35px;}#st_news_letter_6 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_7 .st_news_letter_form_inner{width:258px;}#st_news_letter_7 .st_news_letter_input{height:35px;}#st_news_letter_7 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_8 .st_news_letter_form_inner{width:258px;}#st_news_letter_8 .st_news_letter_input{height:35px;}#st_news_letter_8 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_11 .st_news_letter_form_inner{width:258px;}#st_news_letter_11 .st_news_letter_input{height:35px;}#st_news_letter_11 .st_news_letter_submit{height:35px;line-height:31px;}#st_news_letter_12{color:#ffffff;}#st_news_letter_12 .st_news_letter_form_inner{width:760px;}#st_news_letter_12 .st_news_letter_input{height:54px;}#st_news_letter_12 .st_news_letter_submit{height:54px;line-height:50px;}#st_news_letter_12 .st_news_letter_input, #st_news_letter_12 .st_news_letter_submit{border-color:#7790B1;}#st_news_letter_12 .st_news_letter_submit{color:#ffffff;}#st_news_letter_12 .st_news_letter_submit{background-color:#7790B1;border-color:#7790B1;}#st_news_letter_12 .st_news_letter_submit:hover{color:#ffffff;}#st_news_letter_12 .st_news_letter_submit:hover{background-color:#444444;border-color:#444444;}#st_news_letter_12 .st_news_letter_box{padding-top:50px;}#st_news_letter_12 .st_news_letter_box{padding-bottom:50px;}#st_news_letter_13{color:#70635b;}#st_news_letter_13 .st_news_letter_form_inner{width:600px;}#st_news_letter_13 .st_news_letter_input, #st_news_letter_13 .st_news_letter_submit{border-color:#a4968d;}#st_news_letter_13 .st_news_letter_submit{background-color:#a4968d;border-color:#a4968d;}#st_news_letter_13 .st_news_letter_submit:hover{background-color:#70635b;border-color:#70635b;}#st_news_letter_13 .st_news_letter_box{padding-top:10px;}#st_news_letter_13 .st_news_letter_box{padding-bottom:10px;}#st_news_letter_14{color:#ffffff;}</style><style type="text/css">.featured_products_sldier_block_center_container .title_block,.featured_products_sldier_block_center_container .nav_top_right .flex-direction-nav,.featured_products_sldier_block_center_container .title_block a, .featured_products_sldier_block_center_container .title_block span{background:none;}</style><style type="text/css">body#index .st_blog_featured_article_container .title_block, body#index .st_blog_featured_article_container .nav_top_right .flex-direction-nav,body#index .st_blog_featured_article_container .title_block a, body#index .st_blog_featured_article_container .title_block span{background:none;}</style><style type="text/css">.fc_slider_block_container .title_block, .fc_slider_block_container .nav_top_right .flex-direction-nav,.fc_slider_block_container .title_block a, .fc_slider_block_container .title_block span{background:none;}
         </style>
     </head>
-    <body>
-        <div class="se-pre-con"></div>
-        <div style="display: none;" id="waiting" class="waiting col-sm-12">
-            <div class="spinner">
-                <img alt="spinner" src="images/front/loading-book.gif">
-                <h2 style="bottom: 47px;color: #fff;left: 69px;position: absolute;">Loading.......</h2>
-            </div>
-        </div>
-        <div id="page-wrapper">
-            <!--
-        ==========================
-        == BEGIN HEADER CONTENT ==
-        ==========================
-            -->
-            <header id="header" class="navbar-static-top">
-                <div class="main-header">
-                    <nav role="navigation" class="navbar navbar-default navbar-fixed-top sb-slide">
-                        <!-- Left Control -->
-                        <div class="sb-toggle-left navbar-left">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                        </div><!-- /.sb-control-left -->
-
-                        <!-- Right Control -->
-                        <div class="sb-toggle-right navbar-right">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                        </div><!-- /.sb-control-right -->
-
-                        <div class="container">
-                            <!-- Logo -->
-                            <div class="navbar-left" id="logo">
-                                <a href="http://plugins.adchsm.me/slidebars/">
-                                    <img width="118" height="40" alt="Slidebars Logo" src="http://plugins.adchsm.me/slidebars/images/slidebars-logo@2x.png"></a>
-                            </div><!-- /#logo -->
-
-                            <!-- Menu -->
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/bookmart" style="color: #98ce44;
-                                       font-family: cursive;
-                                       font-size: 21px;">Home</a></li>
-                                <li><a href="javascript:void(0)" style="color: #98ce44;
-                                       font-family: cursive;
-                                       font-size: 21px;" class="post_ad_click">Post Ad</a></li>
-                                <li><a href="how_it_works" style="color: #98ce44;
-                                       font-family: cursive;
-                                       font-size: 21px;">How it works</a></li>
-                                <li><a href="contact_us.html" style="color: #98ce44;
-                                       font-family: cursive;
-                                       font-size: 21px;">Contact</a></li>
-                                <li><a href="#" style="color: #98ce44;
-                                       font-family: cursive;
-                                       font-size: 21px;">News</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </header>
-            <!--
-            ==========================
-            == END HEADER CONTENT ==
-            ==========================
-            -->
-            <div id="sb-site">
-                <?php echo $__env->yieldContent('content'); ?>
-            </div>
-
-            <!--
-        ============================
-        == BEGIN FOOTER ==
-        ============================
-            -->
-            <footer id="footer">
-                <div class="footer-wrapper">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4">
-                                <h2>Discover</h2>
-                                <ul class="discover triangle hover row">
-                                    <li class="col-xs-6"><a href="#">Terms&Policy</a></li>
-                                    <li class="col-xs-6"><a href="#">Rent Policy</a></li>
-                                    <li class="col-xs-6"><a href="#">About</a></li>
-                                    <li class="col-xs-6"><a href="#">Contact</a></li>
-                                    <li class="col-xs-6"><a href="#">Help</a></li>
-                                    <li class="col-xs-6"><a href="#">Privacy</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-sm-6 col-md-4">
-                                <h2>Mailing List</h2>
-                                <p>Sign up for our mailing list to get latest updates and offers.</p>
-                                <br />
-                                <div class="icon-check">
-                                    <input type="text" class="input-text full-width" placeholder="your email" />
-                                </div>
-                                <br />
-                                <span>We respect your privacy</span>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <h2>About BookMart</h2>
-                                <p>BookMart is like your store where you can sale or rent your book free with out any middle-man.  </p>
-                                <br />
-                                <address class="contact-details">
-                                    <span class="contact-phone"><i class="soap-icon-phone"></i>+91 9033680165</span>
-                                    <br />
-                                    <a href="#" class="contact-email">bookmart@gmail.com</a>
-                                </address>
-                                <ul class="social-icons clearfix">
-                                    <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
-                                    <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
-                                    <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
-                                    <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-                                    <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-                                    <li class="dribble"><a title="dribble" href="#" data-toggle="tooltip"><i class="soap-icon-dribble"></i></a></li>
-                                    <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom gray-area">
-                    <div class="container">
-                        <div class="logo pull-left">
-                            <a href="/home" title="">
-                                <img src="" alt="" />
-                            </a>
-                        </div>
-
-                        <div class="copyright">
-                            <p>&copy; 2015 BookMart</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!--
-            ============================
-            == END FOOTER ==
-            ============================
-            -->
-
-            <!---------------------- SIDE BAR -------------------->
-            <div class="sb-slidebar sb-left">
-                <nav>
-                    <ul class="sb-menu">
-                        <li><img width="118" height="40" alt="Slidebars" src="http://plugins.adchsm.me/slidebars/images/slidebars-logo-white@2x.png"></li>
-                        <li class="sb-close"><a href="/">Home</a></li>
-                        <li class="sb-close"><a class="post_ad_click" href="javascript:void(0)">POST FREE AD</a></li>
-                        <li class="sb-close"><a href="how_it_works">How its work</a></li>
-                        <li class="sb-close"><a href="rent_policy">Rent policy</a></li>
-                        <li class="sb-close"><a href="news">News</a></li>
-                        <li class="sb-close"><a href="contact">Contact</a></li>
-                        <li class="sb-close"><span class="sb-open-right">Share</span></li>
-                        <li class="sb-close"><small>BookMart &copy; 2015</small></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="sb-slidebar sb-right sb-style-overlay" style="margin-right: -260px;">
-                <div class="share-icons-sidebar">
-                    <a class="share-icon share-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http://jssor.com" title="Share on Facebook"></a>
-                    <a class="share-icon share-twitter" target="_blank" href="http://twitter.com/share?url=http://jssor.com&text=JavaScript%20jQuery%20Image%20Slider/Slideshow/Carousel/Gallery/Banner%20html%20TOUCH%20SWIPE%20Responsive" title="Share on Twitter"></a>
-                    <a class="share-icon share-googleplus" target="_blank" href="https://plus.google.com/share?url=http://jssor.com" title="Share on Google Plus"></a>
-                    <a class="share-icon share-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://jssor.com" title="Share on LinkedIn"></a>
-                    <a class="share-icon share-stumbleupon" target="_blank" href="http://www.stumbleupon.com/submit?url=http://jssor.com&title=JavaScript%20jQuery%20Image%20Slider/Slideshow/Carousel/Gallery/Banner%20html%20TOUCH%20SWIPE%20Responsive" title="Share on StumbleUpon"></a>
-                    <a class="share-icon share-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=http://jssor.com&media=http://jssor.com/img/site/jssor.slider.jpg&description=JavaScript%20jQuery%20Image%20Slider/Slideshow/Carousel/Gallery/Banner%20html%20TOUCH%20SWIPE%20Responsive" title="Share on Pinterst"></a>
-                    <a class="share-icon share-email" target="_blank" href="mailto:?Subject=Jssor%20Slider&Body=Highly%20recommended%20JavaScript%20jQuery%20Image%20Slider/Slideshow/Carousel/Gallery/Banner%20html%20TOUCH%20SWIPE%20Responsive%20http://jssor.com" title="Share by Email"></a>
-                </div>
-            </div>
-            <!-- Slidebars -->
-            <!-- Galleria modal -->
-            <div aria-hidden="true" role="dialog" tabindex="-1" id="photo_viewer" class="modal2 fade">
-                <div class="modal-dialog2 modal-md">
-                    <div class="modal-content2">
-                        <div class="modal-header2">
-                            <button id="switch_gallery" data-dismiss="modal" class="close2" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>            
-                        </div>
-                        <div class="modal-body2">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div id="galleria"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- post ad Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" style="background-color: #2d3e52;height: 57px;">
-                            <button type="button" style="border-radius: 50%;background: #fff; width: 37px;" class="close" data-dismiss="modal">&times;</button>
-                            <h2 style="color: #fff">Post Free ad</h2>
-                        </div>
-                        <div id="modal-body"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- view more Modal -->
-            <div class="modal fade" id="myModal2" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" style="background-color: #2d3e52;height: 57px;">
-                            <button type="button" style="border-radius: 50%;background: #fff; width: 37px;" class="close" data-dismiss="modal">&times;</button>
-                            <h2 style="color: #fff">Details</h2>
-                        </div>
-                        <div id="viewmore_modal-body"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="js/front/slidebars.min.js"></script>
-        <script>
-$(document).ready(function() {
-    $.ajax({
-        type: "POST",
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: '<?php echo e(url("search_book")); ?>'
-    });
-    $.ajax({
-        type: "POST",
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: '<?php echo e(url("get_authors")); ?>'
-    });
-    $.slidebars();
-});
-        </script>
-        <!---------------------- SIDE BAR ---------------------------------------->
-        <!--use jssor.slider.debug.js instead for debug--> 
-           
-        <script>
-            function loadmore() {
-                $(".waiting").show()
-            }
-            function getgallery(id)
-            {
-                $(".waiting").show()
-                $.ajax({
-                    type: "POST",
-                    url: '<?php echo e(url("/gallery")); ?>',
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    data: {mode: "getgallery", id: id},
-                    success: function(response)
-                    {
-                        $(".waiting").hide();
-                        $("#galleria").html(response);
-                        $("#photo_viewer").modal();
-//                        Galleria.loadTheme('js/front/galleria.classic.min.js');
-                        Galleria.run('#galleria', {
-                            extend: function() {
-                                var gallery = this;
-                                $('#switch_gallery').click(function() {
-                                    gallery.destroy();
-                                });
-                                $('#photo_viewer').on('hidden.bs.modal', function() {
-                                    gallery.destroy();
-                                })
-                            }
-                        });
-                        Galleria.ready(function() {
-                            this.attachKeyboard({
-                                right: this.next,
-                                left: this.prev
-                            });
-                        });
-                    }
-                });
-            }
-            function viewFullDetail(id)
-            {
-                $(".waiting").show()
-                $.ajax({
-                    type: "POST",
-                    url: '<?php echo e(url("/view_full_detail")); ?>',
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    data: {mode: "getgallery", id: id},
-                    success: function(response)
-                    {
-                        $(".waiting").hide();
-                        $("#viewmore_modal-body").html(response);
-                        // Simply give your modal an id something like "thankyouModal"
-                        $("#myModal2").modal();
-                    }
-                });
-            }
-            jQuery(document).ready(function($) {
-                $('.close-carbon-adv').on('click', function(event) {
-                    event.preventDefault();
-                    $('#carbonads-container').hide();
-                });
-            });
-            $('.post_ad_click').on('click', function() {
-                $(".waiting").show()
-                // Simple Ajax code to submit a form
-                $.ajax({
-                    type: "POST",
-                    url: '<?php echo e(url("/post_ad")); ?>',
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    success: function(result) {
-                        $(".waiting").hide();
-                        $("#modal-body").html(result);
-                        // Simply give your modal an id something like "thankyouModal"
-                        $("#myModal").modal();
-                    }
-                });
-            });
-            $(window).load(function() {
-                // Animate loader off screen
-                $(".se-pre-con").fadeOut("slow");
-            });
-
-            $(function() {
-                $('.load_more').live("click", function() {
-                    var getId = $(this).attr("id");
-                    if (getId) {
-                        $(".waiting").show()
-                        $.ajax({
-                            type: "POST",
-                            url: "more_content",
-                            data: "getLastContentId=" + getId,
-                            cache: false,
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            success: function(html) {
-                                $(".waiting").hide();
-                                $('.gap').remove();
-                                $("#ullist ul").append(html);
-                                $('#load_more_' + getId).remove();
-                                $('.box').addClass("fadeInUp");
-                                $('.box').css("visibility", "visible");
-                            }});
-                    } else {
-                        $(".waiting").hide();
-                        $(".more_tab").html('No more data available');
-                    }
-                    return false;
-                });
-            });
-
-            //Scroll up
-            $(function() {
-                $.scrollUp({
-                    animation: 'fade',
-                    scrollImg: {
-                        active: true,
-                        type: 'background',
-                        src: '.../images/front/top.png'
-                    }
-                });
-            });
-            $('.image-switch').addClass('active');
-
-        </script>
+    <body id="index" class="index hide-left-column hide-right-column lang_en slide_lr_column ">
+        <?php echo $__env->yieldContent('content'); ?>
     </body>
 </html>
 

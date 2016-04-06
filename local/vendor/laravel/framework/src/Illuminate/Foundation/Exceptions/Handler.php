@@ -112,17 +112,18 @@ class Handler implements ExceptionHandlerContract {
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	protected function renderHttpException(HttpException $e)
-        {
-            
-            if (view()->exists('errors.'.$e->getStatusCode()))
-            {
-                return response()->view('errors.'.$e->getStatusCode(), [], $e->getStatusCode());
-            }
-            else
-            {
-                return (new SymfonyDisplayer(config('app.debug')))->createResponse($e);
-            }
-        }
+	{
+		$status = $e->getStatusCode();
+
+		if (view()->exists("errors.{$status}"))
+		{
+			return response()->view("errors.{$status}", [], $status);
+		}
+		else
+		{
+			return (new SymfonyDisplayer(config('app.debug')))->createResponse($e);
+		}
+	}
 
 	/**
 	 * Determine if the given exception is an HTTP exception.

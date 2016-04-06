@@ -6,10 +6,18 @@ use SocialNorm\Providers\OAuth2Provider;
 class FacebookProvider extends OAuth2Provider
 {
     protected $authorizeUrl = "https://www.facebook.com/dialog/oauth";
-    protected $accessTokenUrl = "https://graph.facebook.com/v2.3/oauth/access_token";
-    protected $userDataUrl = "https://graph.facebook.com/v2.3/me";
+    protected $accessTokenUrl = "https://graph.facebook.com/v2.4/oauth/access_token";
+    protected $userDataUrl = "https://graph.facebook.com/v2.4/me";
     protected $scope = [
         'email',
+    ];
+    protected $fields = [
+        'email',
+        'name',
+        'first_name',
+        'last_name',
+        'age_range',
+        'timezone',
     ];
 
     protected function getAuthorizeUrl()
@@ -25,6 +33,14 @@ class FacebookProvider extends OAuth2Provider
     protected function getUserDataUrl()
     {
         return $this->userDataUrl;
+    }
+
+    protected function buildUserDataUrl()
+    {
+        $url = $this->getUserDataUrl();
+        $url .= "?access_token={$this->accessToken}";
+        $url .= "&fields=" . implode(',', $this->fields);
+        return $url;
     }
 
     protected function requestAccessToken()
@@ -72,7 +88,7 @@ class FacebookProvider extends OAuth2Provider
 
     protected function avatar()
     {
-        return 'https://graph.facebook.com/v2.3/'.$this->userId().'/picture';
+        return 'https://graph.facebook.com/v2.4/'.$this->userId().'/picture';
     }
 
     protected function email()
