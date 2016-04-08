@@ -100,7 +100,7 @@ class Cart {
      * @param float  	    $price    Price of one item
      * @param array  	    $options  Array of additional options, such as 'size' or 'color'
      */
-    public function add($id, $name = null, $quantity = null, $image = null, $price = null, array $options = []) {
+    public function add($id, $name = null, $quantity = null, $image = null, $image_cart = null, $price = null, $link = null, array $options = []) {
         // If the first parameter is an array we need to call the add() function again
         if (is_array($id)) {
             // And if it's not only an array, but a multidimensional array, we need to
@@ -111,7 +111,7 @@ class Cart {
 
                 foreach ($id as $item) {
                     $options = array_get($item, 'options', []);
-                    $this->addRow($item['id'], $item['name'], $item['quantity'], $item['image'], $item['price'], $options);
+                    $this->addRow($item['id'], $item['name'], $item['quantity'], $item['image'], $item['image_cart'], $item['price'], $item['link'], $options);
                 }
 
                 // Fire the cart.batched event
@@ -125,7 +125,7 @@ class Cart {
             // Fire the cart.add event
             $this->event->fire('cart.add', array_merge($id, ['options' => $options]));
 
-            $result = $this->addRow($id['id'], $id['name'], $id['quantity'], $id['image'], $id['price'], $options);
+            $result = $this->addRow($id['id'], $id['name'], $id['quantity'], $id['image'], $id['image_cart'], $id['price'], $id['link'], $options);
 
             // Fire the cart.added event
             $this->event->fire('cart.added', array_merge($id, ['options' => $options]));
@@ -134,12 +134,12 @@ class Cart {
         }
 
         // Fire the cart.add event
-        $this->event->fire('cart.add', compact('id', 'name', 'quantity', 'image', 'price', 'options'));
+        $this->event->fire('cart.add', compact('id', 'name', 'quantity', 'image', 'image_cart', 'price', 'link', 'options'));
 
-        $result = $this->addRow($id, $name, $quantity, $image, $price, $options);
+        $result = $this->addRow($id, $name, $quantity, $image, $image_cart, $price, $link, $options);
 
         // Fire the cart.added event
-        $this->event->fire('cart.added', compact('id', 'name', 'quantity', 'image', 'price', 'options'));
+        $this->event->fire('cart.added', compact('id', 'name', 'quantity', 'image', 'image_cart', 'price', 'link', 'options'));
 
         return $result;
     }
@@ -261,6 +261,15 @@ class Cart {
         return $total;
     }
 
+    public function getshippingcost($product_id) {
+        if ($product_id == null) {
+            return 0;
+        } else {
+            $ShippingCost = $this->productOBJ->getShippingCostById($product_id);
+            return $ShippingCost->shippingCost;
+        }
+    }
+
     public function getItems($product_id) {
         $product = $this->productOBJ->getProductById($product_id);
         return $product;
@@ -335,8 +344,8 @@ class Cart {
      * @param float   $price    Price of one item
      * @param array   $options  Array of additional options, such as 'size' or 'color'
      */
-    protected function addRow($id, $name, $quantity, $image, $price, array $options = []) {
-        if (empty($id) || empty($name) || empty($quantity) || empty($image) || !isset($price)) {
+    protected function addRow($id, $name, $quantity, $image, $image_cart, $price, $link, array $options = []) {
+        if (empty($id) || empty($name) || empty($quantity) || empty($image) || empty($image_cart) || empty($link) || !isset($price)) {
             throw new Exceptions\ShoppingcartInvalidItemException;
         }
 
@@ -356,7 +365,7 @@ class Cart {
             $row = $cart->get($rowId);
             $cart = $this->updateRow($rowId, ['quantity' => $row->quantity + $quantity]);
         } else {
-            $cart = $this->createRow($rowId, $id, $name, $quantity, $image, $price, $options);
+            $cart = $this->createRow($rowId, $id, $name, $quantity, $image, $image_cart, $price, $link, $options);
         }
 
         return $this->updateCart($cart);
@@ -456,7 +465,7 @@ class Cart {
      * @param  array   $options  Array of additional options, such as 'size' or 'color'
      * @return Gloudemans\Shoppingcart\CartCollection
      */
-    protected function createRow($rowId, $id, $name, $quantity, $image, $price, $options) {
+    protected function createRow($rowId, $id, $name, $quantity, $image, $image_cart, $price, $link, $options) {
         $cart = $this->getContent();
 
         $newRow = new CartRowCollection([
@@ -465,7 +474,9 @@ class Cart {
             'name' => $name,
             'quantity' => $quantity,
             'image' => $image,
+            'image_cart' => $image_cart,
             'price' => $price,
+            'link' => $link,
             'options' => new CartRowOptionsCollection($options),
             'subtotal' => $quantity * $price
                 ], $this->associatedModel, $this->associatedModelNamespace);

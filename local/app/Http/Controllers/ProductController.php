@@ -40,23 +40,30 @@ class ProductController extends Controller {
      *
      * @return Response
      */
-    public function addtocart() {
-        $id = Input::get('product_id');
-        Session::put('key', 'value');
-        return response()->view('front/product/ajax_product')->withCookie(cookie('product_id[]', $id));
+    public function view_product() {
+        return view('front/product/ajax_product_view');
+    }
+    public function viewProductDetails($id) {
+        return view('front/product/productview');
     }
 
     public function addsuccess(Request $request) {
         $product_id = Request::get('id_product');
         if ($product_id != null || 0) {
             if (Request::isMethod('post')) {
-                $product = $this->productOBJ->getProductList($product_id);
+                $product = $this->productOBJ->getProductListById($product_id);
                 Cart::add(array(
                     'id' => $product[0]->id,
-                    'name' => $product[0]->name,
+                    'name' => e($product[0]->name),
                     'quantity' => 1,
-                    'image' => $product[0]->image,
-                    'price' => $product[0]->price
+                    'image' => e($product[0]->image),
+                    'image_cart' => e($product[0]->image_cart),
+                    'price' => e($product[0]->price),
+                    'link' => e($product[0]->link),
+                    'options' => array(
+                        'price_float' => e($product[0]->price_float),
+                        'full_name' => e($product[0]->full_name),
+                    ),
                         )
                 );
             }
@@ -64,26 +71,29 @@ class ProductController extends Controller {
         $cart = Cart::content();
         $totalCartprice = Cart::total(); //Price total
         $totalcount = Cart::count(); // Get the number of items in the cart
+//        $shippingCost = Cart::getshippingcost($product_id); // Get shipping coast
 //        $totalQtyprice = Cart::getTotal($product_id); //get totalof perticular items
-        $product_r = array();
+        $product_value = array();
         foreach ($cart as $key => $value) {
             $product_value[] = $value;
         }
-
+//        dd($totalCartprice);
         $product_r = array(
             'products' => $product_value,
-            'total' => $totalCartprice,
+            "discounts" => [],
+            'shippingCost' => '0',
+            'shippingCostFloat' => '0',
             'nbTotalProducts' => $totalcount,
-            'shippingCost' => 27,
-            'shippingCostFloat' => 27,
-            'productTotal' => 154,
+            'total' => $totalCartprice,
+            'productTotal' => $totalCartprice,
+            "freeShipping" => "0.00",
             'freeShippingFloat' => 0,
             'free_ship' => false,
             'isVirtualCart' => false,
             'hasError' => false,
         );
         $products_json = json_encode($product_r);
-//        dd($products_json);
+
         return $products_json;
     }
 

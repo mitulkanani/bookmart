@@ -26,10 +26,11 @@ Route::post('searchAdtitle', 'HomeController@searchAdtitle');
 Route::get('how_it_works', 'HomeController@how_it_works');
 Route::get('open_store', 'HomeController@open_store');
 Route::post('more_content', 'HomeController@more_content');
-//cart
 
-Route::post('addtocart', 'ProductController@addtocart');
+//cart
 Route::post('rand', 'ProductController@addsuccess');
+Route::get('view_full_details/{id}', 'ProductController@viewProductDetails');
+Route::post('view_product', 'ProductController@view_product');
 
 //For admin
 Route::get('signup', 'UserController@signup');

@@ -332,26 +332,40 @@ body#index .main_content_area, body#module-stblog-default .main_content_area {
     max-width: 227px;
 }
 @media (max-width: 767px) {
-#footer .title_block, #footer .open .footer_block_content {
-    border-color: #333333;
-}
+    #footer .title_block, #footer .open .footer_block_content {
+        border-color: #333333;
+    }
 }
 @media (max-width: 767px) {
-#mobile_header_logo img {
-    max-width: 227px;
-}
-.mobile_bar_left_layout #mobile_header_logo img {
-    max-width: 227px;
-}
+    #mobile_header_logo img {
+        max-width: 227px;
+    }
+    .mobile_bar_left_layout #mobile_header_logo img {
+        max-width: 227px;
+    }
 }
 @media (max-width: 480px) {
-#mobile_header_logo img {
-    max-width: 180px;
-}
-.mobile_bar_left_layout #mobile_header_logo img {
-    max-width: 106px;
-}
+    #mobile_header_logo img {
+        max-width: 180px;
+    }
+    .mobile_bar_left_layout #mobile_header_logo img {
+        max-width: 106px;
+    }
 }
 #address .form-group > label, #address .form-stru > label, #identity .form-group > label, #identity .form-stru > label, #account-creation_form .form-group > label, #account-creation_form .form-stru > label, #new_account_form .form-group > label, #new_account_form .form-stru > label, #opc_account_form .form-group > label, #opc_account_form .form-stru > label, .required {
     color: #888;
+}
+
+.title_float{}
+.category_name{ bottom: 0;
+                padding: 61px 25px 15px;
+                position: absolute;
+                text-align: left;
+                transition: all 0.35s ease 0s;
+                width: 100%;
+                z-index: 2;
+                background: rgba(0, 0, 0, 0) linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.6) 100%) repeat scroll 0 0;
+                border-spacing: 0;
+                color: #fff;
+                display: table !important;
 }

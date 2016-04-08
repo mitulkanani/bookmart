@@ -23,12 +23,14 @@ use File;
 use App\UploadImage;
 use Response;
 use Illuminate\Support\Facades\Route;
+use App\Product;
 
 class HomeController extends Controller {
 
     public function __construct() {
         $this->userOBJ = new User();
         $this->PostedAdOBJ = new PostedAd();
+        $this->productOBJ = new Product();
     }
 
     /**
@@ -37,9 +39,10 @@ class HomeController extends Controller {
      * @return Response
      */
     public function index() {
-        return view('front/home');
+        $frontpageProductlists = $this->productOBJ->getProductList();
+        return view('front/home', compact('frontpageProductlists'));
     }
-    
+
     public function book_mart() {
         $adLists = $this->PostedAdOBJ->getBookadList();
         return view('front/book_mart', compact('adLists'));
@@ -122,8 +125,8 @@ class HomeController extends Controller {
         $ad_type = e(Input::get('ad_type'));
         $status = e(Input::get('status'));
         $adId = 0;
-       
-        $pathoriginal ='ads_picture/original/';
+
+        $pathoriginal = 'ads_picture/original/';
         $path50 = 'ads_picture/thumbnail/';
         $rules = array(
             'ad_title' => 'required',

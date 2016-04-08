@@ -4,9 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Projects/wamp/www/bookmart/local/resources/views/front/home.blade.php</file>
-            <file>file:/D:/Projects/wamp/www/bookmart/local/vendor/gloudemans/shoppingcart/src/Gloudemans/Shoppingcart/Cart.php</file>
+            <file>file:/D:/Projects/wamp/www/bookmart/local/resources/views/frontmaster.blade.php</file>
             <file>file:/D:/Projects/wamp/www/bookmart/local/app/Http/routes.php</file>
-            <file>file:/D:/Projects/wamp/www/bookmart/local/app/Http/Controllers/HomeController.php</file>
+            <file>file:/D:/Projects/wamp/www/bookmart/css/cart/customer_s12.css</file>
+            <file>file:/D:/Projects/wamp/www/bookmart/local/resources/views/front/product/ajax_product_view.blade.php</file>
+            <file>file:/D:/Projects/wamp/www/bookmart/local/resources/views/front/product/productview.blade.php</file>
+            <file>file:/D:/Projects/wamp/www/bookmart/css/cart/theme.css</file>
             <file>file:/D:/Projects/wamp/www/bookmart/local/app/Http/Controllers/ProductController.php</file>
             <file>file:/D:/Projects/wamp/www/bookmart/js/cart/privet.js</file>
         </group>
