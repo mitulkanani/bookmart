@@ -19,9 +19,8 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700" type="text/css" media="all" />
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:regular" type="text/css" media="all" />
 
-        <!--<link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap.min.css')); ?>" type="text/css" media="all" />-->
+        <link rel="stylesheet" href="<?php echo e(asset('/css/cart/custom2.css')); ?>">
         <link rel="stylesheet" href="<?php echo e(asset('/css/cart/theme.css')); ?>" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://transformer.sunnytoo.com/twelfth/themes/transformer/cache/v_212_e849ad4d0c7cd34e9f7a6e3157dd87e1_all.css" type="text/css" media="all" />
         <link rel="stylesheet" href="<?php echo e(asset('/css/cart/customer_s12.css')); ?>">
         <script type="text/javascript" src="<?php echo e(asset('/js/cart/jquery-2.1.4.js')); ?>"></script>
         <script type="text/javascript" src="<?php echo e(asset('/js/cart/iosSlider.js')); ?>"></script>

@@ -145,3 +145,51 @@ INSERT INTO `colleges` (`id`, `clg_id`, `clg_name`, `city`) VALUES
 (84, 0, '', ''),
 (85, 0, '', ''),
 (86, 0, '', '');
+
+--
+-- Database: `bookmart`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `status` tinyint(1) NOT NULL,
+  `front_big_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `back_big_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image_width` int(30) NOT NULL,
+  `image_height` int(30) NOT NULL,
+  `image_cart` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `priceByLine` int(100) NOT NULL,
+  `full_name` varchar(200) NOT NULL,
+  `price_float` int(100) NOT NULL,
+  `idCombination` int(11) NOT NULL,
+  `idAddressDelivery` int(11) NOT NULL,
+  `is_gift` tinyint(1) NOT NULL,
+  `hasCustomizedDatas` tinyint(1) NOT NULL,
+  `discounts` int(100) NOT NULL,
+  `shippingCost` int(100) NOT NULL,
+  `shippingCostFloat` int(100) NOT NULL,
+  `wrappingCost` int(100) NOT NULL,
+  `isVirtualCart` tinyint(1) NOT NULL,
+  `free_ship` tinyint(1) NOT NULL,
+  `name` varchar(160) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `price` int(100) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `status`, `front_big_img`, `back_big_img`, `image`, `image_width`, `image_height`, `image_cart`, `priceByLine`, `full_name`, `price_float`, `idCombination`, `idAddressDelivery`, `is_gift`, `hasCustomizedDatas`, `discounts`, `shippingCost`, `shippingCostFloat`, `wrappingCost`, `isVirtualCart`, `free_ship`, `name`, `price`, `quantity`) VALUES
+(1, 1, 'ads_picture/original/beautiful-lace-half-sleeve-casual-party-jacket.jpg', 'ads_picture/original/beautiful-lace-half-sleeve-casual-party-jacket-back.jpg', 'ads_picture/thumbnail/beautiful-lace-half-sleeve-casual-party-jacket-thumb.jpg', 56, 54, 'ads_picture/thumbnail/beautiful-lace-half-sleeve-casual-party-jacket-thumb.jpg', 100, 'Synthetic Leather Mens Adjustable Casual buckle Belt', 100, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 'Synthetic Leather Mens Adjustable Casual buckle Belt', 100, 1),
+(8, 1, 'ads_picture/original/sample-fashion-product.jpg', 'ads_picture/original/sample-fashion-product-back.jpg', 'ads_picture/thumbnail/sample-fashion-product.jpg', 56, 54, 'ads_picture/thumbnail/sample-fashion-product.jpg', 200, 'Hot New Women''s Thicken Warm Winter Coat Hood Parka Overcoat Long Jacket Outwear', 200, 9, 1, 0, 0, 0, 8, 8, 8, 1, 1, 'Hot New Women''s Thicken Warm Winter Coat Hood Parka Overcoat Long Jacket Outwear', 200, 1),
+(9, 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 56, 54, 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 300, 'omen''s Thicken Warm Winter Coat Hood Park', 300, 1, 1, 0, 0, 9, 9, 9, 9, 0, 0, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', 300, 1),
+(10, 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 56, 54, 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 500, 'omen''s Thicken Warm Winter Coat Hood Park', 500, 1, 1, 0, 0, 9, 9, 9, 9, 0, 0, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', 500, 1);

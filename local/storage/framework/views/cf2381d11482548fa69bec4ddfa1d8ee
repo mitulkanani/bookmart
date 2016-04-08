@@ -124,12 +124,12 @@
                             <?php
                             foreach ($frontpageProductlists as $key => $frProduct) {
                                 ?>
-                            <li class="ajax_block_product col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6 last-item-of-desktop-line last-desktop-line last-in-line last-line last-tablet-line first-item-of-mobile-line last-mobile-line last-item-of-portrait-line last-portrait-line">
+                            <li class="ajax_block_product col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6 ">
                                 <div class="product-container" itemscope>
                                     <div class="pro_outer_box">
                                         <div class="pro_first_box ">
                                             <a class="product_img_link pro_img_hover_scale" 
-                                               href="<?php echo e($frProduct->link); ?>"
+                                               href="view_full_details/<?php echo e($frProduct->id); ?>"
                                                title="<?php echo e($frProduct->name); ?>" itemprop="url">
                                                 <img class="replace-2x img-responsive front-image" 
                                                      src="<?php echo e($frProduct->front_big_img); ?>" 
@@ -175,7 +175,7 @@
                                         <div class="pro_second_box">
                                             <h5 itemprop="name" class="s_title_block ">
                                                 <a class="product-name"
-                                                   href="<?php echo e($frProduct->link); ?>"
+                                                   href="view_full_details/<?php echo e($frProduct->id); ?>"
                                                    title="<?php echo e($frProduct->name); ?>"
                                                    itemprop="url" ><?php echo e($frProduct->name); ?></a>
                                             </h5>

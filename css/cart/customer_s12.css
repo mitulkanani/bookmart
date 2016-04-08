@@ -213,14 +213,12 @@ a.icon_wrap.active, .icon_wrap.active, a.icon_wrap:hover, .icon_wrap:hover, .sea
     color: #01a261;
 }
 body, body.content_only {
-    background-color: #000000;
+    background-color: #e2e2e2;
 }
 .section .title_block span, .section .title_block a, .nav_top_right .flex-direction-nav, #home-page-tabs li a, #home-page-tabs li span {
     background-color: #000000;
 }
-#footer-top {
-    background-image: url("../../img/4eea6035959daa5e0c5599234b72f598.jpg");
-}
+
 #footer-top, #footer-top .container {
     border-top: medium none;
 }
