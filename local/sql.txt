@@ -193,3 +193,40 @@ INSERT INTO `products` (`id`, `status`, `front_big_img`, `back_big_img`, `image`
 (8, 1, 'ads_picture/original/sample-fashion-product.jpg', 'ads_picture/original/sample-fashion-product-back.jpg', 'ads_picture/thumbnail/sample-fashion-product.jpg', 56, 54, 'ads_picture/thumbnail/sample-fashion-product.jpg', 200, 'Hot New Women''s Thicken Warm Winter Coat Hood Parka Overcoat Long Jacket Outwear', 200, 9, 1, 0, 0, 0, 8, 8, 8, 1, 1, 'Hot New Women''s Thicken Warm Winter Coat Hood Parka Overcoat Long Jacket Outwear', 200, 1),
 (9, 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 56, 54, 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 300, 'omen''s Thicken Warm Winter Coat Hood Park', 300, 1, 1, 0, 0, 9, 9, 9, 9, 0, 0, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', 300, 1),
 (10, 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 56, 54, 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 500, 'omen''s Thicken Warm Winter Coat Hood Park', 500, 1, 1, 0, 0, 9, 9, 9, 9, 0, 0, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', 500, 1);
+
+
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_type` int(10) unsigned NOT NULL,
+  `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `profile_picture` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `aboutme` text COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `is_verified` tinyint(1) NOT NULL,
+  `last_login_time` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_type`, `first_name`, `last_name`, `username`, `email`, `image`, `password`, `profile_picture`, `aboutme`, `token`, `remember_token`, `status`, `is_verified`, `last_login_time`, `created_at`, `updated_at`) VALUES
+(1, 1, 'AdminF', 'AdminL', 'admin', 'admin@newedge.com', '', '$2y$10$HWHYeWcpBlAyBxyozKacEeQCWbGyzv9cL.BKy6EF6.eA6Q/z.Cly6', '', '', '', 'H0ofCrBIV5jWiHKTpqGsXeJXNRpXJSi8dUnxsYdaa7sbZTmFIBl3qakR2RT2', 1, 1, '2015-08-06 09:39:06', '0000-00-00 00:00:00', '2015-10-06 11:29:26'),
+(6, 2, 'test', 'test', 'test', 'test1234@gmail.com', '', '$2y$10$vxKAEqBFLQI5jNpm1bck9uTgkc/lv/N.HnAVk2vFIu.zcjhyyB8ni', '', '    test ', '', '', 1, 1, '0000-00-00 00:00:00', '2015-09-26 01:49:57', '2015-09-26 06:37:59'),
+(7, 2, 'asfasfas', 'safaf', 'sdgasg', 'kmfdbdf@gmail.com', '', '$2y$10$zgh766SbsDy9q1sb26j6i.FPFRrvfddixKKSG8pIgU4mAbyO.K74O', '', ' zxv zx bx ', '', '', 1, 1, '0000-00-00 00:00:00', '2015-09-26 12:20:10', '2015-09-26 12:20:10');
