@@ -4802,14 +4802,14 @@ span.exclusive {
     opacity: 0.3
 }
 .btn-small {
-    background: #666666;
+    background: #208fc8;
     color: #fff
 }
 .btn-default,
 .btn-medium,
 .btn-large {
     border: none;
-    background: #666666;
+    background: #208fc8;
     color: #fff;
     line-height: 100%
 }
@@ -11033,9 +11033,7 @@ body.mobile_device .hover_fly_static .countdown_wrap {
     padding-left: 10px;
     padding-right: 10px
 }
-.advanced_banner_col.advanced_banner_b .st_advanced_banner_block {
-    margin-bottom: 20px
-}
+
 .st_advanced_banner_row.row,
 .st_advanced_banner_row .row {
     margin-left: -10px;
@@ -15277,8 +15275,7 @@ ul.product_list.grid > li .product-container .functional-buttons .wishlist .popo
         bottom: 0 !important;
         top: auto !important;
         right: auto;
-        width: 100%;
-        left: 0;
+        right:  0;
         border-right: none;
         border-bottom: none;
         border-left: none
@@ -15772,9 +15769,7 @@ ul.product_list.grid > li .product-container .functional-buttons .wishlist .popo
     #order-detail-content #cart_summary tbody td .price {
         text-align: left
     }
-    .st_advanced_banner_block {
-        margin-bottom: 20px
-    }
+
     .st_advanced_banner_1 .st_advanced_banner_block {
         text-align: center
     }

@@ -1,6 +1,6 @@
 
 <div class="primary_block row">
-    <div class="pb-left-column col-xs-12 col-sm-6 col-md-6 ">
+    <div class="pb-left-column col-md-4 ">
         <div id="image-block" class="clearfix"> <span id="view_full_size"> <img id="bigpic" itemprop="image" src="http://transformer.sunnytoo.com/twelfth/101-big_default/white-polka-dot-black-tie-necktie.jpg" title="White Polka Dot Black Tie NeckTie" alt="White Polka Dot Black Tie NeckTie" width="568" height="649" class="replace-2x"/> <a href="javascript:;" class="span_link no-print icon_wrap" title="View larger"><i class="icon-search-1 icon-large"></i></a> <span class="new"><i>New</i></span> <span class="on_sale"><i>Sale</i></span> </span>
         </div>
         <div id="views_block" class="clearfix "> <span class="view_scroll_spacer"><a id="view_scroll_left" class="" title="Other views Previous" href="javascript:;"><i class="icon-left-open-1"></i></a></span>
@@ -86,3 +86,6 @@
         </form>
     </div>
 </div>
+<script>
+    var page_name = 'product';
+</script>

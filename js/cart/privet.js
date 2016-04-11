@@ -5,6 +5,7 @@ $(document).ready(function() {
     if (typeof page_name !== 'undefined' && !in_array(page_name, ['index', 'product']))
     {
         bindGrid();
+
         $(document).on('change', '.selectProductSort', function(e) {
             if (typeof request != 'undefined' && request)
                 var requestSortProducts = request;
@@ -8051,14 +8052,14 @@ var ajaxCart = {nb_total_products: 0, overrideButtonsInThePage: function() {
                 else
                     $(callerElement).removeProp('disabled');
             }});
-    }, remove: function(idProduct,rowid, idCombination, customizationId, idAddressDelivery) {
+    }, remove: function(idProduct, rowid, idCombination, customizationId, idAddressDelivery) {
         $.ajax({type: 'POST',
             headers: {"cache-control": "no-cache", 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: baseUri + 'rand',
             async: true,
             cache: false,
             dataType: "json",
-            data: 'controller=cart&delete=1&rowid='+rowid+'&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true', success: function(jsonData) {
+            data: 'controller=cart&delete=1&rowid=' + rowid + '&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true', success: function(jsonData) {
                 ajaxCart.updateCart(jsonData);
                 ajaxCart.hideOldProducts(jsonData);
                 if ($('body').attr('id') == 'order' || $('body').attr('id') == 'order-opc')

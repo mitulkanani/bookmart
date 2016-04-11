@@ -6,11 +6,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Users
-        <small>Manage Users</small>
+        Products
+        <small>Manage Products</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('admin/adduser') }}"><span class="add-link"> Add User </span> </a></li>
+        <li><a href="{{ url('admin/addproduct') }}"><span class="add-link"> Add Product </span> </a></li>
     </ol>
 </section>
 
@@ -21,28 +21,40 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Users</h3>
+                    <h3 class="box-title">Products</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body no-padding">
                     <table class="table table-striped">
                         <tr>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
+                            <th>cat_id</th>
+                            <th>sale_rent</th>
+                            <th>front big image</th>
+                            <th>back big image</th>
+                            <th>full-name</th>
+                            <th>Price</th>
                             <th>Status</th>
-                            <th>Is Verified</th>
                             <th>Action</th>
                         </tr>
-                        @foreach($users as $key=>$value)
+                        @foreach($products as $key=>$value)
+
                         <tr>
                             <td>
-                                <a href="{{ url('/admin/users/') }}/{{$value->id}}">{{$value->first_name}} &nbsp; {{$value->last_name}}</a>
+                                {{$value->cat_id}}
                             </td>
                             <td>
-                                {{$value->username}}
+                                {{$value->sale_rent}}
                             </td>
                             <td>
-                                {{$value->email}}
+                                {{$value->front_big_img}}
+                            </td>
+                            <td>
+                                {{$value->back_big_img}}
+                            </td>
+                            <td>
+                                {{$value->full_name}}
+                            </td>
+                            <td>
+                                {{$value->price}}
                             </td>
                             <td>
                                 @if($value->status==1)
@@ -52,9 +64,6 @@
                                 @endif
                             </td>
 
-                            <td>
-                                <input type="checkbox" name="is_verified" id="is_verified"  @if($value->is_verified==1) checked='checked' @endif />
-                            </td>
                             <td>
                                 <a href="{{ url('/admin/edituser/') }}/{{$value->id}}">Edit</a>
                                 <a onclick="return confirm('Are you sure you want to delete this user?')" href="{{ url('/admin/deleteuser/') }}/{{$value->id}}">Delete</a>

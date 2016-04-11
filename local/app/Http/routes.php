@@ -30,6 +30,7 @@ Route::post('more_content', 'HomeController@more_content');
 //cart
 Route::post('rand', 'ProductController@addsuccess');
 Route::get('view_full_details/{id}', 'ProductController@viewProductDetails');
+Route::get('book-mart', 'ProductController@viewPage');
 Route::post('view_product', 'ProductController@view_product');
 
 //For admin
@@ -69,9 +70,11 @@ Route::get('admin/cms/{cms_id}', 'Admin\CmsController@getCmsDetails');
 Route::get('admin', ['middleware' => 'auth.adminOnly', 'uses' => 'Admin\AdminController@adminLogin']);
 Route::post('admin/logincheck', 'Admin\AdminController@loginCheck');
 Route::get('admin/dashboard', 'Admin\DashboardController@index');
+Route::get('admin/admin_product', 'Admin\DashboardController@admin_product');
 Route::get('admin/users/{user_id}', 'Admin\UsersController@getUserDetails');
 Route::get('/admin/logout', 'Admin\AdminController@getLogout');
 Route::get('/admin/adduser', 'Admin\UsersController@addUser');
+Route::get('/admin/addproduct', 'Admin\UsersController@addProduct');
 Route::post('/admin/usersave', 'Admin\UsersController@saveUser');
 Route::get('/admin/edituser/{user_id}', 'Admin\UsersController@editUser');
 Route::get('/admin/uploadImage/{property_id}', 'Admin\PropertyController@uploadImage');

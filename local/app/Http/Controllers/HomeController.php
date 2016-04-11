@@ -24,6 +24,7 @@ use App\UploadImage;
 use Response;
 use Illuminate\Support\Facades\Route;
 use App\Product;
+use App\Category;
 
 class HomeController extends Controller {
 
@@ -31,6 +32,7 @@ class HomeController extends Controller {
         $this->userOBJ = new User();
         $this->PostedAdOBJ = new PostedAd();
         $this->productOBJ = new Product();
+        $this->CategoryOBJ = new Category();
     }
 
     /**
@@ -39,8 +41,8 @@ class HomeController extends Controller {
      * @return Response
      */
     public function index() {
-        $frontpageProductlists = $this->productOBJ->getProductList();
-        return view('front/home', compact('frontpageProductlists'));
+        $catlists = $this->CategoryOBJ->getCategoryList();
+        return view('front/home', compact('catlists'))->with('productOBJ', $this->productOBJ);
     }
 
     public function book_mart() {

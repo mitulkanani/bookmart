@@ -1,4 +1,4 @@
-@extends('frontmaster')
+@extends('master')
 
 @section('content')
 <div id="slideshow">

@@ -16,11 +16,13 @@ use Mail;
 use Auth;
 use Config;
 use App\Property;
+use App\Product;
 
 class UsersController extends Controller {
 
     public function __construct() {
         $this->userOBJ = new User();
+        $this->productOBJ = new Product();
     }
 
     /**
@@ -109,7 +111,10 @@ class UsersController extends Controller {
         return view('admin.pages.adduser', compact('user'));
     }
 
-    
+    public function addProduct() {
+        $products = Product::find(1);;
+        return view('admin.pages.addproduct', compact('products'));
+    }
 
     public function deleteUser($userId) {
         $user = User::find($userId)->delete();

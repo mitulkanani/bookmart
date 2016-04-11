@@ -132,6 +132,11 @@
                 <i class="fa fa-circle-o"></i> <span>CMS</span>
               </a>
             </li>
+            <li>
+              <a href="{{ url('admin/admin_product') }}">
+                <i class="fa fa-circle-o"></i> <span>Product</span>
+              </a>
+            </li>
             <!--<li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Tables</span>

@@ -16,9 +16,16 @@ class Product extends Model implements AuthenticatableContract, CanResetPassword
     protected $table = "products";
     protected $fillable = [];
 
-    public function getProductList() {
+    public function getProductList($cat_id) {
         $ProductData = Product::select('products.*')
                 ->where('status', 1)
+                ->where('cat_id', $cat_id)
+                ->get();
+        return $ProductData;
+    }
+
+    public function getProductListForAdmin() {
+        $ProductData = Product::select('products.*')
                 ->get();
         return $ProductData;
     }

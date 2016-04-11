@@ -1,4 +1,4 @@
-@extends('frontmaster')
+@extends('master')
 @section('content')
 <div class="main_content_area">
     <div class="columns-container wide_container">
@@ -678,4 +678,7 @@
         <div class="wide_container"></div>
     </div>
 </div>
+<script>
+    var page_name = 'category';
+</script>
 @stop

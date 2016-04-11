@@ -26,6 +26,7 @@ use Cookie;
 use Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller {
 
@@ -33,6 +34,7 @@ class ProductController extends Controller {
         $this->userOBJ = new User();
         $this->productOBJ = new Product();
         $this->PostedAdOBJ = new PostedAd();
+        $this->CategoryOBJ = new Category();
     }
 
     /**
@@ -50,7 +52,7 @@ class ProductController extends Controller {
 
     public function addsuccess(Request $request) {
         $product_id = Request::get('id_product');
-        
+
         if ($product_id != null || 0) {
             if (Request::isMethod('post')) {
                 $product = $this->productOBJ->getProductListById($product_id);
@@ -58,11 +60,11 @@ class ProductController extends Controller {
                     'id' => $product[0]->id,
                     'name' => e($product[0]->name),
                     'quantity' => 1,
-                    'image' => e($product[0]->image),
+                    'image' => e($product[0]->image_cart),
                     'image_cart' => e($product[0]->image_cart),
                     'price' => e($product[0]->price),
                     'options' => array(
-                        'price_float' => e($product[0]->price_float),
+                        'price_float' => e($product[0]->price),
                         'full_name' => e($product[0]->full_name),
                     ),
                         )
@@ -99,8 +101,13 @@ class ProductController extends Controller {
             'hasError' => false,
         );
         $products_json = json_encode($product_r);
-        
+
         return $products_json;
+    }
+
+    function viewPage() {
+        $cat_id = Request::get('cat_id');
+        return view('front/all_product_page');
     }
 
 }
