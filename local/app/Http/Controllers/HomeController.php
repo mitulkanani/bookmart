@@ -49,6 +49,10 @@ class HomeController extends Controller {
         $adLists = $this->PostedAdOBJ->getBookadList();
         return view('front/book_mart', compact('adLists'));
     }
+    public function transport() {
+//        $adLists = $this->PostedAdOBJ->getBookadList();
+        return view('front/transport');
+    }
 
     public function open_store() {
 //        $adLists = $this->PostedAdOBJ->getBookadList();
