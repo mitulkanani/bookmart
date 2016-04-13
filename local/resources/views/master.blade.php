@@ -13,18 +13,21 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <!--<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">-->
         <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('/images/upload/favicon-12.ico?1443194111')}}" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:600" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fjalla+One:400" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:400" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:700" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:regular" type="text/css" media="all" />
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'/>
 
         <link rel="stylesheet" href="{{ asset('/css/cart/custom2.css')}}">
         <link rel="stylesheet" href="{{ asset('/css/cart/theme.css')}}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('/css/cart/customer_s12.css')}}">
+        <link id="main-style" rel="stylesheet" href="{{ asset('/css/style2.css')}}">
+        
+        
         <script type="text/javascript" src="{{ asset('/js/cart/jquery-2.1.4.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/js/cart/iosSlider.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/js/cart/privet.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('/js/front/main.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('/js/front/jquery.mixitup.min.js')}}"></script>
+        
+
         <meta property="og:image" content="http://transformer.sunnytoo.com/twelfth/img/store-12-logo-143989231412.jpg" />
         <style type="text/css">
             .stsocial_list li a,#footer .stsocial_list li a,#stsocial_list_topbar li a{color:#666666;}
@@ -77,9 +80,7 @@
                 <div id="rightbar_cart" class="rightbar_wrap">
                     <a id="rightbar-shopping_cart" href="http://transformer.sunnytoo.com/twelfth/en/order" class="rightbar_tri icon_wrap" title="View my shopping cart"> <i class="icon-basket icon_btn icon-0x"></i> <span class="icon_text">Cart</span> <span class="ajax_cart_quantity amount_circle simple_hidden ">0</span> </a>
                 </div>
-<!--                <section id="rightbar_compare" class="rightbar_wrap">
-        <a id="rightbar-product_compare" class="rightbar_tri icon_wrap" href="http://transformer.sunnytoo.com/twelfth/en/products-comparison" title="Compare Products"> <i class="icon-ajust icon-0x icon_btn"></i> <span class="icon_text">Compare</span> <span class="compare_quantity amount_circle simple_hidden ">0</span> </a> 
-    </section>-->
+
                 <div id="to_top_wrap">
                     <div id="to_top"><a href="#top_bar" class="icon_wrap disabled" title="Back to top"><i class="icon-up-open-2 icon-0x"></i><span class="icon_text">Top</span></a></div>
                 </div>

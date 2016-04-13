@@ -10,15 +10,12 @@ Primary style
 }
 
 html {
-    font-size: 62.5%;
+
 }
 
 
 body {
-    font-size: 1.6rem;
-    /*font-family: "Open Sans", sans-serif;*/
-    /*    color: #331d35;
-        background-color: #e7e7e7;*/
+    font-size: 1.4rem;
 }
 
 a {
@@ -264,7 +261,7 @@ xgallery
 }
 .cd-gallery img {
     display: block;
-    width: 100%;
+    /*width: 100%;*/
 }
 .cd-gallery .cd-fail-message {
     display: none;
@@ -272,7 +269,7 @@ xgallery
 }
 @media only screen and (min-width: 360px) {
     .cd-gallery li {
-        width: 100%;
+        /*width: 100%;*/
     }
 }
 @media only screen and (min-width: 768px) {
@@ -288,8 +285,8 @@ xgallery
         clear: both;
     }
     .cd-gallery li {
-        width: 48%;
-        
+        /*width: 48%;*/
+
     }
 }
 @media only screen and (min-width: 1170px) {
@@ -301,7 +298,7 @@ xgallery
         transition: width 0.3s;
     }
     .cd-gallery li {
-        width: 32%;
+        /*width: 32%;*/
     }
     .cd-gallery.filter-is-visible {
         /* reduce width when filter is visible */

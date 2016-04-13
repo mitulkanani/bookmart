@@ -90,6 +90,9 @@ video {
 html {
     line-height: 1
 }
+body {
+    font-size: 1.4rem;
+}
 ol,
 ul {
     list-style: none
@@ -4809,7 +4812,7 @@ span.exclusive {
 .btn-medium,
 .btn-large {
     border: none;
-    background: #208fc8;
+    background: #7eb329 ;
     color: #fff;
     line-height: 100%
 }
@@ -4820,7 +4823,7 @@ span.exclusive {
 .btn-large:hover,
 .btn-large.active {
     border: none;
-    background: #00a161;
+    background: #99cf45;
     color: #fff
 }
 .btn-default.btn_primary,
@@ -7932,7 +7935,7 @@ html[xmlns] .slides {
     white-space: nowrap
 }
 .price_container .price {
-    font-size: 1.333em;
+    font-size: 1.11em;
     font-weight: bold;
     margin-right: 4px;
     display: inline-block
@@ -7941,7 +7944,7 @@ html[xmlns] .slides {
     font-size: 1.166em
 }
 #our_price_display {
-    font-size: 1.333em
+    font-size: 1.11em
 }
 .old_price {
     text-decoration: line-through;
@@ -8051,7 +8054,7 @@ span.new {
     width: 0;
     line-height: 0;
     text-align: center;
-    z-index: 5
+    /*z-index: 5*/
 }
 span.on_sale i,
 span.new i {
@@ -8147,7 +8150,7 @@ span.new {
     width: 100%;
     left: 0;
     background: #BBBBBB;
-    z-index: 6
+    /*z-index: 6*/
 }
 .hover_fly_static .hover_fly {
     position: relative;

@@ -370,7 +370,7 @@ jQuery(function($) {
         $(this).removeClass('open');
     });
     $('#footer .opener').click(function() {
-        $(this).closest('.block').toggleClass('open');
+        $(this).toggleClass('open');
         return false;
     });
     $('.product_accordion .opener').click(function() {

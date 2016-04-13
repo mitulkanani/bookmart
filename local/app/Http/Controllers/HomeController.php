@@ -174,11 +174,13 @@ class HomeController extends Controller {
             $extension = Input::file('cover_image')->getClientOriginalExtension(); // getting image extension
             $fileName = time() . '.' . $extension; // renameing image
 
-            Input::file('cover_image')->move($pathoriginal, $fileName); // uploading file to given path
-//
+            $image = Input::file('cover_image');
+
+            Image::make($image->getRealPath())->resize(200, 310)->save($pathoriginal . $fileName);
+            
             File::copy($pathoriginal . $fileName, $path50 . $fileName);
             Image::make($path50 . $fileName)
-                    ->resize('100', '100')
+                    ->resize('50', '50')
                     ->save($path50 . $fileName);
 
             $ads = PostedAd::create(array(

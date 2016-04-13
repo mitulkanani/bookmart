@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::get('book_mart', 'HomeController@book_mart');
 Route::post('/gallery', 'HomeController@gallery');
 Route::post('/view_full_detail', 'HomeController@view_full_detail');
-Route::post('/post_ad', 'HomeController@post_ad');
+Route::get('/post_ad', 'HomeController@post_ad');
 Route::post('adSave', 'HomeController@adSave');
 Route::post('search_book', 'HomeController@search_book');
 Route::post('get_authors', 'HomeController@get_authors');
