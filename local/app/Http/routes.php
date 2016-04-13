@@ -15,6 +15,7 @@
 //For front
 Route::get('/', 'HomeController@index');
 Route::get('book_mart', 'HomeController@book_mart');
+Route::get('transport', 'HomeController@transport');
 Route::post('/gallery', 'HomeController@gallery');
 Route::post('/view_full_detail', 'HomeController@view_full_detail');
 Route::get('/post_ad', 'HomeController@post_ad');
