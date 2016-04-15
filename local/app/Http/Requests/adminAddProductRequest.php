@@ -23,7 +23,6 @@ class adminAddProductRequest extends Request {
     public function rules() {
         return [
             'ad_title' => 'required',
-            'cover_image' => 'required',
             'owner_name' => 'required',
             'mobileno' => 'required',
             'description' => 'required',

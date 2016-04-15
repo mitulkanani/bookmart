@@ -35,7 +35,7 @@
                 </div>
                 @endif
 
-                <form id="add-cart_product" class="form-horizontal" method="post" action="{{ url('/admin/admin_cart_productsave') }}">
+                <form id="add-cart_product" enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/admin_cart_productsave') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="cart_product_id" value="<?php echo ($cart_product) ? $cart_product->id : '0'; ?>">
                     <div class="box-body">
@@ -93,7 +93,7 @@
                             ?>
                             <label for="front_big_img" class="col-sm-2 control-label">Front-big-image</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" id="front_big_img" name="front_big_img" placeholder="front_big_img" value="{{ $front_big_img }}">
+                                <input type="file" class="form-control" id="front_big_img" name="front_big_img" placeholder="front_big_img" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -107,7 +107,7 @@
                             ?>
                             <label for="front_big_img" class="col-sm-2 control-label">Back-big-image</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" id="back_big_img" name="back_big_img" placeholder="back_big_img" value="{{ $back_big_img }}">
+                                <input type="file" class="form-control" id="back_big_img" name="back_big_img" placeholder="back_big_img" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -121,7 +121,7 @@
                             ?>
                             <label for="images" class="col-sm-2 control-label">Other-Images</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" name="images[]" placeholder="Other images" value="{{ $images }}">
+                                <input type="file" class="form-control" name="images[]" placeholder="Other images" >
                             </div>
                         </div>
                         <div id="add_new_image_block">
@@ -178,7 +178,7 @@
                             if (old('description'))
                                 $description = old('description');
                             elseif ($cart_product)
-                                $description = $cart_product->desc;
+                                $description = $cart_product->description;
                             else
                                 $description = '';
                             ?>
