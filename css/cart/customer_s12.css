@@ -54,10 +54,10 @@ body {
     text-transform: none;
 }
 .block .title_block, .block a.title_block, .block .title_block a, #home-page-tabs li a, #home-page-tabs li span {
-    color: #7eb329;
+    color: #72111a;
 }
 .heading, .page-heading, .page-subheading, a.heading, a.page-heading, a.page-subheading, #home-page-tabs > li a {
-    color: #7eb329;
+    color: #72111a;
 }
 body {
     color: #888888;
@@ -100,7 +100,7 @@ a.icon_wrap.active, .icon_wrap.active, a.icon_wrap:hover, .icon_wrap:hover, .sea
     top: auto;
 }
 .hover_fly a, .hover_fly a:hover, .hover_fly a:first-child, .hover_fly a:first-child:hover {
-    color: #70860e!important;
+    color: #72111a!important;
 }
 .itemlist_action a, .itemlist_action a:hover {
     color: #70860e;
@@ -143,7 +143,7 @@ a.icon_wrap.active, .icon_wrap.active, a.icon_wrap:hover, .icon_wrap:hover, .sea
     background-color: #222222;
 }
 #top_bar {
-    background-color: #7eb329;
+    background-color: #72111a;
 }
 #top_bar #header_user_info a, #top_bar #header_user_info span, #stsocial_list_topbar li a, #contact-link a, .shop-phone, #top_bar .dropdown_tri_inner, #top_bar .shopping_cart_style_1 .shopping_cart, .currency_selector, .language_selector {
     border-color: #222222;
@@ -169,7 +169,7 @@ a.icon_wrap.active, .icon_wrap.active, a.icon_wrap:hover, .icon_wrap:hover, .sea
     border-color: #ffffff transparent transparent;
 }
 #st_advanced_menu_wrap .advanced_ma_level_0 {
-    color: #7eb329;
+    color: #72111a;
 }
 #main_menu_widgets #search_block_top.quick_search_simple .submit_searchbox, #main_menu_widgets a.header_item, #main_menu_widgets .shopping_cart .icon_wrap, #main_menu_widgets .shopping_cart, #main_menu_widgets .shopping_cart .ajax_cart_right {
     color: #2d3e52;
@@ -281,9 +281,7 @@ body#index .main_content_area, body#module-stblog-default .main_content_area {
 .products_slider .ajax_block_product:hover .pro_outer_box, .product_list.grid .ajax_block_product:hover .pro_outer_box, .product_list.list .ajax_block_product:hover {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
-.products_slider .ajax_block_product:hover .pro_second_box, .product_list.grid .ajax_block_product:hover .pro_second_box {
-    background-color: #222222;
-}
+
 #page_wrapper {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }

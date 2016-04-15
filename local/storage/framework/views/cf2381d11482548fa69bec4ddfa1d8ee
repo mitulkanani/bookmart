@@ -43,156 +43,116 @@
         </div>
         <div class="css3loader css3loader-3"></div>
     </div>
-    <div class="st_advanced_banner_row st_advanced_banner_0 hover_effect_4 " id="st_advanced_banner_29">
+    <div class="st_advanced_banner_row st_advanced_banner_0 hover_effect_4" id="st_advanced_banner_29">
         <div class="row">
-            <div data-height="100" class="col-sm-4 advanced_banner_col " id="advanced_banner_box_30">
-                <div style="height:450px;" class="st_advanced_banner_block_22 st_advanced_banner_block" id="st_advanced_banner_block_22">
-                    <div style="background-image:url(http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/06e48e724f95c9bb29be0e97744c019a.jpg);" class="st_advanced_banner_image">
+            <?php foreach ($catlists as $key => $catlist) { ?>
+                <div style = "height:193px;" class = "st_advanced_banner_block_24 st_advanced_banner_block  col-sm-3"
+                     id = "st_advanced_banner_block_24">
+                    <div style = "" class = "st_advanced_banner_image">
+                        <img src = "<?php echo $catlist->cat_image ?>">
                     </div>
-                    <div class="advanced_banner_text text_table_wrap ">
-                        <div class="text_table">
-                            <div class="text_td style_content text-center advanced_banner_text_center clearfix">
-                                <h6 style="font-family:'Roboto Slab';" class="closer uppercase">Shop new arrivals</h6>
-                                <p>Over 200 great styles to see</p>
+                    <div class = "advanced_banner_text text_table_wrap ">
+                        <div class = "text_table">
+                            <div class = "text_td style_content text-center advanced_banner_text_center clearfix">
+                                <h6 style = "font-family:'Roboto Slab';" class = "closer uppercase"><?php echo $catlist->cat_name ?></h6>
                                 <div>
-                                    <a href="#" title="See more" class="btn btn-default">See more</a>
+                                    <a class = "btn btn-default" title = "See more" href = "<?php echo $catlist->cat_name ?>">See more</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div data-height="100" class="col-sm-8 advanced_banner_col " id="advanced_banner_box_31">
-                <div class="row">
-                    <div data-height="50" class="col-sm-12 advanced_banner_col advanced_banner_b " id="advanced_banner_box_32">
-                        <div style="height:215px;" class="st_advanced_banner_block_23 st_advanced_banner_block" id="st_advanced_banner_block_23">
-                            <div style="background-image:url(http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/59f0e47d673b075c7feb3ed2c8695b5e.jpg);" class="st_advanced_banner_image"></div>
-                            <div class="advanced_banner_text text_table_wrap ">
-                                <div class="text_table">
-                                    <div class="text_td style_content text-center advanced_banner_text_center clearfix">
-                                        <h6 style="font-family:'Roboto Slab';" class="closer uppercase">Maternity essentials</h6>
-                                        <p>Shop the collection</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-height="50" class="col-sm-12 advanced_banner_col " id="advanced_banner_box_33">
-                        <div class="row">
-                            <div data-height="100" class="col-sm-6 advanced_banner_col " id="advanced_banner_box_34">
-                                <div style="height:215px;" class="st_advanced_banner_block_24 st_advanced_banner_block" id="st_advanced_banner_block_24">
-                                    <div style="background-image:url(http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg);" class="st_advanced_banner_image"></div>
-                                    <div class="advanced_banner_text text_table_wrap ">
-                                        <div class="text_table">
-                                            <div class="text_td style_content text-center advanced_banner_text_center clearfix">
-                                                <h6 style="font-family:'Roboto Slab';" class="closer uppercase">Check out our</h6>
-                                                <p>New brands</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-height="100" class="col-sm-6 advanced_banner_col " id="advanced_banner_box_35">
-                                <div style="height:215px;" class="st_advanced_banner_block_25 st_advanced_banner_block" id="st_advanced_banner_block_25">
-                                    <div style="background-image:url(http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/83f43d02c2098a8d1b9747aa80a2466b.jpg);" class="st_advanced_banner_image"></div>
-                                    <div class="advanced_banner_text text_table_wrap ">
-                                        <div class="text_table">
-                                            <div class="text_td style_content text-center advanced_banner_text_center clearfix">
-                                                <h6 style="font-family:'Roboto Slab';" class="closer uppercase">Changing seasons</h6>
-                                                <p>New colloection out now</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
-    <div id="new-products_block_center_container_7c29aa9f48" class="new-products_block_center_container block s_countdown_block">
-        <div class="wide_container">
-            <div class="container">
-                <section id="new-products_block_center7c29aa9f48" 
-                         class="new-products_block_center products_block section display_as_grid ">
-                    <h4 class="title_block">
-                        <a href="http://transformer.sunnytoo.com/twelfth/en/new-products" title="New products">New products</a>
+    <div id = "new-products_block_center_container_7c29aa9f48" class = "new-products_block_center_container block s_countdown_block">
+        <div class = "wide_container">
+            <div class = "container">
+                <section id = "new-products_block_center7c29aa9f48"
+                         class = "new-products_block_center products_block section display_as_grid ">
+                    <h4 class = "title_block">
+                        <a href = "http://transformer.sunnytoo.com/twelfth/en/new-products" title = "New products">New products</a>
                     </h4>
-                    <ul id="sthomenew_grid" class="product_list grid row sthomenew_grid" 
-                        data-classnames="col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6" data-default-view="">
-                            <?php
-                            foreach ($frontpageProductlists as $key => $frProduct) {
-                                ?>
-                            <li class="ajax_block_product col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6 ">
-                                <div class="product-container" itemscope>
-                                    <div class="pro_outer_box">
-                                        <div class="pro_first_box ">
-                                            <a class="product_img_link pro_img_hover_scale" 
-                                               href="view_full_details/<?php echo e($frProduct->id); ?>"
-                                               title="<?php echo e($frProduct->name); ?>" itemprop="url">
-                                                <img class="replace-2x img-responsive front-image" 
-                                                     src="<?php echo e($frProduct->front_big_img); ?>" 
-                                                     alt="<?php echo e($frProduct->name); ?>"
-                                                     title="<?php echo e($frProduct->name); ?>"
-                                                     width="272" height="310" itemprop="image" />
-                                                <img class="replace-2x img-responsive back-image" 
-                                                     src="<?php echo e($frProduct->back_big_img); ?>" 
-                                                     alt="<?php echo e($frProduct->name); ?>"
-                                                     width="272" height="310" />
-                                                <span class="new"><i>SALE</i></span>
-                                            </a>
-                                            <div class="hover_fly fly_3 clearfix">
-                                                <a class="ajax_add_to_cart_button btn btn-default btn_primary" 
-                                                   href="<?php echo e(Request::url()); ?>/cart?add=1&amp;id_product=<?php echo e($frProduct->id); ?>&amp;token=5f2d2499e3a3ae4c0e39accff9ed1f04" 
-                                                   rel="nofollow" title="Add to cart" data-id-product-attribute="0" 
-                                                   data-id-product="<?php echo e($frProduct->id); ?>" data-minimal_quantity="1">
-                                                    <div>
-                                                        <i class="icon-basket icon-0x icon_btn icon-mar-lr2"></i>
-                                                        <span>Add to cart</span>
+                    <?php
+                    foreach ($catlists as $key => $catlist) {
+                        $frontpageProductlists = $cartproductOBJ->getProductList($catlist->id);
+                        if (!$frontpageProductlists->isEmpty()) {
+                            ?>
+                            <div style="border-bottom: 4px solid #72111a"></div>
+                            <ul style="display: inline-block;">
+                                <li style="float: left;margin-right: 4px;"><a href="<?php echo $catlist->cat_name ?>" title="See more" class="btn btn-default"><?php echo $catlist->cat_name ?></a></li>
+                                <li style="float: left"><a href="#" title="See more" class="btn btn-default">View-all</a></li>
+                            </ul>
+                            <ul style="margin: 15px 1px 15px 0;padding: 0;" id="sthomenew_grid" class="product_list grid row sthomenew_grid" 
+                                data-classnames="col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6" data-default-view="">
+
+                                <?php
+                                foreach ($frontpageProductlists as $key => $frProduct) {
+                                    ?>
+                                    <li class="ajax_block_product col-lg-2-4 col-md-2-4 col-sm-3 col-xs-4 col-xxs-6 ">
+                                        <div class="product-container" itemscope>
+                                            <div class="pro_outer_box">
+                                                <div class="pro_first_box ">
+                                                    <a class="product_img_link pro_img_hover_scale" 
+                                                       href="view_full_details/<?php echo e($frProduct->id); ?>"
+                                                       title="<?php echo e($frProduct->name); ?>" itemprop="url">
+                                                        <img class="replace-2x img-responsive front-image" 
+                                                             src="<?php echo e($frProduct->front_big_img); ?>" 
+                                                             alt="<?php echo e($frProduct->name); ?>"
+                                                             title="<?php echo e($frProduct->name); ?>"
+                                                             width="272" height="310" itemprop="image" />
+                                                        <img class="replace-2x img-responsive back-image" 
+                                                             src="<?php echo e($frProduct->back_big_img); ?>" 
+                                                             alt="<?php echo e($frProduct->name); ?>"
+                                                             width="272" height="310" />
+                                                        <span class="new"><i>SALE</i></span>
+                                                    </a>
+                                                    <div class="hover_fly fly_2 clearfix">
+                                                        <a class="ajax_add_to_cart_button btn btn-default btn_primary" 
+                                                           href="<?php echo e(Request::url()); ?>/cart?add=1&amp;id_product=<?php echo e($frProduct->id); ?>&amp;token=5f2d2499e3a3ae4c0e39accff9ed1f04" 
+                                                           rel="nofollow" title="Add to cart" data-id-product-attribute="0" 
+                                                           data-id-product="<?php echo e($frProduct->id); ?>" data-minimal_quantity="1">
+                                                            <div>
+                                                                <i class="icon-basket icon-0x icon_btn icon-mar-lr2"></i>
+                                                                <span>Add to cart</span>
+                                                            </div>
+                                                        </a>
+                                                        <a title="Quick view"
+                                                           onclick="view_quick_product(1)"
+                                                           href="javascript:void(0);" 
+                                                           class="quick-view">
+                                                            <div>
+                                                                <i class="icon-search-1 icon-0x icon_btn icon-mar-lr2"></i>
+                                                                <span>Quick view</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                                <a title="Quick view"
-                                                   onclick="view_quick_product(1)"
-                                                   href="javascript:void(0);" 
-                                                   class="quick-view">
-                                                    <div>
-                                                        <i class="icon-search-1 icon-0x icon_btn icon-mar-lr2"></i>
-                                                        <span>Quick view</span>
+                                                </div>
+                                                <div class="pro_second_box">
+                                                    <h5 itemprop="name" class="s_title_block ">
+                                                        <a class="product-name"
+                                                           href="view_full_details/<?php echo e($frProduct->id); ?>"
+                                                           title="<?php echo e($frProduct->name); ?>"
+                                                           itemprop="url" ><?php echo e($frProduct->name); ?></a>
+                                                    </h5>
+                                                    <div class="price_container" itemprop="offers" 
+                                                         itemscope itemtype="https://schema.org/Offer">
+                                                        <span itemprop="price" class="price product-price">Rs.<?php echo e($frProduct->price); ?></span>
+                                                        <meta itemprop="priceCurrency" content="USD" />
                                                     </div>
-                                                </a>
-                                                <a class="addToWishlist wishlistProd_48" href="#" rel="nofollow" 
-                                                   data-pid="1"
-                                                   onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1, this);
-                                                           return false;">
-                                                    <div>
-                                                        <i class="icon-heart icon-0x icon_btn icon-mar-lr2"></i>
-                                                        <span>Add to Wishlist</span>
+                                                    <div class="availability product_stock_info mar_b6">
+                                                        <span class="available-now hidden sm_lable"> In stock </span>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="pro_second_box">
-                                            <h5 itemprop="name" class="s_title_block ">
-                                                <a class="product-name"
-                                                   href="view_full_details/<?php echo e($frProduct->id); ?>"
-                                                   title="<?php echo e($frProduct->name); ?>"
-                                                   itemprop="url" ><?php echo e($frProduct->name); ?></a>
-                                            </h5>
-                                            <div class="price_container" itemprop="offers" 
-                                                 itemscope itemtype="https://schema.org/Offer">
-                                                <span itemprop="price" class="price product-price">Rs.<?php echo e($frProduct->price); ?></span>
-                                                <meta itemprop="priceCurrency" content="USD" />
-                                            </div>
-                                            <div class="availability product_stock_info mar_b6">
-                                                <span class="available-now hidden sm_lable"> In stock </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
-                    </ul>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+                    <?php } ?>
                 </section>
             </div>
         </div>
@@ -404,8 +364,9 @@
             }
         });
     }
+    var page_name = 'index';
 </script>
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('frontmaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

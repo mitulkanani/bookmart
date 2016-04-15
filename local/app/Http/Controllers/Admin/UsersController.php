@@ -16,13 +16,13 @@ use Mail;
 use Auth;
 use Config;
 use App\Property;
-use App\Product;
+use App\CartProduct;
 
 class UsersController extends Controller {
 
     public function __construct() {
         $this->userOBJ = new User();
-        $this->productOBJ = new Product();
+        $this->cartproductOBJ = new CartProduct();
     }
 
     /**
@@ -32,7 +32,7 @@ class UsersController extends Controller {
      */
     public function getUserDetails($userID) {
         $user_profile_data = User::where("id", $userID)->first();
-        return view('admin.pages.userdetails', compact('user_profile_data'))->with('userOBJ', $this->userOBJ);
+        return view('admin.userdetails', compact('user_profile_data'))->with('userOBJ', $this->userOBJ);
     }
 
     public function banUser() {
@@ -64,7 +64,7 @@ class UsersController extends Controller {
 
     public function addUser() {
         $user = array();
-        return view('admin.pages.adduser', compact('user'));
+        return view('admin.adduser', compact('user'));
     }
 
     public function saveUser(adminAddUserRequest $request) {
@@ -108,12 +108,12 @@ class UsersController extends Controller {
 
     public function editUser($userId) {
         $user = User::find($userId);
-        return view('admin.pages.adduser', compact('user'));
+        return view('admin.adduser', compact('user'));
     }
 
     public function addProduct() {
-        $products = Product::find(1);;
-        return view('admin.pages.addproduct', compact('products'));
+        $products = CartProduct::find(1);;
+        return view('admin.addproduct', compact('products'));
     }
 
     public function deleteUser($userId) {

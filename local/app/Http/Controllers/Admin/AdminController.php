@@ -83,7 +83,7 @@ class AdminController extends Controller
         {
             return Redirect::to("/admin/dashboard");
         }	
-        return view('admin.pages.signin');
+        return view('admin.signin');
     }
     public function loginCheck()
     {

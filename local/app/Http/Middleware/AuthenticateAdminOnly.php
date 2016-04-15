@@ -31,7 +31,7 @@ class AuthenticateAdminOnly
             }
             else
             {
-                return view('admin.pages.signin');
+                return view('admin.signin');
             }
         }
 

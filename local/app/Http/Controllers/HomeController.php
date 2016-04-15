@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\PostedAd;
+use App\BookMart;
 use App\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests\adminAddUserRequest;
@@ -23,16 +23,18 @@ use File;
 use App\UploadImage;
 use Response;
 use Illuminate\Support\Facades\Route;
-use App\Product;
+use App\CartProduct;
 use App\Category;
+use App\Transport;
 
 class HomeController extends Controller {
 
     public function __construct() {
         $this->userOBJ = new User();
-        $this->PostedAdOBJ = new PostedAd();
-        $this->productOBJ = new Product();
+        $this->bookmartOBJ = new BookMart();
+        $this->cartproductOBJ = new CartProduct();
         $this->CategoryOBJ = new Category();
+        $this->TransportOBJ = new Transport();
     }
 
     /**
@@ -42,32 +44,33 @@ class HomeController extends Controller {
      */
     public function index() {
         $catlists = $this->CategoryOBJ->getCategoryList();
-        return view('front/home', compact('catlists'))->with('productOBJ', $this->productOBJ);
+        return view('front/home', compact('catlists'))->with('cartproductOBJ', $this->cartproductOBJ);
     }
 
     public function book_mart() {
-        $adLists = $this->PostedAdOBJ->getBookadList();
+        $adLists = $this->bookmartOBJ->getBookadList();
         return view('front/book_mart', compact('adLists'));
     }
+
     public function transport() {
-//        $adLists = $this->PostedAdOBJ->getBookadList();
-        return view('front/transport');
+        $AddData = $this->TransportOBJ->getTransportList();
+        return view('front/transport', compact('AddData'));
     }
 
     public function open_store() {
-//        $adLists = $this->PostedAdOBJ->getBookadList();
+//        $adLists = $this->bookmartOBJ->getBookadList();
         return view('front/store');
     }
 
     public function more_content() {
         $id = Input::get('getLastContentId');
-        $adLists = $this->PostedAdOBJ->getLoadMoreBookList($id);
+        $adLists = $this->bookmartOBJ->getLoadMoreBookList($id);
         return view('front/more_content', compact('adLists'));
     }
 
     public function gallery() {
         $id = Input::get('id');
-        $galleryLists = $this->PostedAdOBJ->getimageList($id);
+        $galleryLists = $this->bookmartOBJ->getimageList($id);
         $cover_image = e($galleryLists->cover_image);
         $otherImages = explode(',', $galleryLists->images);
         if (empty($otherImages[0])) {
@@ -79,7 +82,7 @@ class HomeController extends Controller {
 
     public function view_full_detail() {
         $id = Input::get('id');
-        $adsList = $this->PostedAdOBJ->getviewmoreDet($id);
+        $adsList = $this->bookmartOBJ->getviewmoreDet($id);
         return view('front/view_more', compact('adsList'));
     }
 
@@ -92,24 +95,24 @@ class HomeController extends Controller {
     }
 
     public function search_book() {
-        $books = $this->PostedAdOBJ->getbooksList();
+        $books = $this->bookmartOBJ->getbooksList();
     }
 
     public function searchAjax() {
         $searchvalue = Input::get('searchvalue');
         $searchstring = explode(',', $searchvalue);
 
-        $books = $this->PostedAdOBJ->searchbyBooksName($searchstring[0]);
+        $books = $this->bookmartOBJ->searchbyBooksName($searchstring[0]);
     }
 
     public function get_authors() {
-        $authors = $this->PostedAdOBJ->getAuthorsList();
+        $authors = $this->bookmartOBJ->getAuthorsList();
     }
 
     public function searchAdtitle() {
         $Adtitle = Input::get('searchvalue');
         $searchstring = explode(',', $Adtitle);
-        $adLists = $this->PostedAdOBJ->searchBooksbytitle($searchstring);
+        $adLists = $this->bookmartOBJ->searchBooksbytitle($searchstring);
         return view('front/ajax_list', compact('adLists'));
     }
 
@@ -181,13 +184,13 @@ class HomeController extends Controller {
             $image = Input::file('cover_image');
 
             Image::make($image->getRealPath())->resize(200, 310)->save($pathoriginal . $fileName);
-            
+
             File::copy($pathoriginal . $fileName, $path50 . $fileName);
             Image::make($path50 . $fileName)
                     ->resize('50', '50')
                     ->save($path50 . $fileName);
 
-            $ads = PostedAd::create(array(
+            $ads = BookMart::create(array(
                         'category' => $category,
                         'ad_type' => $ad_type,
                         'ad_title' => $ad_title,
@@ -207,7 +210,7 @@ class HomeController extends Controller {
                         'status' => $status,
             ));
             if ($ads) {
-                return Redirect::to("/")->with('success', 'Ad posted successfully');
+                return Redirect::to("/")->with('success', 'Ad book successfully');
             }
         }
     }
@@ -241,12 +244,12 @@ class HomeController extends Controller {
 
     public function addUser() {
         $user = array();
-        return view('admin.pages.adduser', compact('user'));
+        return view('admin.adduser', compact('user'));
     }
 
     public function editUser($userId) {
         $user = User::find($userId);
-        return view('admin.pages.adduser', compact('user'));
+        return view('admin.adduser', compact('user'));
     }
 
     public function deleteUser($userId) {

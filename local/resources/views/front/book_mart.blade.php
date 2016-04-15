@@ -29,13 +29,17 @@
 //                dd($adsList);
                 ?>
                 <li class="ajax_block_product col-sm-4 mix {{$adsList->ad_type}}  {{$adsList->category}}" style="margin-bottom: 11px;">
-                    <div itemscope="" class="product-container" style="float: left;width: 100%;">
-                        <div class="pro_first_box" style="float: left;width: 32%;">
+                    <div itemscope="" class="product-container " style="float: left;width: 100%;">
+                        <div class="ribbon-wrapper-green">
+                            <div class="ribbon-green">
+                                <span style="color: #fff;font-style: oblique;">{{$adsList->ad_type}}</span>
+                            </div>
+                        </div>
+                        <div class="pro_first_box" style="float: left;width: 32%; height: 184px;">
                             <a itemprop="url" title="Synthetic Leather Mens Adjustable Casual buckle Belt" href="view_full_details/1" class="product_img_link pro_img_hover_scale">
-                                <img width="272" height="310" 
+                                <img style="height: 184px;"
                                      itemprop="image" title="Synthetic Leather Mens Adjustable Casual buckle Belt" alt="Synthetic Leather Mens Adjustable Casual buckle Belt"
                                      src="ads_picture/original/{{$adsList->cover_image}}" class="replace-2x img-responsive front-image">
-                                <span class="new"><i>{{$adsList->ad_type}}</i></span>
                             </a>
                             <div class="hover_fly fly_1 clearfix">
                                 <a class="quick-view" href="javascript:void(0);" onclick="view_quick_product(1)" title="Quick view">
@@ -46,36 +50,32 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="" style="display: inline-block;margin: 8px 0px 7px;text-align: left;width: 65%;">
+                        <div class="" style="display: inline-block;margin: 8px 0px 7px;text-align: left;width: 65%; height: 168px;">
                             <h4 class="s_title_block " itemprop="name">
                                 <a  title="Synthetic Leather Mens Adjustable Casual buckle Belt" 
                                     href="view_full_details/1" 
-                                    style="color: #2d3e52;font-size: 1.28em;">{{$adsList->ad_title}}</a>
+                                    style="color: #2d3e52;font-size: 1.1em;">{{$adsList->ad_title}}</a>
                             </h4>
-                            <div class="s_title_block" style="">{{$adsList->author_name}}</div>
+                            <div class="s_title_block" style=" font-size: 0.9em;">{{$adsList->author_name}}</div>
                             <div class="price_container">
                                 <span class="desc-heading" style="color: #331d35;"> Price: </span>
-                                <span class="price product-price" itemprop="price">Rs.{{$adsList->price}}</span>
+                                <span class="price product-price" itemprop="price" style="font-size: 1.01em;">Rs.{{$adsList->price}}</span>
                             </div>
                             <div class="price_container">
                                 <span class="desc-heading" style="color: #331d35;"> Publication: </span>
-                                <span class="price product-price" itemprop="price">{{$adsList->publication}}</span>
+                                <span class="price product-price" itemprop="price" style="font-size: 1.01em;">{{$adsList->publication}}</span>
                             </div>
                             <div class="price_container">
                                 <span class="desc-heading" style="color: #331d35;">Edition: </span>
-                                <span class="price product-price" itemprop="price">{{$adsList->edition}}</span>
-                            </div>
-                            <div class="price_container">
-                                <span class="desc-heading" style="color: #331d35;">College: </span>
-                                <span class="price product-price" itemprop="price">{{$adsList->college}}</span>
+                                <span class="price product-price" itemprop="price" style="font-size: 1.01em;">{{$adsList->edition}}</span>
                             </div>
                             <div class="price_container">
                                 <span class="desc-heading" style="color: #331d35;">Owner Name: </span>
-                                <span class="price product-price" itemprop="price">{{$adsList->owner_name}}</span>
+                                <span class="price product-price" itemprop="price" style="font-size: 1.01em;">{{$adsList->owner_name}}</span>
                             </div>
                             <div class="price_container">
                                 <span class="desc-heading" style="color: #331d35;">Mobile-no: </span>
-                                <span class="price product-price" itemprop="price">{{$adsList->mobileno}}</span>
+                                <span class="price product-price" itemprop="price" style="font-size: 1.01em;">{{$adsList->mobileno}}</span>
                             </div>
                         </div>
                     </div>

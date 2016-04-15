@@ -4812,7 +4812,7 @@ span.exclusive {
 .btn-medium,
 .btn-large {
     border: none;
-    background: #7eb329 ;
+    background: #72111a ;
     color: #fff;
     line-height: 100%
 }
@@ -4823,7 +4823,7 @@ span.exclusive {
 .btn-large:hover,
 .btn-large.active {
     border: none;
-    background: #99cf45;
+    background: #913039;
     color: #fff
 }
 .btn-default.btn_primary,

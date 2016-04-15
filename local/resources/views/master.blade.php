@@ -11,7 +11,7 @@
         <meta name="robots" content="index,follow" />
         <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <!--<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">-->
+        <!--<link rel="stylesheet" href="{{ asset('/css/style.css')}}">-->
         <link rel="icon" type="image/vnd.microsoft.icon" href="{{ asset('/images/upload/favicon-12.ico?1443194111')}}" />
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'/>
 

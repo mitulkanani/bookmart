@@ -49,15 +49,23 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-// For Property Module
-Route::get('admin/property', 'Admin\PropertyController@property');
-Route::get('/admin/addproperty', 'Admin\PropertyController@addproperty');
-Route::post('/admin/propertysave', 'Admin\PropertyController@saveProperty');
-Route::post('/deleteImage', 'Admin\PropertyController@deleteImage');
-Route::post('imageSave/{property_id}', 'Admin\PropertyController@imageSave');
-Route::get('/admin/editproperty/{property_id}', 'Admin\PropertyController@editProperty');
-Route::get('/admin/deleteproperty/{property_id}', 'Admin\PropertyController@deleteProperty');
-Route::get('admin/properties/{user_id}', 'Admin\PropertyController@getPropertyDetails');
+// For Transport Module
+Route::get('admin/admin_product', 'Admin\TransportController@product');
+Route::get('/admin/addproduct', 'Admin\TransportController@addproduct');
+Route::post('/admin/admin_productsave', 'Admin\TransportController@saveproduct');
+Route::post('/deleteImage', 'Admin\TransportController@deleteImage');
+Route::post('imageSave/{product_id}', 'Admin\TransportController@imageSave');
+Route::get('/admin/editAdmin_product/{product_id}', 'Admin\TransportController@editAdmin_product');
+Route::get('/admin/deleteAdmin_product/{product_id}', 'Admin\TransportController@deleteAdmin_product');
+Route::get('admin/properties/{user_id}', 'Admin\TransportController@getPropertyDetails');
+
+// For All Cart Product Module
+Route::get('admin/admin_cart_product', 'Admin\DashboardController@admin_cart_product');
+Route::get('/admin/add_cart_product', 'Admin\DashboardController@add_cart_product');
+Route::post('/admin/admin_cart_productsave', 'Admin\DashboardController@admin_cart_productsave');
+Route::get('/admin/edit_admin_cart_product/{product_id}', 'Admin\DashboardController@edit_admin_cart_product');
+Route::get('/admin/delete_admin_cart_product/{product_id}', 'Admin\DashboardController@delete_admin_cart_product');
+Route::get('admin/view_cart_product/{id}', 'Admin\DashboardController@view_cart_product');
 
 // For CMS Module
 Route::get('admin/cms', 'Admin\CmsController@cms');
@@ -71,14 +79,12 @@ Route::get('admin/cms/{cms_id}', 'Admin\CmsController@getCmsDetails');
 Route::get('admin', ['middleware' => 'auth.adminOnly', 'uses' => 'Admin\AdminController@adminLogin']);
 Route::post('admin/logincheck', 'Admin\AdminController@loginCheck');
 Route::get('admin/dashboard', 'Admin\DashboardController@index');
-Route::get('admin/admin_product', 'Admin\DashboardController@admin_product');
 Route::get('admin/users/{user_id}', 'Admin\UsersController@getUserDetails');
 Route::get('/admin/logout', 'Admin\AdminController@getLogout');
 Route::get('/admin/adduser', 'Admin\UsersController@addUser');
-Route::get('/admin/addproduct', 'Admin\UsersController@addProduct');
 Route::post('/admin/usersave', 'Admin\UsersController@saveUser');
 Route::get('/admin/edituser/{user_id}', 'Admin\UsersController@editUser');
-Route::get('/admin/uploadImage/{property_id}', 'Admin\PropertyController@uploadImage');
+Route::get('/admin/uploadImage/{property_id}', 'Admin\TransportController@uploadImage');
 Route::get('/admin/deleteuser/{user_id}', 'Admin\UsersController@deleteUser');
 
 

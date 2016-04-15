@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\PostedAd;
+use App\BookMart;
 use App\Country;
 use App\Http\Requests\adminAddUserRequest;
 use App\Http\Requests\PostAdRequest;
@@ -16,7 +16,6 @@ use Redirect;
 use Mail;
 use Auth;
 use Config;
-use App\Property;
 use Image;
 use File;
 use App\UploadImage;
@@ -25,15 +24,15 @@ use Illuminate\Support\Facades\Route;
 use Cookie;
 use Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Product;
+use App\CartProduct;
 use App\Category;
 
 class ProductController extends Controller {
 
     public function __construct() {
         $this->userOBJ = new User();
-        $this->productOBJ = new Product();
-        $this->PostedAdOBJ = new PostedAd();
+        $this->cartproductOBJ = new CartProduct();
+        $this->bookmartOBJ = new BookMart();
         $this->CategoryOBJ = new Category();
     }
 
@@ -52,10 +51,10 @@ class ProductController extends Controller {
 
     public function addsuccess(Request $request) {
         $product_id = Request::get('id_product');
-
+        
         if ($product_id != null || 0) {
             if (Request::isMethod('post')) {
-                $product = $this->productOBJ->getProductListById($product_id);
+                $product = $this->cartproductOBJ->getProductListById($product_id);
                 Cart::add(array(
                     'id' => $product[0]->id,
                     'name' => e($product[0]->name),

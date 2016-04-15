@@ -4,7 +4,7 @@ namespace Gloudemans\Shoppingcart;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Collection;
-use App\Product;
+use App\CartProduct;
 
 class Cart {
 
@@ -54,7 +54,7 @@ class Cart {
         $this->event = $event;
 
         $this->instance = 'main';
-        $this->productOBJ = new Product();
+        $this->cartproductOBJ = new CartProduct();
     }
 
     /**
@@ -265,13 +265,13 @@ class Cart {
         if ($product_id == null) {
             return 0;
         } else {
-            $ShippingCost = $this->productOBJ->getShippingCostById($product_id);
+            $ShippingCost = $this->cartproductOBJ->getShippingCostById($product_id);
             return $ShippingCost->shippingCost;
         }
     }
 
     public function getItems($product_id) {
-        $product = $this->productOBJ->getProductById($product_id);
+        $product = $this->cartproductOBJ->getProductById($product_id);
         return $product;
     }
 

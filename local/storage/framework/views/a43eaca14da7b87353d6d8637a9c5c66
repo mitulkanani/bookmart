@@ -1,6 +1,6 @@
 
 <div class="primary_block row">
-    <div class="pb-left-column col-xs-12 col-sm-6 col-md-6 ">
+    <div class="pb-left-column col-md-4 ">
         <div id="image-block" class="clearfix"> <span id="view_full_size"> <img id="bigpic" itemprop="image" src="http://transformer.sunnytoo.com/twelfth/101-big_default/white-polka-dot-black-tie-necktie.jpg" title="White Polka Dot Black Tie NeckTie" alt="White Polka Dot Black Tie NeckTie" width="568" height="649" class="replace-2x"/> <a href="javascript:;" class="span_link no-print icon_wrap" title="View larger"><i class="icon-search-1 icon-large"></i></a> <span class="new"><i>New</i></span> <span class="on_sale"><i>Sale</i></span> </span>
         </div>
         <div id="views_block" class="clearfix "> <span class="view_scroll_spacer"><a id="view_scroll_left" class="" title="Other views Previous" href="javascript:;"><i class="icon-left-open-1"></i></a></span>
@@ -84,21 +84,8 @@
                 </div>
             </div>
         </form>
-        <div id="product_comments_block_extra" class="no-print clearfix" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
-            <div class="comments_note pull-left">
-                <div class="star_content clearfix">
-                    <div class="star star_on"></div>
-                    <div class="star star_on"></div>
-                    <div class="star star_on"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <meta itemprop="worstRating" content="0" />
-                    <meta itemprop="ratingValue" content="3" />
-                    <meta itemprop="bestRating" content="5" />
-                </div> <a href="#idTab5" class="reviews pull-left"> (<span itemprop="reviewCount">1</span>) </a>
-            </div>
-            <div class="comments_advices pull-left"> <a class="open-comment-form" href="#new_comment_form"> Write a review </a>
-            </div>
-        </div>
     </div>
 </div>
+<script>
+    var page_name = 'product';
+</script>
