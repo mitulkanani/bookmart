@@ -147,6 +147,7 @@ INSERT INTO `colleges` (`id`, `clg_id`, `clg_name`, `city`) VALUES
 (86, 0, '', '');
 
 
+
 --
 -- Table structure for table `categories`
 --
@@ -155,6 +156,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `cat_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cat_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `cat_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -164,15 +166,85 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `status`, `cat_name`, `cat_image`, `created_at`) VALUES
-(1, 1, 'book_mart', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(2, 1, 'marraige', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(3, 1, 'sound_lighting', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(4, 1, 'kids', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(5, 1, 'transport', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(6, 1, 'bday', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(7, 1, 'furniture', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
-(8, 1, 'Pghshops', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00');
+INSERT INTO `categories` (`id`, `status`, `cat_name`, `cat_url`, `cat_image`, `created_at`) VALUES
+(1, 1, 'Book Mart', 'book_mart', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(2, 1, 'Marraige', 'marraige', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(3, 1, 'Sound & Lighting', 'sound_lighting', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(4, 1, 'Kids', 'kids', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(5, 1, 'Transportation', 'transport', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(6, 1, 'Birthday-Party', 'bday', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(7, 1, 'Furniture', 'furniture', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00'),
+(8, 1, 'PG-HOME-SHOPS', 'Pghshops', 'http://transformer.sunnytoo.com/seventh/upload/stadvancedbanner/8321e1c29ebda5a57c57a855bc324387.jpg', '0000-00-00 00:00:00');
 
 
+--
+-- Table structure for table `cart_products`
+--
 
+CREATE TABLE IF NOT EXISTS `cart_products` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(255) NOT NULL,
+  `sale_rent` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `front_big_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `back_big_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `other_images` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image_cart` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `full_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `discounts` int(100) NOT NULL,
+  `shippingCost` int(100) NOT NULL,
+  `name` varchar(160) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `price` int(100) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `cart_products`
+--
+
+INSERT INTO `cart_products` (`id`, `cat_id`, `sale_rent`, `status`, `front_big_img`, `back_big_img`, `other_images`, `image_cart`, `full_name`, `discounts`, `shippingCost`, `name`, `description`, `price`, `updated_at`, `created_at`) VALUES
+(1, 1, 'SALE', 1, 'ads_picture/original/beautiful-lace-half-sleeve-casual-party-jacket.jpg', 'ads_picture/original/beautiful-lace-half-sleeve-casual-party-jacket-back.jpg', '', 'ads_picture/thumbnail/beautiful-lace-half-sleeve-casual-party-jacket-thumb.jpg', 'Synthetic Leather Mens Adjustable Casual buckle Belt', 0, 7, 'Synthetic Leather Mens Adjustable Casual buckle Belt', '', 100, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 1, 'SALE', 1, 'ads_picture/original/sample-fashion-product.jpg', 'ads_picture/original/sample-fashion-product-back.jpg', '', 'ads_picture/thumbnail/sample-fashion-product.jpg', 'Hot New Women Thicken Warm Winter ', 0, 8, 'Hot New Women''s Thicken Warm Winter ', '', 200, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 2, 'SALE', 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', '', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 'omen''s Thicken Warm Winter Coat Hood Park', 9, 9, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', '', 300, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 3, 'RENT', 1, 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt.jpg', 'ads_picture/original/synthetic-leather-mens-adjustable-casual-buckle-belt-back.jpg', '', 'ads_picture/thumbnail/synthetic-leather-mens-adjustable-casual-buckle-belt-small.jpg', 'omen''s Thicken Warm Winter Coat Hood Park', 9, 9, 'Hot New Women''s Thicken Warm Winter Coat Hood Park.', '', 500, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 0, 'RENT', 1, 'dell-streak-7.2.jpg', 'dell-streak-7.1.jpg', '', '', 'Double-bad', 0, 0, 'Double-bad', 'sadasd', 2222, '2016-04-15 09:54:46', '2016-04-15 09:54:46'),
+
+--
+-- Table structure for table `transports`
+--
+
+CREATE TABLE IF NOT EXISTS `transports` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `status` tinyint(1) NOT NULL,
+  `ad_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ad_title` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `price` int(50) NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `fixed` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `mobileno` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `owner_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `images` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cover_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+
+--
+-- Dumping data for table `transports`
+--
+
+INSERT INTO `transports` (`id`, `status`, `ad_type`, `ad_title`, `price`, `address`, `city`, `fixed`, `mobileno`, `password`, `owner_name`, `desc`, `images`, `cover_image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'SALE', 'Send Remover Tractor', 1234, 'SAme as college', 'Ahmedabad', 'negotiable', '1234567890', '', 'Mayur vanja', '   sdfdf sdafsdf sdf sdf ', '1458543112.png,1458543112.jpg,1458543113.jpg', 'dell-streak-7.3.jpg', '2016-03-21 06:51:53', '2016-04-15 08:38:21'),
+(2, 1, 'RENT', 'Dumper', 324, 'sgsdgsdg', '', 'negotiable', '9033681526', '', 'Mitul kanani', '', '', 'FAW-J5P-6x4-Dump-Truck-CA3252-.jpg', '2016-03-31 03:55:11', '2016-03-31 03:55:11'),
+(3, 1, 'SALE', 'Planter machine', 456, 'surat', '', 'fixed', '9033681526', '$2y$10$XAOCFxUi6YD.mG/hMPgKUeHi.hoznS7RNWTKY7Nw4MNdCV7MPoWsK', 'Mahipat jadeja', '', '', 'Kongskilde-Vibro-Crop-Interrow-Cultivator-VCOF-1267_682x500px.jpg', '2016-03-31 05:38:19', '2016-03-31 05:38:19'),
+(27, 1, 'RENT', 'spring-cultivator', 233, 'dsfsdfsdf', '', 'negotiable', '9033681526', '$2y$10$fzHxHGd426YdqK2v3/qF0ujs3Ays06aREyGXmTEYce6m7CzNxqGyC', 'Hitesh vora', '', '', 'spring-cultivator-973455.jpg', '2016-03-31 05:39:35', '2016-03-31 05:39:35'),
+(28, 1, 'RENT', 'Tractor-Trailer-Hydraulic-Cylinder', 233, 'dsfsdfsdf', '', 'negotiable', '9033681526', '$2y$10$fzHxHGd426YdqK2v3/qF0ujs3Ays06aREyGXmTEYce6m7CzNxqGyC', 'Hitesh vora', '', '', 'Tractor-Trailer-Hydraulic-Cylinder.jpg', '2016-03-31 05:39:35', '2016-03-31 05:39:35'),
+(29, 0, 'SALE', 'bothsideplough', 12323, 'afsafs', '', 'fixed', '1243', '$2y$10$MigP27vRRMpAM.ViPOVr8.NfYI29CARO5EGlJDF6KHdD55URY3nf6', 'afasf', 'dsfdsfdsf ', '', 'dell-streak-7.1.jpg', '2016-04-12 10:02:10', '2016-04-14 12:15:55'),
+(30, 0, 'RENT', 'Big tractor', 1231230, 'safasf', 'dsgsdg', 'fixed', '2131243', '$2y$10$7UIpUvX586RAqNxDQQNlfOzdd/en2Hx7Ax2DvmfrBb8W9fQ73t8uS', 'safsafafs', '    dsgsdg', '', 'dell-streak-7.2.jpg', '2016-04-12 10:07:47', '2016-04-14 12:14:59');
