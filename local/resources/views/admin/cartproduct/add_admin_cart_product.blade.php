@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="cat_id" class="col-sm-2 control-label">Category</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="ad_type" name="ad_type">
+                                <select class="form-control" id="cat_id" name="cat_id">
                                     @foreach($categories as $key=>$value)
                                     <option @if(!empty($cart_product))
                                              @if($cart_product->ad_type=='RENT')selected="selected"@endif 

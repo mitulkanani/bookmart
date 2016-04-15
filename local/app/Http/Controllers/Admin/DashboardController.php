@@ -57,6 +57,7 @@ class DashboardController extends Controller {
 
     public function admin_cart_productsave(Request $request) {
         $cart_product_id = Input::get('cart_product_id');
+        $cat_id = Input::get('cat_id');
         $full_name = Input::get('full_name');
         $sale_rent = e(Input::get('sale_rent'));
         $front_big_img = Input::file('front_big_img');
@@ -99,11 +100,12 @@ class DashboardController extends Controller {
         } else {
             if ($cart_product_id > 0) {
                 $cart_product = CartProduct::find($cart_product_id);
+                $cart_product->cat_id = $cat_id;
                 $cart_product->full_name = $full_name;
                 $cart_product->name = $full_name;
                 $cart_product->sale_rent = $sale_rent;
                 $cart_product->front_big_img = $front_big_img;
-                $cart_product->	image_cart = $front_big_img;
+                $cart_product->image_cart = $front_big_img;
                 $cart_product->back_big_img = $back_big_img;
                 $cart_product->price = $price;
                 $cart_product->discounts = $discounts;
@@ -117,15 +119,13 @@ class DashboardController extends Controller {
                 }
             } else {
                 $front_extension = $front_big_img->getClientOriginalExtension(); // getting image extension
-                $front_fileName = time() . '.' . $front_extension; // renameing image
+                $front_fileName = time() . 'front' . '.' . $front_extension; // renameing image
 
                 $back_extension = $back_big_img->getClientOriginalExtension(); // getting image extension
-                $back_fileName = time() . '.' . $back_extension; // renameing image
+                $back_fileName = time() . 'back' . '.' . $back_extension; // renameing image
 
-                $image = Input::file('front_big_img');
-                $image = Input::file('back_big_img');
                 Input::file('front_big_img')->move($pathoriginal, $front_fileName);
-                Input::file('back_big_img')->move($pathoriginal, $fileName);
+                Input::file('back_big_img')->move($pathoriginal, $back_fileName);
 
                 File::copy($pathoriginal . $front_fileName, $path50 . $front_fileName);
                 Image::make($path50 . $front_fileName)
@@ -136,12 +136,13 @@ class DashboardController extends Controller {
                 Image::make($path50 . $back_fileName)
                         ->resize('70', '70')
                         ->save($path50 . $back_fileName);
-
                 $cart_product_list = CartProduct::create(array(
+                            'cat_id' => $cat_id,
                             'full_name' => $full_name,
                             'name' => $full_name,
                             'sale_rent' => $sale_rent,
                             'front_big_img' => $front_fileName,
+                            'image_cart' => $front_fileName,
                             'back_big_img' => $back_fileName,
                             'price' => $price,
                             'discounts' => $discounts,

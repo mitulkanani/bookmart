@@ -14,7 +14,7 @@ class CartProduct extends Model implements AuthenticatableContract, CanResetPass
         CanResetPassword;
 
     protected $table = "cart_products";
-    protected $fillable = ['full_name','name','sale_rent','front_big_img','back_big_img','price','discounts','shippingCost','description','status'];
+    protected $fillable = ['full_name','name','cat_id','image_cart','other_images','sale_rent','front_big_img','back_big_img','price','discounts','shippingCost','description','status'];
 
     public function getProductList($cat_id) {
         $ProductData = CartProduct::select('cart_products.*')
