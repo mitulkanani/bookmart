@@ -15,12 +15,16 @@ class BookMart extends Model implements AuthenticatableContract, CanResetPasswor
 
     protected $fillable = ['cover_image', 'category', 'ad_type','password', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college', 'address', 'fixed', 'type', 'mobileno', 'images', 'owner_name'];
 
-//
-
-
     public function getBookadList() {
         $bookDetails = BookMart::Select('book_marts.*')
                 ->take(9)
+                ->where("status", '=', 1)
+                ->orderBy('book_marts.id', 'desc')
+                ->get();
+        return $bookDetails;
+    }
+    public function getbookmartListForAdmin() {
+        $bookDetails = BookMart::Select('book_marts.*')
                 ->orderBy('book_marts.id', 'desc')
                 ->get();
         return $bookDetails;
