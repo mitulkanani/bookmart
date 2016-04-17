@@ -67,6 +67,14 @@ Route::get('/admin/edit_admin_cart_product/{product_id}', 'Admin\DashboardContro
 Route::get('/admin/delete_admin_cart_product/{product_id}', 'Admin\DashboardController@delete_admin_cart_product');
 Route::get('admin/view_cart_product/{id}', 'Admin\DashboardController@view_cart_product');
 
+// For All Book  martt Module
+Route::get('admin/admin_book_mart', 'Admin\DashboardController@admin_book_mart');
+Route::get('/admin/add_admin_book_mart', 'Admin\DashboardController@add_admin_book_martt');
+Route::post('/admin/admin_book_mart_productsave', 'Admin\DashboardController@admin_book_mart_productsave');
+Route::get('/admin/edit_admin_book_mart/{product_id}', 'Admin\DashboardController@edit_admin_book_mart');
+Route::get('/admin/delete_admin_book_mart/{product_id}', 'Admin\DashboardController@delete_admin_book_mart');
+Route::get('admin/view_admin_book_mart/{id}', 'Admin\DashboardController@view_admin_book_mart');
+
 // For CMS Module
 Route::get('admin/cms', 'Admin\CmsController@cms');
 Route::get('/admin/addcms', 'Admin\CmsController@addcms');

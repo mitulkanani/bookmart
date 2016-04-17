@@ -3759,8 +3759,9 @@ td.visible-print {
 }
 @font-face {
     font-family: 'fontello';
-    src: url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../font/fontello.eot?86881949");
-    src: url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../font/fontello.eot?86881949#iefix") format("embedded-opentype"), url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../font/fontello.woff?86881949") format("woff"), url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../font/fontello.ttf?86881949") format("truetype"), url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../font/fontello.svg?86881949#fontello") format("svg");
+    src: url("../fonts/cart/fontello.eot") format("embedded-opentype"),
+        url("../fonts/cart/fontello.woff?86881949") format("woff"), 
+        url("../fonts/cart/fontello.ttf?86881949") format("truetype");
     font-weight: normal;
     font-style: normal
 }
@@ -5467,7 +5468,7 @@ ul.footer_links li + li {
 }
 .content_sortPagiBar .display li.grid a,
 .content_sortPagiBar .display_m li.grid a {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/icons.png) no-repeat center -232px transparent
+    background: url(../img/icons.png) no-repeat center -232px transparent
 }
 .content_sortPagiBar .display li.grid a:hover,
 .content_sortPagiBar .display_m li.grid a:hover {
@@ -5481,7 +5482,7 @@ ul.footer_links li + li {
 }
 .content_sortPagiBar .display li.list a,
 .content_sortPagiBar .display_m li.list a {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/icons.png) no-repeat center -312px transparent
+    background: url(../img/icons.png) no-repeat center -312px transparent
 }
 .content_sortPagiBar .display li.list a:hover,
 .content_sortPagiBar .display_m li.list a:hover {
@@ -5667,7 +5668,7 @@ ul.step li.step_done {
 }
 .cancel,
 .cancel a {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../../../modules/productcomments/img/delete.gif) no-repeat 0 -16px !important
+    background: url(../img/delete.gif) no-repeat 0 -16px !important
 }
 .cancel a,
 .star a {
@@ -5965,7 +5966,7 @@ td#cart_voucher {
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/bg_table_th.png) repeat-x 0 -10px #999999
+    background: url(../img/bg_table_th.png) repeat-x 0 -10px #999999
 }
 #order_carrier span {
     display: block;
@@ -6032,7 +6033,7 @@ table#cart_summary .gift-icon {
     float: left;
     width: 24px;
     height: 24px;
-    background-image: url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../../../img/loader.gif");
+    background-image: url("../img/loader.gif");
     background-repeat: no-repeat;
     position: relative;
     bottom: -2px;
@@ -6119,7 +6120,7 @@ table#cart_summary .gift-icon {
     line-height: 29px;
     color: white;
     text-transform: uppercase;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/bg_table_th.png) repeat-x 0 -10px #999999
+    background: url(../img/bg_table_th.png) repeat-x 0 -10px #999999
 }
 #carrierTable td {
     padding: 15px;
@@ -6158,13 +6159,13 @@ p.payment_module a {
     position: relative
 }
 p.payment_module a.bankwire {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/bankwire.png) 15px 12px no-repeat #fbfbfb
+    background: url(../img/bankwire.png) 15px 12px no-repeat #fbfbfb
 }
 p.payment_module a.cheque {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/cheque.png) 15px 15px no-repeat #fbfbfb
+    background: url(../img/cheque.png) 15px 15px no-repeat #fbfbfb
 }
 p.payment_module a.cash {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/cash.png) 15px 15px no-repeat #fbfbfb
+    background: url(../img/cash.png) 15px 15px no-repeat #fbfbfb
 }
 p.payment_module a.cheque:after,
 p.payment_module a.bankwire:after,
@@ -6518,7 +6519,7 @@ form#sendComment h3 {
     height: 28px;
     width: 498px;
     border: 1px solid #cccccc;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/bg_input.png) repeat-x 0 0 white
+    background: url(../img/bg_input.png) repeat-x 0 0 white
 }
 #sendComment p.textarea textarea {
     height: 80px;
@@ -6535,7 +6536,7 @@ form#sendComment h3 {
     height: 12px;
     width: 12px;
     text-indent: -5000px;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/icon/delete.gif) no-repeat 0 0
+    background: url(../img/delete_icon.gif) no-repeat 0 0
 }
 .star {
     position: relative;
@@ -7275,7 +7276,7 @@ a.page-subheading {
     color: #00A161
 }
 .section .title_block {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/title_block_bg.png) repeat-x left center
+    background: url(../img/title_block_bg.png) repeat-x left center
 }
 .section .title_block span,
 .section .title_block a {
@@ -7284,7 +7285,7 @@ a.page-subheading {
     background: #fff
 }
 #home-page-tabs {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/title_block_bg.png) repeat-x left center
+    background: url(../img/title_block_bg.png) repeat-x left center
 }
 #featured-products_block_center .title_block,
 .featured_products_sldier_block_center .title_block,
@@ -7925,7 +7926,7 @@ html[xmlns] .slides {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/loading.gif) no-repeat center center
+    background: url(../img/loading.gif) no-repeat center center
 }
 .price,
 #our_price_display,
@@ -8164,7 +8165,7 @@ span.new {
     height: 35px;
     line-height: 34px;
     position: relative;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/split_f5.gif) repeat-y left top #bbbbbb;
+    background: url(../img/split_f5.gif) repeat-y left top #bbbbbb;
     float: right;
     text-align: center;
     white-space: nowrap;
@@ -8501,14 +8502,14 @@ noindex:-o-prefocus,
     display: block;
     cursor: pointer;
     text-decoration: none;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/opener.png) center center no-repeat transparent
+    background: url(../img/opener.png) center center no-repeat transparent
 }
 .active > .opener,
 .open > .opener,
 .active .opener.dlm,
 .open .opener.dlm,
 .grower.OPEN {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/opener-active.png) center center no-repeat transparent
+    background: url(../img/opener-active.png) center center no-repeat transparent
 }
 .icon_wrap,
 .shopping_cart .ajax_cart_right {
@@ -9852,7 +9853,7 @@ body.mobile_device .hover_fly_static .countdown_wrap {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 .grabbing {
-    cursor: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/grabbing.png) 8 8, move
+    cursor: url(../img/grabbing.png) 8 8, move
 }
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
@@ -10104,7 +10105,7 @@ body.mobile_device .hover_fly_static .countdown_wrap {
 }
 .owl-item.loading {
     min-height: 60px;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/loading.gif) no-repeat center center
+    background: url(../img/loading.gif) no-repeat center center
 }
 .products_slider .owl-item.loading {
     background: none;
@@ -10118,7 +10119,7 @@ body.mobile_device .hover_fly_static .countdown_wrap {
 .owl-item.loading .product_image,
 .owl-item.loading .blog_image {
     min-height: 60px;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/loading.gif) no-repeat center bottom
+    background: url(../img/loading.gif) no-repeat center bottom
 }
 .owl_bar {
     width: 0;
@@ -10618,11 +10619,11 @@ body.mobile_device .hover_fly_static .countdown_wrap {
 }
 .mo_advanced_mu_level_0 .opener:hover {
     background-color: transparent;
-    background-image: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/opener.png)
+    background-image: url(../img/opener.png)
 }
 .mo_advanced_mu_level_0 .active > .opener {
     background-position: right center;
-    background-image: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/opener-active.png)
+    background-image: url(../img/opener-active.png)
 }
 .advanced_ma_level_0 .icon-down-dir-2,
 .advanced_ma_level_0 .icon-right-dir-2 {
@@ -12029,7 +12030,7 @@ only screen and (min-device-pixel-ratio: 2) {
         font-size: 1px
     }
     .example {
-        background-image: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/autoload/../images/example2x.png);
+        background-image: url(../images/example2x.png);
         -webkit-background-size: 13px 13px;
         -moz-background-size: 13px 13px;
         -o-background-size: 13px 13px;
@@ -12105,7 +12106,7 @@ div.uploader,
 div.uploader span.action,
 div.button,
 div.button span {
-    background-image: url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/autoload/../../img/jquery/uniform/sprite.png");
+    background-image: url("../img/sprite.png");
     background-repeat: no-repeat;
     -webkit-font-smoothing: antialiased
 }
@@ -12137,7 +12138,7 @@ div.button * {
     padding: 0
 }
 .highContrastDetect {
-    background: url("http://transformer.sunnytoo.com/twelfth/themes/transformer/css/autoload/../../../img/jquery/uniform/bg-input.png") repeat-x 0 0;
+    background: url("../img/jquery/uniform/bg-input.png") repeat-x 0 0;
     width: 0;
     height: 0
 }
@@ -12685,7 +12686,7 @@ input.uniform-input:focus {
 .fancybox-close,
 .fancybox-prev span,
 .fancybox-next span {
-    background-image: url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/fancybox_sprite.png')
+    background-image: url('../img/fancybox_sprite.png')
 }
 #fancybox-loading {
     position: fixed;
@@ -12701,7 +12702,7 @@ input.uniform-input:focus {
 #fancybox-loading div {
     width: 44px;
     height: 44px;
-    background: url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/fancybox_loading.gif') center center no-repeat
+    background: url('../img/loading.gif') center center no-repeat
 }
 .fancybox-close {
     position: absolute;
@@ -12719,7 +12720,7 @@ input.uniform-input:focus {
     height: 100%;
     cursor: pointer;
     text-decoration: none;
-    background: transparent url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/blank.gif');
+    background: transparent url('js/jquery/plugins/fancybox/blank.gif');
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     z-index: 8040
 }
@@ -12776,7 +12777,7 @@ input.uniform-input:focus {
     overflow: hidden;
     display: none;
     z-index: 8010;
-    background: url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/fancybox_overlay.png')
+    background: url('../img/fancybox_overlay.png')
 }
 .fancybox-overlay-fixed {
     position: fixed;
@@ -12844,11 +12845,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
     .fancybox-close,
     .fancybox-prev span,
     .fancybox-next span {
-        background-image: url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/fancybox_sprite@2x.png');
+        background-image: url('../img/fancybox_sprite@2x.png');
         background-size: 44px 152px
     }
     #fancybox-loading div {
-        background-image: url('http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/fancybox/fancybox_loading@2x.gif');
+        background-image: url('../fancybox/loading.gif');
         background-size: 24px 24px
     }
 }
@@ -13502,7 +13503,7 @@ ul#text_fields {
 }
 #bottom_more_info_block .product_accordion .opener:hover,
 #right_more_info_block .product_accordion .opener:hover {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/opener-active.png) right center no-repeat transparent
+    background: url(../img/opener-active.png) right center no-repeat transparent
 }
 .product_accordion .opener,
 .product_accordion .product_accordion_title {
@@ -13563,7 +13564,7 @@ ul#text_fields {
 }
 .bx-wrapper .bx-loading {
     min-height: 50px;
-    background: url(http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/bxslider/images/bx_loader.gif) center center no-repeat;
+    background: url(../img/bx_loader.gif) center center no-repeat;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -13648,7 +13649,7 @@ ul#text_fields {
     width: 10px;
     height: 11px;
     outline: 0;
-    background: url(http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/bxslider/images/controls.png) -86px -11px no-repeat;
+    background: url(../img/controls.png) -86px -11px no-repeat;
     margin: 0 3px
 }
 .bx-wrapper .bx-controls-auto .bx-start:hover,
@@ -13661,7 +13662,7 @@ ul#text_fields {
     width: 9px;
     height: 11px;
     outline: 0;
-    background: url(http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/bxslider/images/controls.png) -86px -44px no-repeat;
+    background: url(../img/controls.png) -86px -44px no-repeat;
     margin: 0 3px
 }
 .bx-wrapper .bx-controls-auto .bx-stop:hover,
@@ -13709,7 +13710,7 @@ ul#text_fields {
     background-color: white;
     padding: 8px;
     text-align: center;
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/plugins/jqzoom/zoomloader.gif);
+    background-image: url(../img/loader.gif);
     background-repeat: no-repeat;
     background-position: 43px 30px;
     z-index: 110;
@@ -16825,7 +16826,7 @@ ul.product_list.grid > li .product-container .functional-buttons .wishlist .popo
     #maintenance {
         margin: 126px 0 0 0;
         padding: 91px 48px 365px 297px;
-        background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/bg_maintenance.png) no-repeat
+        background: url(../img/bg_maintenance.png) no-repeat
     }
     #stb_search_query_block {
         max-width: 160px;
@@ -19453,7 +19454,7 @@ ul.product_list.grid > li .product-container .product-image-container .content_p
     left: 0;
     bottom: -1px;
     width: 100%;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/price-container-bg.png);
+    background: url(../img/price-container-bg.png);
     padding: 9px 0;
     display: none
 }
@@ -19495,7 +19496,7 @@ ul.product_list.grid > li .product-container .button-container .lnk_view {
     margin: 0 6px 10px 6px
 }
 ul.product_list.grid > li .product-container .functional-buttons {
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/../img/functional-bt-shadow.png) repeat-x;
+    background: url(../img/functional-bt-shadow.png) repeat-x;
     padding: 11px 0 5px
 }
 @media (min-width: 1200px) {
@@ -19882,7 +19883,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 }
 .ui-widget-content {
     border: 1px solid #aaaaaa;
-    background: #ffffff url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    background: #ffffff url(/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
     color: #222222
 }
 .ui-widget-content a {
@@ -19890,7 +19891,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 }
 .ui-widget-header {
     border: 1px solid #aaaaaa;
-    background: #cccccc url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+    background: #cccccc url(/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
     color: #222222;
     font-weight: bold
 }
@@ -19901,7 +19902,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
     border: 1px solid #d3d3d3;
-    background: #e6e6e6 url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
+    background: #e6e6e6 url() 50% 50% repeat-x;
     font-weight: normal;
     color: #555555
 }
@@ -19918,7 +19919,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
     border: 1px solid #999999;
-    background: #dadada url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
+    background: #dadada url(a_1x400.png) 50% 50% repeat-x;
     font-weight: normal;
     color: #212121
 }
@@ -19933,7 +19934,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
     border: 1px solid #aaaaaa;
-    background: #ffffff url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    background: #ffffff url(fffff_1x400.png) 50% 50% repeat-x;
     font-weight: normal;
     color: #212121
 }
@@ -19947,7 +19948,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
     border: 1px solid #fcefa1;
-    background: #fbf9ee url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png) 50% 50% repeat-x;
+    background: #fbf9ee url(bf9ee_1x400.png) 50% 50% repeat-x;
     color: #363636
 }
 .ui-state-highlight a,
@@ -19959,7 +19960,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
     border: 1px solid #cd0a0a;
-    background: #fef1ec url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png) 50% 50% repeat-x;
+    background: #fef1ec url(_glass_95_fef1ec_1x400.png) 50% 50% repeat-x;
     color: #cd0a0a
 }
 .ui-state-error a,
@@ -20000,27 +20001,27 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_222222_256x240.png)
+    background-image: url(../img/ui-icons_222222_256x240.png)
 }
 .ui-widget-header .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_222222_256x240.png)
+    background-image: url(../img/ui-icons_222222_256x240.png)
 }
 .ui-state-default .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_888888_256x240.png)
+    background-image: url(../img/ui-icons_222222_256x240.png)
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_454545_256x240.png)
+    background-image: url(../img/ui-icons_222222_256x240.png)
 }
 .ui-state-active .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_454545_256x240.png)
+    background-image: url(../img/ui-icons_222222_256x240.png)
 }
 .ui-state-highlight .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_2e83ff_256x240.png)
+    background-image: url(../img/ui-icons_2e83ff_256x240.png)
 }
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
-    background-image: url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-icons_cd0a0a_256x240.png)
+    background-image: url(../img/ui-icons_cd0a0a_256x240.png)
 }
 .ui-icon-blank {
     background-position: 16px 16px
@@ -20572,14 +20573,14 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
     border-bottom-right-radius: 4px
 }
 .ui-widget-overlay {
-    background: #aaaaaa url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+    background: #aaaaaa url(../img/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
     opacity: .3;
     filter: Alpha(Opacity=30)
 }
 .ui-widget-shadow {
     margin: -8px 0 0 -8px;
     padding: 8px;
-    background: #aaaaaa url(http://transformer.sunnytoo.com/twelfth/js/jquery/ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+    background: #aaaaaa url(../img/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
     opacity: .3;
     filter: Alpha(Opacity=30);
     border-radius: 8px
@@ -21390,7 +21391,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
 .accessories-block .block_content .bx-wrapper .bx-loading,
 #productscategory_list .bx-wrapper .bx-loading {
     min-height: 50px;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/modules/productscategory/css/images/bx_loader.gif) center center no-repeat;
+    background: url(../img/bx_loader.gif) center center no-repeat;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -21508,7 +21509,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
     width: 10px;
     height: 11px;
     outline: 0;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/modules/productscategory/css/images/controls.png) -86px -11px no-repeat;
+    background: url(../img/controls.png) -86px -11px no-repeat;
     margin: 0 3px
 }
 #crossselling_list .bx-wrapper .bx-controls-auto .bx-start:hover,
@@ -21527,7 +21528,7 @@ ul.product_list.list > li .right-block .right-block-content .functional-buttons 
     width: 9px;
     height: 11px;
     outline: 0;
-    background: url(http://transformer.sunnytoo.com/twelfth/themes/transformer/css/modules/productscategory/css/images/controls.png) -86px -44px no-repeat;
+    background: url(../img/controls.png) -86px -44px no-repeat;
     margin: 0 3px
 }
 #crossselling_list .bx-wrapper .bx-controls-auto .bx-stop:hover,

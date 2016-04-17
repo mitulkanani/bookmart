@@ -6,8 +6,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
-use App\User;
-use App\CartProduct;
 use App\Http\Requests\adminAddProductRequest;
 use Input;
 use Auth;
@@ -18,7 +16,10 @@ use Validator;
 use File;
 use App\UploadImage;
 use Response;
+use App\User;
+use App\CartProduct;
 use App\Transport;
+use App\BookMart;
 
 class DashboardController extends Controller {
 
@@ -26,6 +27,7 @@ class DashboardController extends Controller {
         $this->middleware('auth.adminOnly');
         $this->userOBJ = new User();
         $this->cartproductOBJ = new CartProduct();
+        $this->bookmartOBJ = new BookMart();
     }
 
     /**
@@ -43,6 +45,11 @@ class DashboardController extends Controller {
         return view('admin.cartproduct.admin_cart_product', compact('cart_products'));
     }
 
+    public function admin_book_mart() {
+        $book_mart_products = $this->bookmartOBJ->getbookmartListForAdmin();
+        return view('admin.bookmart.admin_book_mart', compact('book_mart_products'));
+    }
+
     public function add_cart_product() {
         $cart_product = array();
         $categories = $this->cartproductOBJ->getcategoryListForAdmin();
@@ -51,6 +58,11 @@ class DashboardController extends Controller {
 
     public function edit_admin_cart_product($productId) {
         $cart_product = CartProduct::find($productId);
+        $categories = $this->cartproductOBJ->getcategoryListForAdmin();
+        return view('admin.cartproduct.add_admin_cart_product', compact('cart_product', 'categories'));
+    }
+    public function edit_admin_book_mart($bookId) {
+        $cart_product = BookMart::find($bookId);
         $categories = $this->cartproductOBJ->getcategoryListForAdmin();
         return view('admin.cartproduct.add_admin_cart_product', compact('cart_product', 'categories'));
     }
