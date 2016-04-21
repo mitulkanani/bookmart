@@ -13,7 +13,7 @@ class BookMart extends Model implements AuthenticatableContract, CanResetPasswor
     use Authenticatable,
         CanResetPassword;
 
-    protected $fillable = ['cover_image', 'category', 'ad_type','password', 'ad_title', 'auther_name', 'publication', 'edition', 'price', 'college', 'address', 'fixed', 'type', 'mobileno', 'images', 'owner_name'];
+    protected $fillable = ['cover_image', 'category', 'ad_type', 'password', 'ad_title', 'author_name', 'publication', 'edition', 'price', 'college', 'address', 'fixed', 'type', 'mobileno', 'images', 'owner_name'];
 
     public function getBookadList() {
         $bookDetails = BookMart::Select('book_marts.*')
@@ -23,9 +23,18 @@ class BookMart extends Model implements AuthenticatableContract, CanResetPasswor
                 ->get();
         return $bookDetails;
     }
+
     public function getbookmartListForAdmin() {
         $bookDetails = BookMart::Select('book_marts.*')
                 ->orderBy('book_marts.id', 'desc')
+                ->get();
+        return $bookDetails;
+    }
+
+    public function getbookmartList() {
+        $bookDetails = BookMart::Select('book_marts.*')
+                ->orderBy('book_marts.id', 'desc')
+                ->where("status", '=', 1)
                 ->get();
         return $bookDetails;
     }
@@ -47,6 +56,7 @@ class BookMart extends Model implements AuthenticatableContract, CanResetPasswor
                 ->first();
         return $imageDetails;
     }
+
     public function getviewmoreDet($id) {
         $imageDetails = BookMart::Select('book_marts.*')
                 ->where("book_marts.id", $id)

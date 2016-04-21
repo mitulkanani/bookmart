@@ -13,9 +13,6 @@
                     <li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
                     <li class="filter" data-filter=".SALE"><a href="#0" data-type="SALE">SALE</a></li>
                     <li class="filter" data-filter=".RENT"><a href="#0" data-type="RENT">RENT</a></li>
-                    <li class="filter" data-filter=".engineering"><a href="#0" data-type="engineering">Engineering</a></li>
-                    <li class="filter" data-filter=".medical"><a href="#0" data-type="medical">Medical</a></li>
-                    <li class="filter" data-filter=".pgrooms"><a href="#0" data-type="pgrooms">PG-Rooms</a></li>
                 </ul> <!-- cd-filters -->
             </div> <!-- cd-tab-filter -->
         </div> <!-- cd-tab-filter-wrapper -->
@@ -28,7 +25,7 @@
                 $id = $Ad->id;
 //                dd($Ad);
                 ?>
-                <li class="ajax_block_product col-sm-4 mix {{$Ad->ad_type}}  {{$Ad->category}}" style="margin-bottom: 11px;">
+                <li class="ajax_block_product col-sm-4 mix {{$Ad->ad_type}}" style="margin-bottom: 11px;">
                     <div itemscope="" class="product-container " style="float: left;width: 100%;">
                         <div class="ribbon-wrapper-green">
                             <div class="ribbon-green">
@@ -39,7 +36,7 @@
                             <a itemprop="url" title="Synthetic Leather Mens Adjustable Casual buckle Belt" href="view_full_details/1" class="product_img_link pro_img_hover_scale">
                                 <img style="height: 184px;"
                                      itemprop="image" title="Synthetic Leather Mens Adjustable Casual buckle Belt" alt="Synthetic Leather Mens Adjustable Casual buckle Belt"
-                                     src="ads_picture/original/{{$Ad->cover_image}}" class="replace-2x img-responsive front-image">
+                                     src="ads_picture/transportation/original/{{$Ad->cover_image}}" class="replace-2x img-responsive front-image">
                             </a>
                             <div class="hover_fly fly_1 clearfix">
                                 <a class="quick-view" href="javascript:void(0);" onclick="view_quick_product(1)" title="Quick view">

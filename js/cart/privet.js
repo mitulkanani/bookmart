@@ -8210,7 +8210,7 @@ var ajaxCart = {nb_total_products: 0, overrideButtonsInThePage: function() {
                     var content = '<dt class="clearfix unvisible" data-id-row="' + this.rowid + '" data-id="cart_block_product_' + domIdProduct + '">';
                     var name = $.trim($('<span />').html(this.name).text());
                     name = (name.length > 16 ? name.substring(0, 14) + '...' : name);
-                    content += '<a class="cart-images" href="view_full_details/' + this.id + '" title="' + name + '"><img  src="' + this.image_cart + '" alt="' + this.name + '"></a>';
+                    content += '<a class="cart-images" href="view_full_details/' + this.id + '" title="' + name + '"><img  src="admin_cart_picture/thumbnail/' + this.image_cart + '" alt="' + this.name + '"></a>';
                     content += '<span class="quantity-formated"><span class="quantity">' + this.quantity + '</span>x</span><a href="view_full_details/' + this.id + '" title="' + this.name + '" class="cart_block_product_name">' + name + '</a>';
                     if (typeof (this.is_gift) == 'undefined' || this.is_gift == 0)
                         content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;rowid=' + this.rowid + '&amp;id_product=' + productId + '&amp;token=' + static_token + (this.hasAttributes ? '&amp;ipa=' + parseInt(this.idCombination) : '') + '"><i class="icon-cancel icon-small"></i></a></span>';
@@ -8368,7 +8368,7 @@ var ajaxCart = {nb_total_products: 0, overrideButtonsInThePage: function() {
                 $('#layer_cart_product_attributes').html(product.attributes);
             $('#layer_cart_product_price').text(product.price * product.quantity);
             $('#layer_cart_product_quantity').text(product.quantity);
-            $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="' + product.image + '" alt="' + product.name + '" title="' + product.name + '" width="' + product.image_width + '" height="' + product.image_height + '" />');
+            $('.layer_cart_img').html('<img class="layer_cart_img img-responsive" src="admin_cart_picture/thumbnail/' + product.image + '" alt="' + product.name + '" title="' + product.name + '" width="' + product.image_width + '" height="' + product.image_height + '" />');
             var n = (parseInt($(window).scrollTop()) + 32) + 'px';
             $('body').addClass('cart_popup');
             $('#main_menu_widgets').addClass('overlay_on');

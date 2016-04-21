@@ -73,9 +73,9 @@
                             </td>
 
                             <td>
-                                <a href="{{ url('/admin/edit_admin_cart_product/') }}/{{$value->id}}">Edit</a>
-                                <a href="{{ url('/admin/view_cart_product/') }}/{{$value->id}}">View</a>
-                                <a onclick="return confirm('Are you sure you want to delete this user?')" href="{{ url('/admin/delete_admin_cart_product/') }}/{{$value->id}}">Delete</a>
+                                <a href="{{ url('/admin/edit_admin_book_mart/') }}/{{$value->id}}">Edit</a>
+                                <a href="{{ url('/admin/view_admin_book_mart/') }}/{{$value->id}}">View</a>
+                                <a onclick="return confirm('Are you sure you want to delete this user?')" href="{{ url('/admin/delete_admin_book_mart/') }}/{{$value->id}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

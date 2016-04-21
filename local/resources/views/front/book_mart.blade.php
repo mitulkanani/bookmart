@@ -1,6 +1,34 @@
 @extends('master')
 
 @section('content')
+<!-------------- Search-bar ------------------------>
+<div class="search"> 
+    <div class="search-form-wrap">
+
+        <form action="/search/results" method="get" name="search" id="search">                
+            <input type="hidden" value="main" name="did">
+            <div class="search-refine">
+                <label for="course-search" class="sr-only">Search for a course</label>
+                <input type="text" value="" name="keywords" placeholder="Enter subject or university name" class="form-control" id="subjectKeyword">
+                <select name="level-of-study" class="form-control">
+                    <option value="">- Level of Study -</option>
+                    <option value="">Any Level of Study</option>
+                    <option>-</option>
+                    <option value="los-sch">School</option><option value="los-fou">Foundation</option><option value="los-ug">Undergraduate</option><option value="los-pg">Postgraduate</option><option value="los-eng">English as a Foreign Language</option><option value="los-mba">MBA</option>                </select>
+                <select class="pull-right form-control" name="country">
+                    <option value="">- Location -</option>
+                    <option value="AU">Australia</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="CA">Canada</option><option value="CN">China</option><option value="FI">Finland</option><option value="FR">France</option><option value="DE">Germany</option><option value="IE">Ireland</option><option value="IT">Italy</option><option value="HK">Hong Kong</option><option value="NZ">New Zealand</option><option value="NL">Netherlands</option><option value="NO">Norway</option><option value="KR">Korea (the Republic of)</option><option value="ES">Spain</option><option value="SE">Sweden</option><option value="TR">Turkey</option><option value="SL-ROE">Rest of Europe</option>                </select>
+            </div>
+            <div class="search-refine-button">
+                <button class="btn btn-default btn-search" type="submit"><i class="icon-search-1 icon-0x"></i></button>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
+<!-------------- Search-bar ------------------------>
 <!-------------- content ------------------------>
 <div class="main_content_area">
     <main class="cd-main-content">
@@ -13,9 +41,9 @@
                     <li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
                     <li class="filter" data-filter=".SALE"><a href="#0" data-type="SALE">SALE</a></li>
                     <li class="filter" data-filter=".RENT"><a href="#0" data-type="RENT">RENT</a></li>
-                    <li class="filter" data-filter=".engineering"><a href="#0" data-type="engineering">Engineering</a></li>
-                    <li class="filter" data-filter=".medical"><a href="#0" data-type="medical">Medical</a></li>
-                    <li class="filter" data-filter=".pgrooms"><a href="#0" data-type="pgrooms">PG-Rooms</a></li>
+                    <li class="filter" data-filter=".Engineering"><a href="#0" data-type="engineering">Engineering</a></li>
+                    <li class="filter" data-filter=".Medical"><a href="#0" data-type="medical">Medical</a></li>
+                    <li class="filter" data-filter=".Commerce"><a href="#0" data-type="pgrooms">Commerce</a></li>
                 </ul> <!-- cd-filters -->
             </div> <!-- cd-tab-filter -->
         </div> <!-- cd-tab-filter-wrapper -->
@@ -36,10 +64,12 @@
                             </div>
                         </div>
                         <div class="pro_first_box" style="float: left;width: 32%; height: 184px;">
-                            <a itemprop="url" title="Synthetic Leather Mens Adjustable Casual buckle Belt" href="view_full_details/1" class="product_img_link pro_img_hover_scale">
+                            <a itemprop="url" title="Synthetic Leather Mens Adjustable Casual buckle Belt"
+                               href="view_full_details/1" 
+                               class="product_img_link pro_img_hover_scale">
                                 <img style="height: 184px;"
                                      itemprop="image" title="Synthetic Leather Mens Adjustable Casual buckle Belt" alt="Synthetic Leather Mens Adjustable Casual buckle Belt"
-                                     src="ads_picture/original/{{$adsList->cover_image}}" class="replace-2x img-responsive front-image">
+                                     src="ads_picture/book_mart/original/{{$adsList->cover_image}}" class="replace-2x img-responsive front-image">
                             </a>
                             <div class="hover_fly fly_1 clearfix">
                                 <a class="quick-view" href="javascript:void(0);" onclick="view_quick_product(1)" title="Quick view">

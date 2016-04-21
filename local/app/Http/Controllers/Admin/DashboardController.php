@@ -59,12 +59,7 @@ class DashboardController extends Controller {
     public function edit_admin_cart_product($productId) {
         $cart_product = CartProduct::find($productId);
         $categories = $this->cartproductOBJ->getcategoryListForAdmin();
-        return view('admin.cartproduct.add_admin_cart_product', compact('cart_product', 'categories'));
-    }
-    public function edit_admin_book_mart($bookId) {
-        $cart_product = BookMart::find($bookId);
-        $categories = $this->cartproductOBJ->getcategoryListForAdmin();
-        return view('admin.cartproduct.add_admin_cart_product', compact('cart_product', 'categories'));
+        return view('admin.bookmart.add_admin_cart_product', compact('cart_product', 'categories'));
     }
 
     public function admin_cart_productsave(Request $request) {
@@ -73,7 +68,6 @@ class DashboardController extends Controller {
         $full_name = Input::get('full_name');
         $sale_rent = e(Input::get('sale_rent'));
         $front_big_img = Input::file('front_big_img');
-        $back_big_img = Input::file('back_big_img');
         $price = e(Input::get('price'));
         $discounts = e(Input::get('discounts'));
         $shippingCost = e(Input::get('shippingCost'));
@@ -118,7 +112,6 @@ class DashboardController extends Controller {
                 $cart_product->sale_rent = $sale_rent;
                 $cart_product->front_big_img = $front_big_img;
                 $cart_product->image_cart = $front_big_img;
-                $cart_product->back_big_img = $back_big_img;
                 $cart_product->price = $price;
                 $cart_product->discounts = $discounts;
                 $cart_product->shippingCost = $shippingCost;
@@ -133,21 +126,13 @@ class DashboardController extends Controller {
                 $front_extension = $front_big_img->getClientOriginalExtension(); // getting image extension
                 $front_fileName = time() . 'front' . '.' . $front_extension; // renameing image
 
-                $back_extension = $back_big_img->getClientOriginalExtension(); // getting image extension
-                $back_fileName = time() . 'back' . '.' . $back_extension; // renameing image
-
                 Input::file('front_big_img')->move($pathoriginal, $front_fileName);
-                Input::file('back_big_img')->move($pathoriginal, $back_fileName);
 
                 File::copy($pathoriginal . $front_fileName, $path50 . $front_fileName);
                 Image::make($path50 . $front_fileName)
                         ->resize('70', '70')
                         ->save($path50 . $front_fileName);
 
-                File::copy($pathoriginal . $back_fileName, $path50 . $back_fileName);
-                Image::make($path50 . $back_fileName)
-                        ->resize('70', '70')
-                        ->save($path50 . $back_fileName);
                 $cart_product_list = CartProduct::create(array(
                             'cat_id' => $cat_id,
                             'full_name' => $full_name,
@@ -155,7 +140,6 @@ class DashboardController extends Controller {
                             'sale_rent' => $sale_rent,
                             'front_big_img' => $front_fileName,
                             'image_cart' => $front_fileName,
-                            'back_big_img' => $back_fileName,
                             'price' => $price,
                             'discounts' => $discounts,
                             'shippingCost' => $shippingCost,
@@ -178,6 +162,159 @@ class DashboardController extends Controller {
     public function view_cart_product($cart_product_id) {
         $cart_product = CartProduct::find($cart_product_id);
         return view("admin.cartproduct.view_cart_product", compact('cart_product'));
+    }
+
+    /**
+     *  For admin Book mart
+     *
+     * @return Response
+     */
+    public function add_admin_book_mart() {
+        $book_mart = array();
+        return view('admin.bookmart.add_admin_book_mart', compact('book_mart'));
+    }
+
+    public function edit_admin_book_mart($bookId) {
+        $book_mart = BookMart::find($bookId);
+        return view('admin.bookmart.add_admin_book_mart', compact('book_mart'));
+    }
+
+    public function admin_book_mart_productsave(Request $request) {
+        $book_mart_id = Input::get('book_mart_id');
+        $category = Input::get('category');
+        $ad_title = Input::get('ad_title');
+        $ad_type = Input::get('ad_type');
+        $author_name = e(Input::get('author_name'));
+        $publication = e(Input::get('publication'));
+        $edition = e(Input::get('edition'));
+        $price = e(Input::get('price'));
+        $college = e(Input::get('college'));
+        $address = e(Input::get('address'));
+        $city = e(Input::get('city'));
+        $mobileno = e(Input::get('mobileno'));
+        $password = e(Input::get('password'));
+        $owner_name = e(Input::get('owner_name'));
+        $cover_image = Input::file('cover_image');
+        $fixed = e(Input::get('fixed'));
+        $description = e(Input::get('description'));
+        $status = e(Input::get('status'));
+        $rules = array(
+            'ad_title' => 'required',
+            'price' => 'required',
+            'college' => 'required',
+            'mobileno' => 'required',
+            'password' => 'required',
+            'owner_name' => 'required',
+        );
+        $input = Input::get();
+        $validation = Validator::make($input, $rules);
+
+        //For image save
+        $pathoriginal = 'ads_picture/book_mart/original/';
+        $path50 = 'ads_picture/book_mart/thumbnail/';
+        $images = Input::file('images');
+        $i = 0;
+        if (Input::hasFile('images')) {
+            foreach ($images as $key => $image) {
+                $extension = $image->getClientOriginalExtension(); // getting image extension
+                $fileName = time() . $i . '.' . $extension; // renameing image
+                $image->move($pathoriginal, $fileName); // uploading file to given path
+                File::copy($pathoriginal . $fileName, $path50 . $fileName);
+                Image::make($path50 . $fileName)
+                        ->resize('70', '70')
+                        ->save($path50 . $fileName);
+                $i++;
+                $img[] = $fileName;
+            }
+            $other_images = implode(',', $img);
+        } else {
+            $other_images = "";
+        }
+        if ($validation->fails()) {
+            return Redirect::to("admin/add_cart_product")->withErrors($validation);
+        } else {
+            if ($book_mart_id > 0) {
+                $front_extension = $cover_image->getClientOriginalExtension(); // getting image extension
+                $cover_image_fileName = time() . 'front' . '.' . $front_extension; // renameing image
+
+
+                Input::file('cover_image')->move($pathoriginal, $cover_image_fileName);
+
+                File::copy($pathoriginal . $cover_image_fileName, $path50 . $cover_image_fileName);
+                Image::make($path50 . $cover_image_fileName)
+                        ->resize('70', '70')
+                        ->save($path50 . $cover_image_fileName);
+                
+                $book_mart = BookMart::find($book_mart_id);
+                $book_mart->category = $category;
+                $book_mart->ad_title = $ad_title;
+                $book_mart->ad_type = $ad_type;
+                $book_mart->author_name = $author_name;
+                $book_mart->publication = $publication;
+                $book_mart->edition = $edition;
+                $book_mart->college = $college;
+                $book_mart->price = $price;
+                $book_mart->address = $address;
+                $book_mart->city = $city;
+                $book_mart->mobileno = $mobileno;
+                $book_mart->password = $password;
+                $book_mart->owner_name = $owner_name;
+                $book_mart->cover_image = $cover_image_fileName;
+                $book_mart->fixed = $fixed;
+                $book_mart->description = $description;
+                $book_mart->other_images = $other_images;
+                $book_mart->status = $status;
+                $book_mart->save();
+                if ($book_mart) {
+                    return Redirect::to("admin/admin_book_mart")->with('success', 'Product edited successfully');
+                }
+            } else {
+                $front_extension = $cover_image->getClientOriginalExtension(); // getting image extension
+                $cover_image_fileName = time() . '_cover' . '.' . $front_extension; // renameing image
+
+
+                Input::file('cover_image')->move($pathoriginal, $cover_image_fileName);
+
+                File::copy($pathoriginal . $cover_image_fileName, $path50 . $cover_image_fileName);
+                Image::make($path50 . $cover_image_fileName)
+                        ->resize('70', '70')
+                        ->save($path50 . $cover_image_fileName);
+
+                $book_mart_list = BookMart::create(array(
+                            'category' => $category,
+                            'ad_title' => $ad_title,
+                            'ad_type' => $ad_type,
+                            'author_name' => $author_name,
+                            'publication' => $publication,
+                            'edition' => $edition,
+                            'college' => $college,
+                            'price' => $price,
+                            'address' => $address,
+                            'city' => $city,
+                            'mobileno' => $mobileno,
+                            'password' => $password,
+                            'owner_name' => $owner_name,
+                            'cover_image' => $cover_image,
+                            'fixed' => $fixed,
+                            'description' => $description,
+                            'other_images' => $other_images,
+                            'status' => $status,
+                ));
+                if ($book_mart_list) {
+                    return Redirect::to("admin/admin_book_mart")->with('success', 'Product added successfully');
+                }
+            }
+        }
+    }
+
+    public function delete_admin_book_mart($book_id) {
+        $book_mart = BookMart::find($book_id)->delete();
+        return Redirect::to("admin/admin_book_mart")->with('success', 'Product deleted successfully');
+    }
+
+    public function view_admin_book_mart($book_id) {
+        $book_details = BookMart::find($book_id);
+        return view("admin.bookmart.view_admin_book_mart", compact('book_details'));
     }
 
     /**

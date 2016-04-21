@@ -6,7 +6,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Cart Product Detail
+        Book Detail
         <!--<small>Blank example to the boxed layout</small> -->
     </h1>
 
@@ -33,7 +33,7 @@
             description : 
         </div>
         <div class="box-body">
-            <a class="btn btn-primary btn-flat" href="{{ url('admin/admin_cart_product') }}">Back</a>
+            <a class="btn btn-primary btn-flat" href="{{ url('admin/admin_book_mart') }}">Back</a>
         </div>
         <!-- /.box-body -->
 

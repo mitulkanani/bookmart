@@ -5,6 +5,7 @@
   | Application Routes
   |--------------------------------------------------------------------------
   |
+  |
   | Here is where you can register all of the routes for an application.
   | It's a breeze. Simply tell Laravel the URIs it should respond to
   | and give it the controller to call when that URI is requested.
@@ -15,7 +16,7 @@
 //For front
 Route::get('/', 'HomeController@index');
 Route::get('book_mart', 'HomeController@book_mart');
-Route::get('transport', 'HomeController@transport');
+Route::get('transportation', 'HomeController@transport');
 Route::post('/gallery', 'HomeController@gallery');
 Route::post('/view_full_detail', 'HomeController@view_full_detail');
 Route::get('/post_ad', 'HomeController@post_ad');
@@ -69,7 +70,7 @@ Route::get('admin/view_cart_product/{id}', 'Admin\DashboardController@view_cart_
 
 // For All Book  martt Module
 Route::get('admin/admin_book_mart', 'Admin\DashboardController@admin_book_mart');
-Route::get('/admin/add_admin_book_mart', 'Admin\DashboardController@add_admin_book_martt');
+Route::get('/admin/add_admin_book_mart', 'Admin\DashboardController@add_admin_book_mart');
 Route::post('/admin/admin_book_mart_productsave', 'Admin\DashboardController@admin_book_mart_productsave');
 Route::get('/admin/edit_admin_book_mart/{product_id}', 'Admin\DashboardController@edit_admin_book_mart');
 Route::get('/admin/delete_admin_book_mart/{product_id}', 'Admin\DashboardController@delete_admin_book_mart');

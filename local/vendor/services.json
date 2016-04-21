@@ -1,5 +1,6 @@
 {
     "providers": [
+        "Illuminate\\Html\\HtmlServiceProvider",
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "Illuminate\\Auth\\AuthServiceProvider",
         "Illuminate\\Bus\\BusServiceProvider",
@@ -53,6 +54,8 @@
         "Intervention\\Image\\ImageServiceProvider"
     ],
     "deferred": {
+        "html": "Illuminate\\Html\\HtmlServiceProvider",
+        "form": "Illuminate\\Html\\HtmlServiceProvider",
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "command.clear-compiled": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "command.command.make": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
@@ -131,6 +134,7 @@
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider"
     },
     "when": {
+        "Illuminate\\Html\\HtmlServiceProvider": [],
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [],
         "Illuminate\\Bus\\BusServiceProvider": [],
         "Illuminate\\Cache\\CacheServiceProvider": [],

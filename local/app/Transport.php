@@ -27,5 +27,4 @@ class Transport extends Model implements AuthenticatableContract, CanResetPasswo
                 ->get();
         return $AddData;
     }
-
 }

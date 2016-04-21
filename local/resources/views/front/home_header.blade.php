@@ -129,7 +129,7 @@
         </div>
     </section>
     <section id="header" class=" animated fast">
-        <div class="wide_container">
+        <div class="" style="padding-top: 10px;">
             <div class="container header_container">
                 <div class="row">
                     <div id="logo_wrapper" class="col-sm-12 col-md-4">
@@ -147,7 +147,7 @@
                                     <nav id="st_advanced_menu_wrap" role="navigation">
                                         <ul class="st_advanced_menu clearfix advanced_mu_level_0">
                                             <li id="st_advanced_menu_431" class="advanced_ml_level_0 m_alignment_0">
-                                                <a id="st_advanced_ma_431" href="http://transformer.sunnytoo.com/twelfth/en/" 
+                                                <a id="st_advanced_ma_431" href="{{ URL::action('HomeController@index') }}" 
                                                    class="advanced_ma_level_0" title="Home">Home</a>
                                             </li>
                                             <li id="st_advanced_menu_436" class="advanced_ml_level_0 m_alignment_2">

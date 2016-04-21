@@ -29,7 +29,6 @@
                             <th>cat_id</th>
                             <th>sale_rent</th>
                             <th>front big image</th>
-                            <th>back big image</th>
                             <th>full-name</th>
                             <th>Price</th>
                             <th>Status</th>
@@ -46,9 +45,6 @@
                             </td>
                             <td>
                                 {{$value->front_big_img}}
-                            </td>
-                            <td>
-                                {{$value->back_big_img}}
                             </td>
                             <td>
                                 {{$value->full_name}}

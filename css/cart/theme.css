@@ -5093,7 +5093,7 @@ span.exclusive {
 }
 .form-control {
     padding: 2px 4px;
-    height: 26px
+    height: 36px
 }
 .form-control.grey {
     background: #fbfbfb
@@ -8341,6 +8341,9 @@ noindex:-o-prefocus,
 .product_list.grid .ajax_block_product:hover .hover_fly {
     bottom: 0
 }
+.product-container:hover .hover_fly {
+    bottom: 0
+}
 .products_slider .ajax_block_product:hover .pro_second_box,
 .product_list.grid .ajax_block_product:hover .pro_second_box {
     background: #fafafa
@@ -8654,7 +8657,8 @@ a.icon_wrap i.icon-0x,
 }
 .categories_tree_block li ul .grower.OPEN:hover,
 .categories_tree_block li ul .grower.CLOSE:hover {
-    background-color: #666666
+    background-color: #fff;
+    border-radius: 50%;
 }
 .categories_tree_block li ul li {
     border: none
@@ -9868,9 +9872,11 @@ body.mobile_device .hover_fly_static .countdown_wrap {
     text-align: center
 }
 .owl-theme .owl-controls .owl-buttons div {
+    background: #72111a none repeat scroll 0 0;
+    color: white;
     display: inline-block;
-    zoom: 1;
-    *display: inline
+    margin: 0 5px 0 0;
+    padding: 5px 13.5px;
 }
 .owl-theme.owl-navigation-lr {
     overflow: hidden
@@ -14987,6 +14993,9 @@ ul.product_list.grid > li .product-container .functional-buttons .wishlist .popo
 @media only screen and (max-width: 991px) {
     .products_slider .ajax_block_product .hover_fly,
     .product_list.grid .ajax_block_product .hover_fly {
+        bottom: 0
+    }
+    .hover_fly {
         bottom: 0
     }
     .hover_fly_static .hover_fly {

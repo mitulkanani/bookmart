@@ -96,20 +96,7 @@
                                 <input type="file" class="form-control" id="front_big_img" name="front_big_img" placeholder="front_big_img" >
                             </div>
                         </div>
-                        <div class="form-group">
-                            <?php
-                            if (old('back_big_img'))
-                                $back_big_img = old('back_big_img');
-                            elseif ($cart_product)
-                                $back_big_img = $cart_product->back_big_img;
-                            else
-                                $back_big_img = '';
-                            ?>
-                            <label for="front_big_img" class="col-sm-2 control-label">Back-big-image</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control" id="back_big_img" name="back_big_img" placeholder="back_big_img" >
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <?php
                             if (old('images'))

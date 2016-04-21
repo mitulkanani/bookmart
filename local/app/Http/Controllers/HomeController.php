@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 use App\CartProduct;
 use App\Category;
 use App\Transport;
+use Illuminate\Html\FormBuilder;
+use Illuminate\Html\HtmlFacade;
 
 class HomeController extends Controller {
 
@@ -44,7 +46,9 @@ class HomeController extends Controller {
      */
     public function index() {
         $catlists = $this->CategoryOBJ->getCategoryList();
-        return view('front/home', compact('catlists'))->with('cartproductOBJ', $this->cartproductOBJ);
+        $book_mart_list = $this->bookmartOBJ->getbookmartList();
+        $transport_list = $this->TransportOBJ->getTransportList();
+        return view('front/homepage', compact('catlists', 'book_mart_list', 'transport_list'))->with('cartproductOBJ', $this->cartproductOBJ);
     }
 
     public function book_mart() {
